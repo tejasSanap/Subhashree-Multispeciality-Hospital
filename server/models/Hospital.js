@@ -22,11 +22,11 @@ const hospitalSchema = new mongoose.Schema({
     required: true,
   },
   satisfiedPatient: {
-    type: number,
+    type: Number,
     required: true,
   },
   number: {
-    type: number,
+    type: Number,
     required: true,
   },
   email:{

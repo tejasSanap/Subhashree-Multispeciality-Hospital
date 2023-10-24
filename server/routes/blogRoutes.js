@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const blogController = require('../controllers/blog.controller');
+const blogController = require("../controllers/blog.controller");
 
 router.post("/addBlog", blogController.addBlog);
 router.get("/Blog", blogController.getAllBlogs);

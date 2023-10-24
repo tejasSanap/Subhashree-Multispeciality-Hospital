@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const appointmentSchema = new mongoose.Schema({
   firstName: {
@@ -11,13 +11,13 @@ const appointmentSchema = new mongoose.Schema({
   },
   age: {
     type: Number,
-    required:true
+    required: true,
   },
   gender: {
     type: String,
     enum: ["male", "female", "others"], // Restrict to these values
     default: "male", // Set a default value (optional)
-    required:true
+    required: true,
   },
   patientEmail: {
     type: String,
@@ -25,21 +25,21 @@ const appointmentSchema = new mongoose.Schema({
   },
   mobileNumber: {
     type: Number,
-    required:true
+    required: true,
   },
   service: {
     type: String,
-    required:true
+    required: true,
   },
   shift: {
     type: String,
     enum: ["morning", "afternoon", "evening"], // Restrict to these values
     default: "morning",
-    required:true
+    required: true,
   },
   date: {
     type: Date,
-    required:true
+    required: true,
   },
   description: {
     type: String,
@@ -49,22 +49,22 @@ const appointmentSchema = new mongoose.Schema({
     enum: ["pending", "confirmed"], // Restrict to these values
     default: "pending",
   },
-  doctorId:{
-    type: mongoose.Schema.Types.ObjectId
+  doctorId: {
+    type: mongoose.Schema.Types.ObjectId,
   },
   doctor: {
     type: String,
-    required: true
+    required: true,
   },
   doctorEmail: {
     type: String,
   },
-  patientId : {
-    type : mongoose.Schema.Types.ObjectId
-  }
+  patientId: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
 });
 
 // Create a model based on the schema
-const Appointment = mongoose.model('Appointment', appointmentSchema);
+const Appointment = mongoose.model("Appointment", appointmentSchema);
 
 module.exports = Appointment;

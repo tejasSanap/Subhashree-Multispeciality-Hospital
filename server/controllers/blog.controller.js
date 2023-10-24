@@ -1,4 +1,4 @@
-const Blog = require('../models/Blog');
+const Blog = require("../models/Blog");
 
 const addBlog = async (req, res) => {
   try {
@@ -62,7 +62,11 @@ const updateBlogUnlike = async (req, res) => {
     const query = { _id: id };
     const updateQuery = { $pull: { likes: req.body?.likes } };
     const options = { upsert: true, new: true };
-    const updatedBlog = await Blog.findOneAndUpdate(query, updateQuery, options);
+    const updatedBlog = await Blog.findOneAndUpdate(
+      query,
+      updateQuery,
+      options
+    );
     res.json(updatedBlog);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -75,7 +79,11 @@ const updateBlogLike = async (req, res) => {
     const query = { _id: id };
     const updateQuery = { $push: { likes: req.body?.likes } };
     const options = { upsert: true, new: true };
-    const updatedBlog = await Blog.findOneAndUpdate(query, updateQuery, options);
+    const updatedBlog = await Blog.findOneAndUpdate(
+      query,
+      updateQuery,
+      options
+    );
     res.json(updatedBlog);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -108,7 +116,11 @@ const updateTotalVisitor = async (req, res) => {
     const query = { _id: id };
     const updateQuery = { $push: { totalVisitor: req.body?.visit } };
     const options = { upsert: true, new: true };
-    const updatedBlog = await Blog.findOneAndUpdate(query, updateQuery, options);
+    const updatedBlog = await Blog.findOneAndUpdate(
+      query,
+      updateQuery,
+      options
+    );
     res.json(updatedBlog);
   } catch (error) {
     res.status(500).json({ error: error.message });

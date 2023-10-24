@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const adminSchema = new mongoose.Schema({
   adminName: {
@@ -8,7 +8,7 @@ const adminSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique:true
+    unique: true,
   },
   password: {
     type: String,
@@ -16,14 +16,14 @@ const adminSchema = new mongoose.Schema({
   },
   role: {
     enum: ["doctor", "admin"], // Restrict to these values
-    required:true
+    required: true,
   },
-  referenceId : {
-    type : Schema.Types.ObjectId
-  }
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
 });
 
 // Create a model based on the schema
-const AdminPanel = mongoose.model('AdminPanel', adminSchema);
+const AdminPanel = mongoose.model("AdminPanel", adminSchema);
 
 module.exports = AdminPanel;

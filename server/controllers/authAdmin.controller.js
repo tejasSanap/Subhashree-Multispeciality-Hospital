@@ -16,10 +16,13 @@ exports.signup = async (req, res, next) => {
       adminName: req.body.adminName,
       email: req.body.email,
       password: await bcrypt.hash(req.body.password, 10),
-      role: req.body.role, // should validate 'role' before saving it.
-      referenceId: req.body.referenceId, // set the referenceId as needed.
+      role: req.body.role // should validate 'role' before saving it. // set the referenceId as needed.
     });
-
+    if (req.body.referenceId) {
+      admin.referenceId = req.body.referenceId;
+    } else {
+      admin.referenceId = admin._id;
+    }
     await admin.save();
     res.send(admin);
   } catch (err) {
@@ -34,7 +37,6 @@ exports.login = async (req, res, next) => {
     if (!admin) {
       return res.status(401).send({ err: "Email doesn't exist" });
     }
-
     // compare the password
     const isPasswordCorrect = await bcrypt.compare(
       req.body.password,

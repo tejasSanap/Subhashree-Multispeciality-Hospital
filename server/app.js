@@ -8,7 +8,7 @@ const blogRoute = require("../server/routes/blogRoutes");
 const reviewRoute = require("./routes/reviewRoutes");
 const hospitalRoute = require("./routes/hospitalRoute");
 const appointmentRoute = require("./routes/appointmentRoute");
-// const authAdminRoute = require("../server/routes/authAdmin")
+const authAdminRoute = require("../server/routes/authAdmin")
 const { authenticate } = require("./middleware/auth.middleware");
 
 require("dotenv").config();
@@ -32,12 +32,13 @@ app.use(express.json());
 
 //auth routing middleware
 app.use("/api/auth", authRoute);
-// app.use("/api/authAdmin", authAdminRoute);
+app.use("/api/authAdmin", authAdminRoute);
 app.use("/api/doctor", doctorRoute);
 app.use("/api", reviewRoute);
 app.use("/api", blogRoute);
 app.use("/api/hospital", hospitalRoute);
 app.use("/api/appointment", appointmentRoute);
+
 
 app.get("/api/dashboard", authenticate, (req, res, next) => {
   res.json("this was protected route");

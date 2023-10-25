@@ -15,11 +15,13 @@ const adminSchema = new mongoose.Schema({
     required: true,
   },
   role: {
+    type: String,
     enum: ["doctor", "admin"], // Restrict to these values
     required: true,
   },
-  userId: {
+  referenceId: {
     type: mongoose.Schema.Types.ObjectId,
+    // required: true
   },
 });
 

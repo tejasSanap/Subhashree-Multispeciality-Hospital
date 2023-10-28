@@ -40,7 +40,7 @@ app.use("/api/hospital", hospitalRoute);
 app.use("/api/appointment", appointmentRoute);
 
 
-app.get("/api/dashboard", authenticate, (req, res, next) => {
+app.get("/api/dashboard", (req, res, next) => {
   res.json("this was protected route");
 });
 

@@ -1,12 +1,12 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import "./Appointment.css";
+import axios from "../../../utils/axiosConfig";
 
 const Appointment = () => {
-  const [doctors, setDoctor] = useState([]);
+  const [doctors, setDoctors] = useState([]);
   const [Specialist, setSpecialist] = useState([]);
   const [shiftDoctor, setShiftDoctor] = useState([]);
   const [doctorEmail, setDoctorEmail] = useState([]);
@@ -14,12 +14,21 @@ const Appointment = () => {
   // const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:7050/doctors")
-      .then((res) => res.json())
-      .then((data) => {
-        setDoctor(data);
-      });
-  }, []);
+    const fetchDoctors = async () => {
+      const res = await axios.get("/api/doctor/getAllDoctors");
+      setDoctors(res.data);
+    }
+    fetchDoctors();
+  }, [])
+
+  console.log("doctors", doctors);
+  // useEffect(() => {
+  //   fetch("http://localhost:7050/doctors")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setDoctor(data);
+  //     });
+  // }, []);
 
   const onSubmit = (data) => {
     data.status = "pending";

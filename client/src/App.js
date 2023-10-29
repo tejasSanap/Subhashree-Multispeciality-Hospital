@@ -11,6 +11,7 @@ import Appointment from './components/Dashboard/DoctorsDashboard/Appointments/Ap
 import Home from './components/Home/Home/Home'
 import SingleDoctor from './components/SingleDoctor/SingleDoctor'
 import Login from "./components/Login/Login"
+import AppointmentHeader from './components/Home/Appointment/AppointmentHeader';
 // import { tokkenAtom } from './store/atoms';
 
 // export const tokkenAtom = atom(null);
@@ -36,6 +37,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/appointment' element={<AppointmentHeader />} />
         </Routes>
       </Router>
     </div>

@@ -45,12 +45,25 @@ exports.login = async (req, res, next) => {
     }
 
     //generate the JWT token
-    const tokken = jwt.sign(
-      { email: user.email, username: user.username },
+    const token = jwt.sign(
+      { id: user.id },
       process.env.JWT_SECRET,
-      { expiresIn: "2h" }
+      { expiresIn: "5d" }
     );
-    res.json(tokken);
+    let response;
+    response = {
+      id: user.id,
+      email: user.email,
+      name: user.username
+    }
+    res.status(200).send({
+      email: user.email,
+      userRole: user.role,
+      id: user._id,
+      name: user.name,
+      message: "login successfull",
+      accesstoken: token
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json({ err: " internal server error" });

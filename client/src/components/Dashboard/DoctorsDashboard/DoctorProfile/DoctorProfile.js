@@ -2,54 +2,99 @@ import React, { useEffect, useState } from "react";
 import { Alert, Button, Card, Container, Form } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useGetDoctorsQuery } from "../../../../features/sigmaApi";
+// import { useGetDoctorsQuery } from "../../../../features/sigmaApi";
 import "./DoctorProfile.css";
+import { useAtom } from "jotai";
+import { adminAtom, doctorAtom } from "../../../../store/atom";
+import axios from "../../../../utils/axiosConfig";
 
 const DoctorProfile = () => {
-  const { id } = useParams();
-  const alldoctorInfo = useGetDoctorsQuery();
-  const [singleDoctorInfo, setSingleDoctorInfo] = useState([]);
-  const [doctorUpdateData, setDoctorUpdateData] = useState({});
+  // [admin] = useAtom(adminAtom)
+  const [doctor, setDoctor] = useAtom(doctorAtom);
+  const [admin, setAdmin] = useAtom(adminAtom)
 
   useEffect(() => {
-    const doctorData = alldoctorInfo?.data?.find(
-      (doctorId) => doctorId._id === id
-    );
-    setSingleDoctorInfo(doctorData);
-  }, [alldoctorInfo?.data, id]);
+    const getDocInfo = async () => {
+      const res = await axios.get(`/api/doctor/getDoctor/${admin.referenceId}`)
+      console.log("doc info", res.data);
+      if (res.status === 200) {
+        setDoctor(res.data);
+        localStorage.setItem('doctor', JSON.stringify(res.data));
+      }
+    };
+    getDocInfo();
+    console.log("referenc id is ", admin.referenceId);
+  }, []);
+
+
+
+  console.log("uid", doctor._id)
+  // const alldoctorInfo = useGetDoctorsQuery();
+  const [singleDoctorInfo, setSingleDoctorInfo] = useState([]);
+  const [doctorUpdateData, setDoctorUpdateData] = useState({});
+  const [selectedShifts, setSelectedShifts] = useState([]);
+  // console.log("doc", doctor.eduLines.eduLine1)
+  // useEffect(() => {
+  //   // const doctorData = alldoctorInfo?.data?.find(
+  //   //   (doctorId) => doctorId._id === id
+  //   // );
+  //   // setSingleDoctorInfo(doctorData);
+  // }, [alldoctorInfo?.data, id]);
 
   const handleUpdateDoctor = (e) => {
     const field = e.target.name;
     const value = e.target.value;
     const newDoctorData = { ...doctorUpdateData };
-    newDoctorData[field] = value;
+
+    // Check if the field is part of awards
+    if (field === "awardFirst" || field === "awardSecond" || field === "awardThird") {
+      // If it's an awards field, update the awards object
+      newDoctorData.awards = {
+        ...newDoctorData.awards,
+        [field]: value,
+      };
+    } else if (field === "eduLine1" || field === "eduLine2" || field === "eduLine3") {
+      // If it's an eduLine field, update the eduLines object
+      newDoctorData.eduLines = {
+        ...newDoctorData.eduLines,
+        [field]: value,
+      };
+    } else {
+      // For other fields, update directly
+      newDoctorData[field] = value;
+    }
     setDoctorUpdateData(newDoctorData);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:7050/updateDoctor/${id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(doctorUpdateData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount > 0) {
-          Swal.fire({
-            icon: "success",
-            title: "Doctor's informatoin has been successfully updated!",
-            showConfirmButton: false,
-            timer: 2000,
-          });
-        }
-      });
+    console.log('data', doctorUpdateData)
+
+    const resp = await axios.put(`/api/doctor/updateDoctor/${doctor._id}`, doctorUpdateData);
+    console.log("updated res", resp);
+    // fetch(`http://localhost:7050/updateDoctor/${id}`, {
+    //   method: "PUT",
+    //   headers: { "content-type": "application/json" },
+    //   body: JSON.stringify(doctorUpdateData),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.modifiedCount > 0) {
+    //       Swal.fire({
+    //         icon: "success",
+    //         title: "Doctor's informatoin has been successfully updated!",
+    //         showConfirmButton: false,
+    //         timer: 2000,
+    //       });
+    //     }
+    //   });
   };
 
   return (
     <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
       <Container>
+
         <div className="row">
           <div className="col-12 col-sm-6 col-md-6 col-lg-4">
             <Card className="text-center card-control2">
@@ -59,8 +104,8 @@ const DoctorProfile = () => {
                 src={`data:image/*;base64,${singleDoctorInfo?.photo}`}
               />
               <Card.Body>
-                <Card.Title>{singleDoctorInfo?.name}</Card.Title>
-                <Card.Text>{singleDoctorInfo?.title}</Card.Text>
+                <Card.Title>{doctor?.name}</Card.Title>
+                <Card.Text>{doctor?.title}</Card.Text>
               </Card.Body>
             </Card>
             <Card className="card-control2 mt-5">
@@ -68,38 +113,38 @@ const DoctorProfile = () => {
                 <Card.Title>Info</Card.Title>
                 <Card.Text className="mt-3">
                   <i className="fas fa-home"></i> Address: <br />
-                  {singleDoctorInfo?.address}
+                  {doctor?.address}
                 </Card.Text>
                 <Card.Text className="mt-3">
                   <i className="fas fa-envelope"></i> Email: <br />
-                  {singleDoctorInfo?.email}
+                  {doctor?.email}
                 </Card.Text>
                 <Card.Text className="mt-3">
                   <i className="fas fa-mobile"></i> Mobile: <br />
-                  {singleDoctorInfo?.phone}
+                  {doctor?.phone}
                 </Card.Text>
                 <Card.Text className="mt-3">
                   <i className="fas fa-birthday-cake"></i> Birth Date: <br />
-                  {singleDoctorInfo?.birthday}
+                  {doctor?.birthday}
                 </Card.Text>
                 <hr />
                 <Card.Title className="mb-3">Social</Card.Title>
                 <a
-                  href={singleDoctorInfo?.twitter}
+                  href={doctor?.twitter}
                   className="text-dark text-decoration-none"
                 >
                   <i className="fab fa-twitter me-3"></i>Twitter
                 </a>{" "}
                 <br />
                 <a
-                  href={singleDoctorInfo?.facebook}
+                  href={doctor?.facebook}
                   className="text-dark text-decoration-none"
                 >
                   <i className="fab fa-facebook-f me-4"></i>Facebook
                 </a>{" "}
                 <br />
                 <a
-                  href={singleDoctorInfo?.linkedin}
+                  href={doctor?.linkedin}
                   className="text-dark text-decoration-none"
                 >
                   <i className="fab fa-linkedin-in me-4"></i>Linkedin
@@ -107,6 +152,8 @@ const DoctorProfile = () => {
               </Card.Body>
             </Card>
           </div>
+
+
           <div className="col-12 col-sm-6 col-md-6 col-lg-8">
             <Card className="card-control2 p-4">
               <Card.Title>Update Doctor Information</Card.Title>
@@ -121,7 +168,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.name}
+                          defaultValue={doctor?.name}
                           placeholder="Full Name"
                           name="name"
                           type="text"
@@ -131,7 +178,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.birthday}
+                          defaultValue={doctor?.birthday}
                           placeholder="Birth Date"
                           name="birthday"
                           type="date"
@@ -141,7 +188,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Select
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.gender}
+                          defaultValue={doctor?.gender}
                           name="gender"
                           onBlur={handleUpdateDoctor}
                         >
@@ -154,7 +201,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.email}
+                          defaultValue={doctor?.email}
                           placeholder="Enter email address"
                           name="email"
                           type="email"
@@ -164,17 +211,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.linkedin}
-                          placeholder="Linkdin Account"
-                          name="linkedin"
-                          type="url"
-                          onBlur={handleUpdateDoctor}
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          className="text-secondary"
-                          defaultValue={singleDoctorInfo?.eduLine1}
+                          defaultValue={doctor?.eduLines.eduLine1 || ''}
                           placeholder="Name of Certificate-1"
                           name="eduLine1"
                           type="text"
@@ -184,7 +221,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.eduLine2}
+                          defaultValue={doctor?.eduLines.eduLine2}
                           placeholder="Name of Certificate-2"
                           name="eduLine2"
                           type="text"
@@ -194,7 +231,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.eduLine3}
+                          defaultValue={doctor?.eduLines.eduLine3}
                           placeholder="Name of Certificate-3"
                           name="eduLine3"
                           type="text"
@@ -207,7 +244,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.experience}
+                          defaultValue={doctor?.experience}
                           placeholder="Experience (year)"
                           name="experience"
                           type="number"
@@ -219,7 +256,7 @@ const DoctorProfile = () => {
                           <Form.Group className="mb-3">
                             <Form.Control
                               className="text-secondary"
-                              defaultValue={singleDoctorInfo?.phone}
+                              defaultValue={doctor?.phone}
                               placeholder="Phone"
                               name="phone"
                               type="number"
@@ -231,7 +268,7 @@ const DoctorProfile = () => {
                           <Form.Group className="mb-3">
                             <Form.Select
                               className="text-secondary"
-                              defaultValue={singleDoctorInfo?.speciality}
+                              defaultValue={doctor?.speciality}
                               name="speciality"
                               onBlur={handleUpdateDoctor}
                             >
@@ -256,30 +293,11 @@ const DoctorProfile = () => {
                             </Form.Select>
                           </Form.Group>
                         </div>
+
                         <Form.Group className="mb-3">
                           <Form.Control
                             className="text-secondary"
-                            defaultValue={singleDoctorInfo?.twitter}
-                            placeholder="Twitter Account"
-                            name="twitter"
-                            type="url"
-                            onBlur={handleUpdateDoctor}
-                          />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                          <Form.Control
-                            className="text-secondary"
-                            defaultValue={singleDoctorInfo?.facebook}
-                            placeholder="Facebook Account"
-                            name="facebook"
-                            type="url"
-                            onBlur={handleUpdateDoctor}
-                          />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                          <Form.Control
-                            className="text-secondary"
-                            defaultValue={singleDoctorInfo?.address}
+                            defaultValue={doctor?.address}
                             placeholder="Present Address"
                             name="address"
                             type="text"
@@ -291,7 +309,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.awardFirst}
+                          defaultValue={doctor?.awards.awardFirst}
                           placeholder="Honors and Awards-1"
                           name="awardFirst"
                           type="text"
@@ -301,7 +319,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.awardSecond}
+                          defaultValue={doctor?.awards.awardSecond}
                           placeholder="Honors and Awards-2"
                           name="awardSecond"
                           type="text"
@@ -311,7 +329,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.awardThird}
+                          defaultValue={doctor?.awards.awardThird}
                           placeholder="Honors and Awards-3"
                           name="awardThird"
                           type="text"
@@ -323,23 +341,23 @@ const DoctorProfile = () => {
 
                   <hr style={{ color: "gray", border: "3px solid gray" }} />
 
-                  <Form.Group className="mb-3">
+                  {/* <Form.Group className="mb-3">
                     <Form.Control
                       className="text-secondary"
-                      defaultValue={singleDoctorInfo?.title}
+                      defaultValue={doctor?.title}
                       placeholder="Doctor Title"
                       name="title"
                       type="text"
                       onBlur={handleUpdateDoctor}
                       required
                     />
-                  </Form.Group>
+                  </Form.Group> */}
                   <Form.Group className="mb-3">
                     <Form.Control
                       as="textarea"
                       rows={2}
                       className="text-secondary"
-                      defaultValue={singleDoctorInfo?.description}
+                      defaultValue={doctor?.description}
                       placeholder="Description"
                       name="description"
                       type="text"
@@ -348,11 +366,11 @@ const DoctorProfile = () => {
                     />
                   </Form.Group>
                   <div className="row mb-3">
-                    <div className="col-12 col-md-4">
+                    {/* <div className="col-12 col-md-4">
                       <Form.Group>
                         <Form.Select
                           className="text-secondary"
-                          defaultValue={singleDoctorInfo?.day}
+                          defaultValue={doctor?.day}
                           name="day"
                           onBlur={handleUpdateDoctor}
                           required
@@ -369,80 +387,10 @@ const DoctorProfile = () => {
                           </option>
                         </Form.Select>
                       </Form.Group>
-                    </div>
-                    <div className="col-12 col-md-4">
-                      <Form.Group>
-                        <Form.Select
-                          className="text-secondary"
-                          defaultValue={singleDoctorInfo?.time}
-                          name="time"
-                          onBlur={handleUpdateDoctor}
-                          required
-                        >
-                          <option>Working Time</option>
-                          <option value="7.00 am - 3.00 pm">
-                            7.00 am - 3.00 pm
-                          </option>
-                          <option value="3.00 pm - 10.00 pm">
-                            3.00 pm - 10.00 pm
-                          </option>
-                          <option value="10.00 pm - 7.00 pm">
-                            10.00 pm - 7.00 pm
-                          </option>
-                        </Form.Select>
-                      </Form.Group>
-                    </div>
-                    <div className="col-12 col-md-4">
-                      <Form.Group>
-                        <Form.Select
-                          className="text-secondary"
-                          defaultValue={singleDoctorInfo?.shift}
-                          name="shift"
-                          onBlur={handleUpdateDoctor}
-                          required
-                        >
-                          <option>Shift</option>
-                          <option value="Morning">Morning</option>
-                          <option value="Evening">Evening</option>
-                          <option value="Night">Night</option>
-                        </Form.Select>
-                      </Form.Group>
-                    </div>
+                    </div> */}
                   </div>
-                  <Card className="p-3 mb-3">
-                    <div className="row">
-                      <div className="col-12 col-md-6">
-                        <Form.Group>
-                          <Form.Select
-                            className="text-secondary"
-                            defaultValue={singleDoctorInfo?.skill1}
-                            name="skill1"
-                            onBlur={handleUpdateDoctor}
-                            required
-                          >
-                            <option>Skill Set</option>
-                            <option value="Technique">Technique</option>
-                            <option value="Empathy">Empathy</option>
-                            <option value="Operation">Operation</option>
-                          </Form.Select>
-                        </Form.Group>
-                      </div>
-                      <div className="col-12 col-md-6">
-                        <Form.Group>
-                          <Form.Control
-                            className="text-secondary"
-                            defaultValue={singleDoctorInfo?.percent1}
-                            placeholder="Percentage. Ex - 80"
-                            name="percent1"
-                            type="number"
-                            onBlur={handleUpdateDoctor}
-                            required
-                          />
-                        </Form.Group>
-                      </div>
-                    </div>
-                  </Card>
-                  <Card className="p-3 mb-3">
+
+                  {/* <Card className="p-3 mb-3">
                     <div className="row">
                       <div className="col-12 col-md-6">
                         <Form.Group>
@@ -474,9 +422,8 @@ const DoctorProfile = () => {
                         </Form.Group>
                       </div>
                     </div>
-                  </Card>
-                  <Card className="p-3 mb-3">
-                    <div className="row">
+                  </Card> */}
+                  {/* <div className="row">
                       <div className="col-12 col-md-6">
                         <Form.Group>
                           <Form.Select
@@ -492,8 +439,8 @@ const DoctorProfile = () => {
                             <option value="Operation">Operation</option>
                           </Form.Select>
                         </Form.Group>
-                      </div>
-                      <div className="col-12 col-md-6">
+                      </div> */}
+                  {/* <div className="col-12 col-md-6">
                         <Form.Group>
                           <Form.Control
                             className="text-secondary"
@@ -505,20 +452,19 @@ const DoctorProfile = () => {
                             required
                           />
                         </Form.Group>
-                      </div>
-                    </div>
-                  </Card>
+                  </div>
+                      </div> */}
+
                   <Form.Group className="mb-3">
                     <Form.Control
                       as="textarea"
                       rows={2}
                       className="text-secondary"
-                      defaultValue={singleDoctorInfo?.moto}
+                      defaultValue={doctor?.moto}
                       placeholder="Doctor Moto"
                       name="moto"
                       type="text"
                       onBlur={handleUpdateDoctor}
-                      required
                     />
                   </Form.Group>
                   <Button
@@ -558,8 +504,8 @@ const DoctorProfile = () => {
                         </Card> */}
           </div>
         </div>
-      </Container>
-    </div>
+      </Container >
+    </div >
   );
 };
 

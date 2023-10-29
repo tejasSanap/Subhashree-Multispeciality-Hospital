@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, NavDropdown, Offcanvas } from "react-bootstrap";
 import { AiOutlineUser, AiOutlineUsergroupDelete } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
@@ -22,17 +22,35 @@ import { Link, Outlet } from "react-router-dom";
 
 import "./DashboardMain.css";
 import { useAtom } from "jotai";
-import { adminAtom, roleAtom } from "../../../store/atom";
-
+import { adminAtom, doctorAtom, roleAtom } from "../../../store/atom";
+import axios from "../../../utils/axiosConfig";
 
 const DashboardMain = () => {
   const [role] = useAtom(roleAtom);
   const [admin] = useAtom(adminAtom);
-  console.log("refresed", admin)
+  const [doctor, setDoctor] = useAtom(doctorAtom);
+  // console.log("refresed", admin.referenceId)
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
+  useEffect(() => {
+    const getDocInfo = async () => {
+      const res = await axios.get(`/api/doctor/getDoctor/${admin.referenceId}`)
+      console.log("doc info", res.data);
+
+      if (res.status === 200) {
+        setDoctor(res.data);
+      }
+    };
+    getDocInfo();
+    console.log("referenc id is ", admin.referenceId);
+  }, []);
+
+
+
   return (
     <>
       {/* <div className="dashboard_mobile_header">
@@ -54,21 +72,16 @@ const DashboardMain = () => {
         </div>
       </div> */}
 
-      <h1> lodsssdl</h1>
-
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton className="offcanvas_header">
           <Offcanvas.Title>Dashboard</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <div>loloddl</div>
           <div className="dashboard_left_side_bar">
             <div className="dasboard_user">
               {/* <img src={admin?.photoURL} alt="doctor or user" /> */}
               <div>
                 <span>Welcome</span>
-                <span>Welcome 2</span>
-
                 <div>
                   <NavDropdown
                     id="basic-nav-dropdown"
@@ -161,7 +174,7 @@ const DashboardMain = () => {
               )}
 
               <li>
-                <Link to="/dashboard/appointment">
+                <Link to="/dashboard/appointments">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <FaRegCalendarAlt />
@@ -177,6 +190,16 @@ const DashboardMain = () => {
                       <RiWechatLine />
                     </span>
                     <span>Chat App</span>
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/allDoctors/update">
+                  <span className="dashboard_nav_icon">
+                    <span className="nav_icon">
+                      <RiWechatLine />
+                    </span>
+                    <span>Edit Details</span>
                   </span>
                 </Link>
               </li>
@@ -298,7 +321,7 @@ const DashboardMain = () => {
                           <span className="nav_icon">--</span>
                           <span>All Patients</span>
                         </Link>
-                        <Link to="/dashboard/appointment">
+                        <Link to="/dashboard/appointments">
                           <span className="nav_icon">--</span>
                           <span>Add Patient</span>
                         </Link>
@@ -551,10 +574,10 @@ const DashboardMain = () => {
           <div className="dasboard_user">
             <img src={admin?.photoURL} alt="doctor or user" />
             <div>
-              <span>Welcome lol, </span>
+              <span>Welcome lol </span>
               <div>
                 <NavDropdown
-                  title={admin?.name}
+                  title={admin.name}
                   id="basic-nav-dropdown"
                   className="basic_nav_dropdown_custom"
                 >
@@ -568,9 +591,9 @@ const DashboardMain = () => {
           </div>
           <hr />
           <div className="dasboard_leftbar_counter">
-            <div>
+            {/* <div>
               <p>Exp</p>
-              <span className="dasboard_leftbar_count">18</span>
+              <span className="dasboard_leftbar_count"></span>
             </div>
             <div>
               <p>Awards</p>
@@ -579,7 +602,7 @@ const DashboardMain = () => {
             <div>
               <p>Patients</p>
               <span className="dasboard_leftbar_count">213</span>
-            </div>
+            </div> */}
           </div>
 
           <ul className="dashboard_left_nav">
@@ -640,22 +663,22 @@ const DashboardMain = () => {
             )}
 
             <li>
-              <Link to="/dashboard/appointment">
+              <Link to="/dashboard/appointments">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
                     <FaRegCalendarAlt />
                   </span>
-                  <span>Appointment</span>
+                  <span>Appointmentss</span>
                 </span>
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/chat">
+              <Link to="/dashboard/update">
                 <span className="dashboard_nav_icon">
                   <span className="nav_icon">
-                    <RiWechatLine />
+                    <FaRegCalendarAlt />
                   </span>
-                  <span>Chat App</span>
+                  <span>Edit Profile</span>
                 </span>
               </Link>
             </li>
@@ -750,50 +773,6 @@ const DashboardMain = () => {
               </li>
             )}
 
-            {role === "doctor" && (
-              <li>
-                <Link
-                  /* className="btn btn-primary" */
-                  data-bs-toggle="collapse"
-                  to="#collapsePatients"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-                  <span className="dashboard_nav_icon">
-                    <span className="nav_icon">
-                      <AiOutlineUsergroupDelete />
-                    </span>
-
-                    <span>Patients</span>
-                  </span>
-                  <BsChevronDown />
-                </Link>
-
-                <div className="collapse" id="collapsePatients">
-                  <ul className="dashboard_sub_menu">
-                    <li>
-                      <Link to="/dashboard/patientsInfo">
-                        <span className="nav_icon">--</span>
-                        <span>All Patients</span>
-                      </Link>
-                      <Link to="/dashboard/appointment">
-                        <span className="nav_icon">--</span>
-                        <span>Add Patient</span>
-                      </Link>
-                      <Link to="/dashboard/appointedpatient">
-                        <span className="nav_icon">--</span>
-                        <span>Appointed Patients</span>
-                      </Link>
-                      <Link to="/dashboard/patient/invoice">
-                        <span className="nav_icon">--</span>
-                        <span>Invoice</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            )}
 
             {(role === "admin" || role === "recip") && (
               <li>

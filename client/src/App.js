@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { Provider, atom } from 'jotai';
 import AddDoctorsDetails from './pages/addDocDetails/addDocDetails';
 import DashboardMain from './components/Dashboard/DashboardMain/DashboardMain';
-
+import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile"
+import BlogForm from './components/Blog/BlogForm/BlogForm';
+import Appointment from './components/Dashboard/DoctorsDashboard/Appointments/Appointment';
 // import { tokkenAtom } from './store/atoms';
 
 // export const tokkenAtom = atom(null);
@@ -23,7 +25,14 @@ function App() {
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path='/test' element={<Test />} />
           <Route path='/addDocDetails' element={<AddDoctorsDetails />} />
-          <Route path='/dashboard' element={<DashboardMain />} />
+
+          <Route path='/dashboard' element={<DashboardMain />} >
+            <Route path='update' element={<DoctorProfile />}>
+            </Route>
+            <Route path='blogForm' element={<BlogForm />}></Route>
+            <Route path='appointments' element={<Appointment />}></Route>
+          </Route>
+
         </Routes>
       </Router>
     </div>

@@ -5,6 +5,13 @@
     align-items: center;
 }
 
+.lol{
+    width: 16px;
+    overflow:wrap;
+    color: white;
+
+}
+
 .login-box {
     max-height: 100vh;
     background: #1a2226;

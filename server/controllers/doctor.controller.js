@@ -1,6 +1,7 @@
 const Doctor = require("../models/Doctor");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const AdminPanel = require("../models/AdminPanel");
 
 exports.addDoctor = async (req, res, next) => {
   const {
@@ -37,8 +38,11 @@ exports.addDoctor = async (req, res, next) => {
     photo,
   };
   try {
-    const result = await Doctor.create(doctorInfo);
-    res.json(result);
+    const doctor = new Doctor(doctorInfo);
+    const resp1 = await doctor.save();
+    const resp2 = await AdminPanel.findByIdAndUpdate(req.admin._id, { referenceId: doctor._id }).exec();
+
+    res.json(resp2);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

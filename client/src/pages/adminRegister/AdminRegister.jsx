@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import "./AdminRegisterForm.css";
-import axios from "axios"
+import axios from "../../utils/axiosConfig"
 
 const AdminRegister = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -10,7 +10,8 @@ const AdminRegister = () => {
 
     const onSubmit = async (data) => {
         try {
-            const response = await axios.post("http://localhost:7080/api/authAdmin/admin/signup", data);
+            const response = await axios.post("/api/authAdmin/admin/signup", data);
+            console.log("id",response);
             if (response.status === 200) {
                 navigate('/adminLogin');
             }

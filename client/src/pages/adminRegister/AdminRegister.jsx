@@ -11,6 +11,7 @@ const AdminRegister = () => {
     const onSubmit = async (data) => {
         try {
             const response = await axios.post("/api/authAdmin/admin/signup", data);
+            console.log("id",response);
             if (response.status === 200) {
                 navigate('/adminLogin');
             }

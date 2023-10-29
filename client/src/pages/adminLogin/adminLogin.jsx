@@ -10,18 +10,20 @@ import { tokkenAtom } from '../../App';
 const AdminLogin = () => {
     const { register, handleSubmit, reset } = useForm();
     const navigate = useNavigate();
-    const [token,setToken] = useAtom(tokkenAtom);
+    const [token, setToken] = useAtom(tokkenAtom);
 
     const onSubmit = async (data) => {
         try {
             const response = await axios.post("/api/authAdmin/admin/login", data);
             if (response.status === 200) {
                 setToken(response.data.accessToken);
-                if(response.data.userRole === 'doctor' &&  response.data.userData.id === response.data.userData.referenceId){
+                localStorage.setItem('token', response.data.accessToken);
+                if (response.data.userRole === 'doctor' && response.data.userData.id === response.data.userData.referenceId) {
                     console.log("doc needs to be created")
+                    navigate('/addDocDetails')
                 }
-                else{
-
+                else {
+                    navigate('/doctorDashboard')
                 }
             }
         } catch (err) {
@@ -31,7 +33,7 @@ const AdminLogin = () => {
 
     return (
         <div className='admin-login-section'>
-  
+
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-md-2"></div>
@@ -42,7 +44,7 @@ const AdminLogin = () => {
                         <div className="col-lg-12 login-title">
                             ADMIN PANEL LOGIN
 
-                           
+
                         </div>
                         <div className="col-lg-12 login-for">
                             <form onSubmit={handleSubmit(onSubmit)}>

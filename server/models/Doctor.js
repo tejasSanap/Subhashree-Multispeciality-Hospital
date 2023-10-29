@@ -2,35 +2,36 @@ const mongoose = require('mongoose');
 const doctorSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    // required: true,
   },
   experience: {
     type: Number,
   },
   birthday: {
     type: Date,
-    default:""
+    default: ""
   },
   gender: {
     type: String,
-    required:true,
+    // required: true,/
     enum: ['Male', 'Female', 'Other'],
   },
   phone: {
     type: String,
-    default:""
+    default: ""
   },
   speciality: {
     type: String,
-    default:"",
+    default: "",
   },
   email: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
   },
-  description:{
-    type:String
+  description: {
+    type: String,
+    default: ""
   },
   shifts: [
     {
@@ -42,26 +43,25 @@ const doctorSchema = new mongoose.Schema({
   address: {
     type: String,
   },
-  eduLines: [
-    {
-      eduLine1: { type: String, default: '' },
-      eduLine2: { type: String, default: '' },
-      eduLine3: { type: String, default: '' }
-    }
-  ],
-  awards: [
-    {
-      awardFirst: { type: String, default: '' },
-      awardSecond: { type: String, default: '' },
-      awardThird: { type: String, default: '' }
-    }
-  ],
-  moto:{
-    type:String
+  eduLines:
+  {
+    eduLine1: { type: String, default: '' },
+    eduLine2: { type: String, default: '' },
+    eduLine3: { type: String, default: '' }
+  }
+  ,
+  awards:
+  {
+    awardFirst: { type: String, default: '' },
+    awardSecond: { type: String, default: '' },
+    awardThird: { type: String, default: '' }
+  },
+  moto: {
+    type: String
   },
   photo: {
     type: String,
-    default:""
+    default: ""
   },
 });
 

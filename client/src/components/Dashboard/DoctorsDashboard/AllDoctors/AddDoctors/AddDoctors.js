@@ -1,126 +1,53 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import { Button, Card, Container, Form } from "react-bootstrap";
-import axios from "../../utils/axiosConfig"
-import { Navigate, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import "./AddDoctors.css";
 
-const AddDoctorsDetails = () => {
-  const navigate = useNavigate();
-  const initialDoctorData = {
-    name: "",
-    experience: 0,
-    birthday: "",
-    gender: "",
-    phone: "",
-    speciality: "",
-    email: "",
-    description: "",
-    shifts: [],
-    address: "",
-    eduLines: {
-      eduLine1: "",
-      eduLine2: "",
-      eduLine3: "",
-    },
-    awards: {
-      awardFirst: "",
-      awardSecond: "",
-      awardThird: "",
-    },
-    moto: "",
-    photo: "",
-  };
-
-  const [doctorData, setDoctorData] = useState(initialDoctorData);
+const AddDoctors = () => {
+  const [doctorData, setDoctorData] = useState({});
   const [image, setImage] = useState(null);
 
   const handleAddDoctor = (e) => {
     const field = e.target.name;
     const value = e.target.value;
     const newDoctorData = { ...doctorData };
-
-    if (field === "shifts") {
-      // Handle shifts as an array
-      newDoctorData[field] = e.target.checked
-        ? [...newDoctorData[field], value]
-        : newDoctorData[field].filter((shift) => shift !== value);
-    } else if (field === "eduLine1" || field === "eduLine2" || field === "eduLine3") {
-      // Handle eduLines as nested objects
-      newDoctorData.eduLines[field] = value;
-    } else if (field === "awardFirst" || field === "awardSecond" || field === "awardThird") {
-      // Handle awards as nested objects
-      newDoctorData.awards[field] = value;
-    } else {
-      // Handle other fields
-      newDoctorData[field] = value;
-    }
-
+    newDoctorData[field] = value;
     setDoctorData(newDoctorData);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const formData = new FormData();
     for (const key in doctorData) {
       if (Object.hasOwnProperty.call(doctorData, key)) {
         const element = doctorData[key];
-        if (Array.isArray(element)) {
-          element.forEach((value) => formData.append(`${key}[]`, value));
-        } else if (typeof element === "object") {
-          for (const subKey in element) {
-            formData.append(`${key}[${subKey}]`, element[subKey]);
-          }
-        } else {
-          formData.append(key, element);
-        }
+        formData.append(`${key}`, element);
       }
     }
-    console.log("formData", doctorData)
+    formData.append("image", image);
 
-    try {
-      let token = localStorage.getItem('token')
-      if (token) {
-        const config = {
-          headers: { Authorization: `JWT ${token}` },
+    fetch("http://localhost:7050/addDoctor", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "A doctor has been successfully added!",
+            showConfirmButton: false,
+            timer: 2000,
+          });
         }
-        console.log(config);
-        console.log(token);
-        let res = await axios.post("/api/doctor/addDoctor", doctorData, config)
-        console.log("Res", res);
-        if (res.status === 200) {
-          navigate('/dashboard');
-        }
-      }
-    } catch (e) {
-      console.log("error", e)
-    }
-
-
-
-    // formData.append("image", image);
-
-    // fetch("http://localhost:7050/addDoctor", {
-    //   method: "POST",
-    //   body: formData,
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.insertedId) {
-    //       Swal.fire({
-    //         icon: "success",
-    //         title: "A doctor has been successfully added!",
-    //         showConfirmButton: false,
-    //         timer: 2000,
-    //       });
-    //     }
-    //   });
+      });
   };
 
   return (
     <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
       <Container>
-        <Button>lol</Button>
+        <Button>LOLO</Button>
         <Card className="shadow p-3">
           <Card.Body>
             <Card.Text className="mb-3 fs-4">
@@ -181,9 +108,9 @@ const AddDoctorsDetails = () => {
                 <Form.Group className="mb-3">
                   <Form.Control
                     className="text-secondary"
-                    placeholder="description"
-                    name="description"
-                    type="string"
+                    placeholder="Linkedin URL"
+                    name="linkedin"
+                    type="url"
                     onChange={handleAddDoctor}
                   />
                 </Form.Group>
@@ -286,7 +213,24 @@ const AddDoctorsDetails = () => {
                       </Form.Select>
                     </Form.Group>
                   </div>
-
+                  <Form.Group className="mb-3">
+                    <Form.Control
+                      className="text-secondary"
+                      placeholder="Twitter URL"
+                      name="twitter"
+                      type="url"
+                      onChange={handleAddDoctor}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control
+                      className="text-secondary"
+                      placeholder="Facebook URL"
+                      name="facebook"
+                      type="url"
+                      onChange={handleAddDoctor}
+                    />
+                  </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Control
                       className="text-secondary"
@@ -298,37 +242,6 @@ const AddDoctorsDetails = () => {
                     />
                   </Form.Group>
                 </div>
-                <div className="col-12 col-sm-6 col-md-6 col-lg-6">
-                  <Form.Group className="mb-3">
-                    <Form.Check
-                      type="checkbox"
-                      label="Morning"
-                      name="shifts"
-                      value="morning"
-                      onChange={handleAddDoctor}
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3">
-                    <Form.Check
-                      type="checkbox"
-                      label="Afternoon"
-                      name="shifts"
-                      value="afternoon"
-                      onChange={handleAddDoctor}
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3">
-                    <Form.Check
-                      type="checkbox"
-                      label="Evening"
-                      name="shifts"
-                      value="evening"
-                      onChange={handleAddDoctor}
-                    />
-                  </Form.Group>
-                </div>
-
-
                 <div className="row">
                   <div className="col-12 col-sm-6 col-md-6 col-lg-6">
                     <Form.Group className="mb-3">
@@ -389,4 +302,4 @@ const AddDoctorsDetails = () => {
   );
 };
 
-export default AddDoctorsDetails;
+export default AddDoctors;

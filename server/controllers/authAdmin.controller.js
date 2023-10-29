@@ -50,15 +50,16 @@ exports.login = async (req, res, next) => {
         const token = jwt.sign({ id: admin.id }, process.env.JWT_SECRET, {
           expiresIn: "5d",
         });
-        let response;       
-          response = {
-            id: admin._id,
-            email: admin.email,
-            referenceId : admin.referenceId
+        let response;
+        response = {
+          id: admin._id,
+          email: admin.email,
+          referenceId: admin.referenceId,
+          name: admin.adminName
         }
         res.status(200).send({
-          userData : response,
-          userRole : admin.role,
+          userData: response,
+          userRole: admin.role,
           message: "Login successfull",
           accessToken: token,
         });

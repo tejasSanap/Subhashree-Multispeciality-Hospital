@@ -3,27 +3,39 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "../../utils/axiosConfig"
 import "./adminLoginForm.css";
-import { atom, useAtom } from 'jotai';
-import { tokkenAtom } from '../../App';
+import { useAtom } from 'jotai';
+import { adminAtom, roleAtom, tokkenAtom } from '../../store/atom';
 
 
 const AdminLogin = () => {
     const { register, handleSubmit, reset } = useForm();
     const navigate = useNavigate();
     const [token, setToken] = useAtom(tokkenAtom);
+    const [role, setRole] = useAtom(roleAtom);
+    const [admin, setAdmin] = useAtom(adminAtom);
 
     const onSubmit = async (data) => {
         try {
             const response = await axios.post("/api/authAdmin/admin/login", data);
             if (response.status === 200) {
+                console.log(response.data);
+                console.log("parsed",);
+
                 setToken(response.data.accessToken);
+                setAdmin(response.data.userData);
+                setRole(response.data.userRole);
+
                 localStorage.setItem('token', response.data.accessToken);
+                localStorage.setItem('role', response.data.userRole);
+                // localStorage.setItem('adminData parsed', JSON.parse(response.data.userData));
+                localStorage.setItem('adminData', JSON.stringify(response.data.userData));
+
                 if (response.data.userRole === 'doctor' && response.data.userData.id === response.data.userData.referenceId) {
                     console.log("doc needs to be created")
                     navigate('/addDocDetails')
                 }
                 else {
-                    navigate('/doctorDashboard')
+                    navigate('/dashboard')
                 }
             }
         } catch (err) {

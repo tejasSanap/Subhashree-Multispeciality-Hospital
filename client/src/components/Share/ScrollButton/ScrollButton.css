@@ -1,0 +1,44 @@
+.scrollButtomToTop {
+  position: fixed;
+  width: 40px;
+  left: 50%;
+  bottom: 10px;
+  height: 40px;
+  font-size: 2rem;
+  z-index: 1;
+  cursor: pointer;
+  color: white;
+
+  border: none;
+  border-radius: 3px;
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100px);
+}
+.scrollButtomToTop:hover {
+  opacity: 1;
+}
+.scrollButtomToTop:focus {
+  outline: none;
+}
+.scrollButtomToTop svg {
+  margin-top: 4;
+  vertical-align: text-top;
+}
+.scrollButtomToTop.extraClass {
+  visibility: visible;
+  opacity: 0.8;
+  transform: translateY(0px);
+  animation: bottomToTopScroll alternate 2s 0s infinite ease-in-out;
+}
+@keyframes bottomToTopScroll {
+  0% {
+    transform: translateY(-10px);
+    background-color: #f68685;
+  }
+  100% {
+    transform: translateY(10px);
+    background-color: #7093e5;
+  }
+}

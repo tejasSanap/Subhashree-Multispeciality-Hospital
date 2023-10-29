@@ -1,0 +1,225 @@
+.banner_top_hidden {
+  margin-top: 50px;
+  text-align: center;
+  display: none;
+}
+.banner {
+  display: block !important;
+}
+.banner_top_hidden h4 {
+  font-size: 18px;
+  color: #f68685;
+  margin-bottom: 10px;
+  cursor: default;
+}
+.banner_top_hidden h2 {
+  font-size: 50px;
+  color: #7093e5;
+  font-weight: 400;
+  cursor: default;
+}
+.banner_top_hidden p {
+  font-size: 50px;
+  color: #7093e5;
+  font-weight: 300;
+  cursor: default;
+}
+.banner_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 700px; */
+  height: calc(100vh - 180px);
+  margin: 30px 0;
+  position: relative;
+  background-image: url("../../../images/banner.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: ease-in-out 3s;
+  background-position: center;
+}
+.banner_container:hover {
+  background-position: 130px;
+}
+.banner_container::before {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 1px;
+  background-color: #7093e5;
+  top: 45%;
+  left: 10px;
+  transform: translateY(-100%);
+}
+.banner_container::after {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 10px;
+  height: 50px;
+  width: 1px;
+  background-color: #f68685;
+}
+
+.banner_left {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+.banner_left_social ul a {
+  text-decoration: none;
+  color: #ededee;
+  transition: 0.5s;
+  font-size: 20px;
+  margin-bottom: 10px;
+  display: block;
+}
+.banner_left_social ul li a:hover {
+  color: #f68685;
+}
+.banner_left_bottom h4 {
+  font-size: 18px;
+  color: #f68685;
+  margin-bottom: 10px;
+  cursor: default;
+}
+.banner_left_bottom h2 {
+  font-size: 34px;
+  color: #7093e5;
+  font-weight: 400;
+  cursor: default;
+}
+.banner_left_bottom p {
+  font-size: 34px;
+  color: #7093e5;
+  font-weight: 300;
+  cursor: default;
+}
+.banner_left_bottom .appointment_btn {
+  background-color: #7093e5;
+  height: 50px;
+  width: 230px;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.banner_left_bottom .appointment_btn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+}
+.banner_left_bottom .appointment_btn:hover {
+  background-color: #f68685;
+}
+
+.banner_left_bottom .appointment_btn i {
+  background-color: #8bacf8;
+  /* padding: 20px; */
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0 5px 5px 0;
+}
+.banner_left_bottom .appointment_btn:hover i {
+  background-color: #faa2a1;
+}
+
+.banner_middle {
+  position: relative;
+}
+
+.banner_right {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  text-align: right;
+  cursor: default;
+}
+.banner_right .moto h4 {
+  color: #7093e5;
+  font-size: 16px;
+}
+.banner_right .moto h2 {
+  color: #f68685;
+  font-size: 34px;
+  font-weight: normal;
+}
+.banner_right .specialization h6 {
+  color: #7093e5;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.banner_right .specialization p {
+  color: #f68685;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.banner_right .madical_info h5 {
+  color: #f68685;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.banner_right .madical_info h4 {
+  color: #7093e5;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .banner_container {
+    height: calc(100vh - 150px);
+    z-index: -1 !important;
+  }
+  .banner_container::after,
+  .banner_container::before {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .banner_top_hidden {
+    display: block;
+  }
+  .banner_container {
+    height: calc(100vh - 340px);
+    margin-top: 0px;
+    z-index: -1 !important;
+  }
+  .banner_left_bottom {
+    display: none;
+  }
+  .banner_right .moto,
+  .specialization {
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 600px) {
+  .banner_container {
+    height: calc(100vh - 340px);
+
+    z-index: -1 !important;
+  }
+  .banner_right .madical_info h5 {
+    font-size: 16px;
+  }
+  .banner_right .madical_info h4 {
+    font-size: 20px;
+  }
+  .banner_right .madical_info img {
+    width: 100px;
+  }
+}

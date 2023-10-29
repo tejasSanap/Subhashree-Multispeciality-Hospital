@@ -8,6 +8,9 @@ import DashboardMain from './components/Dashboard/DashboardMain/DashboardMain';
 import DoctorProfile from "./components/Dashboard/DoctorsDashboard/DoctorProfile/DoctorProfile"
 import BlogForm from './components/Blog/BlogForm/BlogForm';
 import Appointment from './components/Dashboard/DoctorsDashboard/Appointments/Appointment';
+import Home from './components/Home/Home/Home'
+import SingleDoctor from './components/SingleDoctor/SingleDoctor'
+import Login from "./components/Login/Login"
 // import { tokkenAtom } from './store/atoms';
 
 // export const tokkenAtom = atom(null);
@@ -17,9 +20,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Link to="/adminLogin">login</Link>
-        <Link to="/test">test</Link>
-        <Link to="/adminRegister">register</Link>
         <Routes>
           <Route path="/adminRegister" element={<AdminRegister />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
@@ -33,6 +33,9 @@ function App() {
             <Route path='appointments' element={<Appointment />}></Route>
           </Route>
 
+          <Route path="/home" element={<Home />} />
+          <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
       </Router>
     </div>

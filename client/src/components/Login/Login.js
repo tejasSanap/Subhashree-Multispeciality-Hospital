@@ -68,7 +68,7 @@ const Login = () => {
         <>
             <Header />
             <div className="login-section">
-                {!token && (<Container>
+                <Container>
                     <div className={`con ${classAdd}`} id="container">
                         <div className="form-container sign-up-container">
                             <form onSubmit={handleSubmit(onSubmit)} className="login-form">
@@ -120,7 +120,7 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                </Container>)}
+                </Container>
             </div>
             <Footer />
         </>

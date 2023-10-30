@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import "./Appointment.css";
 import axios from "../../../utils/axiosConfig";
 import { userAtom } from "../../../store/atom";
@@ -12,7 +12,6 @@ const Appointment = () => {
   const [Specialist, setSpecialist] = useState([]);
   const [shiftDoctor, setShiftDoctor] = useState([]);
   const [doctorEmail, setDoctorEmail] = useState([]);
-  const [doctorId, setDoctorId] = useState([]);
   // const { user } = useFirebase();
   // const [appointments, setAppointments] = useState([]);
   const [user, setUser] = useAtom(userAtom)
@@ -36,32 +35,32 @@ const Appointment = () => {
 
 
   const onSubmit = (data, e) => {
-    e.preventDefault();
-    data.status = "pending";
-    data.doctorEmail = doctorEmail;
-    data.patientId = user.id;
-    data.doctorId = doctorId
-    console.log("data", data);
+    // e.preventDefault();
+    // data.status = "pending";
+    // data.doctorEmail = doctorEmail;
+    alert("clicked");
+    console.log("data");
+    // axios.post("http://localhost:7050/appointments", data).then((res) => {
+    //   if (res.data.insertedId) {
+    //     // successfull modal
 
-
-    axios.post("/api/appointment/addappointment", data).then((res) => {
-      if (res.status === 200) {
-        // successfull modal
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Your appointment has been submitted",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
+    //     Swal.fire({
+    //       position: "center",
+    //       icon: "success",
+    //       title: "Your appointment has been submitted",
+    //       showConfirmButton: false,
+    //       timer: 1500,
+    //     });
+    reset();
+    //   }
+    // });
   };
 
   const {
     register,
     handleSubmit,
     reset,
+    formState: { errors }
   } = useForm();
 
   const handleOnBlurService = (e) => {
@@ -112,7 +111,6 @@ const Appointment = () => {
     const doctorEmail = shiftDoctor.find(
       (doctor) => doctor.name === e.target.value
     );
-    setDoctorId(doctorEmail?._id);
     setDoctorEmail(doctorEmail?.email);
   };
 
@@ -142,8 +140,8 @@ const Appointment = () => {
             <div className="col-md-6 col-lg-2">
               <input
                 type="number"
-                placeholder="age"
-                {...register("age", { required: true })}
+                placeholder="Age"
+                {...register("Age", { required: true })}
                 className="service-doctor-shift"
               />
             </div>
@@ -164,10 +162,12 @@ const Appointment = () => {
                 type="email"
                 placeholder="Email"
                 {...register("patientEmail", {
-                  required: true
+                  required: true,
+                  pattern: /^\S+@\S+$/i,
                 })}
                 className="service-doctor-shift"
-              // value={user.email}
+                value={user.email}
+                disabled
               />
             </div>
             <div className="col-lg-5 col-md-6">
@@ -176,6 +176,8 @@ const Appointment = () => {
                 placeholder="Mobile number"
                 {...register("mobileNumber", {
                   required: true,
+                  minLength: 6,
+                  maxLength: 12,
                 })}
                 className="service-doctor-shift"
               />{" "}
@@ -189,15 +191,15 @@ const Appointment = () => {
                 className="service-doctor"
               >
                 <option>- Specialist -</option>
-                {doctors.map((doctor) => (
+                {/* {doctors.map((doctor) => (
                   <option value={doctor.speciality}>{doctor.speciality}</option>
-                ))}
-                {/* <option value="Oncologist">Oncologist</option>
+                ))} */}
+                <option value="Oncologist">Oncologist</option>
                 <option value="ENT Specialist">ENT Specialist</option>
                 <option value="Cardiologist">Cardiologist</option>
                 <option value="Audiologist">Audiologist</option>
                 <option value="Psychiatrists">Psychiatrists</option>
-                <option value="Gynecologist">Gynecologist</option> */}
+                <option value="Gynecologist">Gynecologist</option>
               </select>
             </div>
             <div className="col-md-6 col-lg-3">
@@ -240,15 +242,16 @@ const Appointment = () => {
               <textarea
                 placeholder="Please type what you want..."
                 rows="5"
-                // {...register("description", { required: false })}
+                {...register("description", { required: false })}
                 className="description-box"
               ></textarea>{" "}
             </div>
-            <button type="submit" className="pulse" >
+            {/* <button type="submit" className="pulse" >
               {" "}
               Submit{" "}
-            </button>
+            </button> */}
           </Row>
+          <button type="submit" >submit</button>
         </form>
 
       </div>

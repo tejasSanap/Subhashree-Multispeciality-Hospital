@@ -3,32 +3,31 @@ import { Alert, Button, Card, Container, Form } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 // import { useGetDoctorsQuery } from "../../../../features/sigmaApi";
-import "./DoctorProfile.css";
+import "./DoctorProfile2.css";
 import { useAtom } from "jotai";
 import { adminAtom, doctorAtom } from "../../../../store/atom";
 import axios from "../../../../utils/axiosConfig";
 
-const DoctorProfile = () => {
-  const [doctor, setDoctor] = useAtom(doctorAtom);
-  const [admin, setAdmin] = useAtom(adminAtom)
+const DoctorProfile2 = () => {
+  const { id } = useParams();
+
+  const [doctor, setDoctor] = useState([]);
+
   useEffect(() => {
     const getDocInfo = async () => {
-      const res = await axios.get(`/api/doctor/getDoctor/${admin.referenceId}`)
+      const res = await axios.get(`/api/doctor/getDoctor/${id}`)
       console.log("doc info", res.data);
       if (res.status === 200) {
         setDoctor(res.data);
-        localStorage.setItem('doctor', JSON.stringify(res.data));
       }
     };
     getDocInfo();
-    console.log("referenc id is ", admin.referenceId);
   }, []);
 
 
 
 
 
-  console.log("uid", doctor._id)
   // const alldoctorInfo = useGetDoctorsQuery();
   const [singleDoctorInfo, setSingleDoctorInfo] = useState([]);
   const [doctorUpdateData, setDoctorUpdateData] = useState({});
@@ -68,11 +67,8 @@ const DoctorProfile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const resp = await axios.put(`/api/doctor/updateDoctor/${id}`, doctorUpdateData);
 
-    console.log('data', doctorUpdateData)
-
-    const resp = await axios.put(`/api/doctor/updateDoctor/${doctor._id}`, doctorUpdateData);
-    console.log("updated res", resp);
     // fetch(`http://localhost:7050/updateDoctor/${id}`, {
     //   method: "PUT",
     //   headers: { "content-type": "application/json" },
@@ -211,7 +207,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={doctor?.eduLines.eduLine1 || ''}
+                          defaultValue={doctor?.eduLines?.eduLine1 || ''}
                           placeholder="Name of Certificate-1"
                           name="eduLine1"
                           type="text"
@@ -221,7 +217,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={doctor?.eduLines.eduLine2}
+                          defaultValue={doctor?.eduLines?.eduLine2}
                           placeholder="Name of Certificate-2"
                           name="eduLine2"
                           type="text"
@@ -231,7 +227,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={doctor?.eduLines.eduLine3}
+                          defaultValue={doctor?.eduLines?.eduLine3}
                           placeholder="Name of Certificate-3"
                           name="eduLine3"
                           type="text"
@@ -309,7 +305,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={doctor?.awards.awardFirst}
+                          defaultValue={doctor?.awards?.awardFirst}
                           placeholder="Honors and Awards-1"
                           name="awardFirst"
                           type="text"
@@ -319,7 +315,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={doctor?.awards.awardSecond}
+                          defaultValue={doctor?.awards?.awardSecond}
                           placeholder="Honors and Awards-2"
                           name="awardSecond"
                           type="text"
@@ -329,7 +325,7 @@ const DoctorProfile = () => {
                       <Form.Group className="mb-3">
                         <Form.Control
                           className="text-secondary"
-                          defaultValue={doctor?.awards.awardThird}
+                          defaultValue={doctor?.awards?.awardThird}
                           placeholder="Honors and Awards-3"
                           name="awardThird"
                           type="text"
@@ -509,4 +505,4 @@ const DoctorProfile = () => {
   );
 };
 
-export default DoctorProfile;
+export default DoctorProfile2;

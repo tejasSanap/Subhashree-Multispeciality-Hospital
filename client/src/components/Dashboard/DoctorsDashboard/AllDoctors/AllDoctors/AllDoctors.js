@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Card, Container, Row, Spinner } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import { useGetDoctorsQuery } from '../../../../../features/sigmaApi';
+// import { useGetDoctorsQuery } from '../../../../../features/sigmaApi';
 import SingleCardDoctor from '../SingleCardDoctor/SingleCardDoctor';
 import './AllDoctors.css';
+import axios from '../../../../../utils/axiosConfig';
 
 const AllDoctors = () => {
-    const doctorsCollection = useGetDoctorsQuery() || {};
+    const [doctorsCollection, setDoctorsCollection] = useState([]);
+    // const doctorsCollection = useGetDoctorsQuery() || {};
+    useEffect(() => {
+        const fetchDoctors = async () => {
+            const res = await axios.get("/api/doctor/getAllDoctors");
+            setDoctorsCollection(res);
+        }
+        fetchDoctors();
+    }, [])
+
+
     if (!doctorsCollection?.data?.length) {
         return <Button variant="primary" disabled>
             <Spinner

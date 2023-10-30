@@ -1,0 +1,118 @@
+.review-section {
+  background: url(../../../images/client-review-web-screen-successful-4-4-star-business-opinion_1150-37483.webp);
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 70vh;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.error-des {
+  color: red;
+  font-size: 12;
+  padding: 5px 0;
+}
+.one .re {
+  color: #f68685;
+}
+.review-form p {
+  color: #f68685;
+  margin-bottom: 15px;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+.review-form textarea::placeholder {
+  color: #f68685;
+}
+.reviewRating {
+  padding: 10px 0;
+}
+.review-form {
+  padding: 50px 25px;
+  color: rgb(255, 255, 255);
+  /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  text-align: center;
+  border-radius: 25px;
+}
+.review-form textarea {
+  width: 100%;
+  background: transparent;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px dashed #f68685;
+  color: #f68685;
+  height: 200px;
+}
+.review-form textarea:focus {
+  outline: none;
+  border: 2px dashed #7093e5;
+}
+.bttn {
+  color: #f68685;
+  text-decoration: none;
+  -webkit-transition: 0.2s all ease;
+  transition: 0.3s ease all;
+  margin-top: 15px;
+}
+.bttn:hover {
+  color: #fff;
+}
+.bttn:focus {
+  color: #fff;
+}
+.bttn {
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  padding: 10px 0px;
+  border: 2px solid #f68685;
+  border-radius: 5px;
+  position: relative;
+  background-color: transparent;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.bttn:before {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: "";
+  background-color: #f68685;
+  z-index: -2;
+}
+.bttn:hover:before {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.bttn:focus:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.reviewRating {
+  color: #f68685;
+}
+.low {
+  color: red;
+}
+.medium {
+  color: #7093e5;
+}
+.high {
+  color: #f68685;
+}

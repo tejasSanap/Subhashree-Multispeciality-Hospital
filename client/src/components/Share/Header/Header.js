@@ -115,11 +115,6 @@ const Header = () => {
                       Doctors
                     </Link>{" "}
                   </li>
-                  <li className="menu-item ">
-                    <Link activeClassName="is-active" to="/bloodBank">
-                      Blood-Bank
-                    </Link>{" "}
-                  </li>
                   <li
                     onClick={toggleSubmenu1}
                     className="menu-item sub__menus__arrows"

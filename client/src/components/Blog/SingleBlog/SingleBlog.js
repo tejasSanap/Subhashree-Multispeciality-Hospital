@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaHeart } from "react-icons/fa";
 import { GrDislike, GrLike } from "react-icons/gr";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Slider from "react-slick/lib/slider";
 import { format } from "timeago.js";
-import { useGetBlogQuery } from "../../../features/blogApi";
+// import { useGetBlogQuery } from "../../../features/blogApi";
 import Footer from "../../Home/Footer/Footer";
 import Header from "../../Share/Header/Header";
 import Comment from "../Comment/Comment";
@@ -15,6 +15,8 @@ import "./SingleBlog.css";
 
 const SingleBlog = () => {
   const { id } = useParams();
+  const user = {}
+  const blogInfo = {}
   const [loginUser, setLoginUser] = useState(null);
   const [singleBlog, setSingleBlog] = useState([]);
   const [liked, setLiked] = useState([]);
@@ -23,8 +25,8 @@ const SingleBlog = () => {
   const [number, setNumber] = useState(Number);
 
   // const [isLike, setIsLike] = useState([]);
-  const blogInfo = useGetBlogQuery();
-  const user = useSelector((state) => state.auth.auth);
+  // const blogInfo = useGetBlogQuery();
+  // const user = useSelector((state) => state.auth.auth);
   console.log(user, "user comment");
   useEffect(() => {
     axios

@@ -38,7 +38,7 @@ const createAppointment = async (req, res) => {
     });
 
     const appointment = await newAppointment.save();
-    res.status(201).json(appointment);
+    res.status(200).json(appointment);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -53,6 +53,16 @@ const getAllAppointments = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+//get use apponintment 
+// const getUserAppointments = async (req,res)=>{
+//   try{
+
+//   }
+// catch(err){
+//   res.status(500).json({err:err.message})
+// }
+// }
 
 // Get appointment by ID
 const getAppointmentById = async (req, res) => {

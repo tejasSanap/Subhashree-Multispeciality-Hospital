@@ -22,6 +22,7 @@ const blogSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  blogBy: { type: mongoose.Schema.Types.ObjectId, },
   likes: [
     {
       type: mongoose.Schema.Types.ObjectId,

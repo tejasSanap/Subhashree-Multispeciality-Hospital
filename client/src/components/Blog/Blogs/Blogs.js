@@ -4,13 +4,13 @@ import { MdVisibility } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { ScaleLoader } from "react-spinners";
 import { format } from "timeago.js";
-import { useGetBlogQuery } from "../../../features/blogApi";
+// import { useGetBlogQuery } from "../../../features/blogApi";
 import Footer from "../../Home/Footer/Footer";
 import Header from "../../Share/Header/Header";
 import "./Blogs.css";
 
 const Blogs = () => {
-  const blogCollection = useGetBlogQuery() || {};
+  const blogCollection = {};
 
   return (
     <>

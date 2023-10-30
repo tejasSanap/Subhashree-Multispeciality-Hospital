@@ -4,6 +4,8 @@ import { WithContext as ReactTags } from "react-tag-input";
 import Swal from "sweetalert2";
 import "./BlogForm.css";
 import axios from "../../../utils/axiosConfig";
+import { adminAtom } from "../../../store/atom";
+import { useAtom } from "jotai";
 const suggestionsTag = ["eye", "health", "medicien"];
 const suggestions = suggestionsTag.map((country) => {
   return {
@@ -20,7 +22,10 @@ const KeyCodes = {
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 const BlogForm = () => {
-  const [addBlog, setAddBlog] = useState({});
+  const [admin] = useAtom(adminAtom);
+  const [addBlog, setAddBlog] = useState({
+    blogBy: admin.id
+  });
   const [image, setImage] = useState(null);
   const date = new Date().toDateString();
   const [tags, setTags] = useState([{ id: "eye", text: "Eye" }]);

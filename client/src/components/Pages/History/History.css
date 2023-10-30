@@ -1,0 +1,8 @@
+.history {
+  background-color: #fef5f5;
+}
+.history hr {
+  background-color: gray !important;
+  border: none;
+  height: 2px;
+}

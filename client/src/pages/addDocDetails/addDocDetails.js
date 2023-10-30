@@ -3,6 +3,8 @@ import Swal from "sweetalert2";
 import { Button, Card, Container, Form } from "react-bootstrap";
 import axios from "../../utils/axiosConfig"
 import { Navigate, useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { adminAtom } from "../../store/atom";
 
 const AddDoctorsDetails = () => {
   const navigate = useNavigate();
@@ -33,6 +35,7 @@ const AddDoctorsDetails = () => {
 
   const [doctorData, setDoctorData] = useState(initialDoctorData);
   const [image, setImage] = useState(null);
+  const [admin, setAdmin] = useAtom(adminAtom);
 
   const handleAddDoctor = (e) => {
     const field = e.target.name;
@@ -88,8 +91,14 @@ const AddDoctorsDetails = () => {
         console.log(token);
         let res = await axios.post("/api/doctor/addDoctor", doctorData, config)
         console.log("Res", res);
+        console.log("object id", admin.id)
+
+        console.log("referce id", admin.referenceId)
+
+
+
         if (res.status === 200) {
-          navigate('/doctorDashboard');
+          navigate('/adminLogin');
         }
       }
     } catch (e) {

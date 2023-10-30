@@ -1,0 +1,23 @@
+.progres {
+  background: #ecf2ff;
+  max-height: 100vh;
+}
+.progres-title h4 {
+  font-size: 16px;
+  color: #7093e5;
+}
+.progres-title h2 {
+  font-size: 55px;
+  font-weight: 500;
+}
+.progres-title p {
+  font-weight: 500;
+  color: gray;
+  margin: 20px 0;
+}
+.progress-img {
+  overflow: hidden;
+}
+.progress-img img {
+  object-fit: cover;
+}

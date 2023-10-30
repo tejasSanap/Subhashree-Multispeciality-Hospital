@@ -1,0 +1,19 @@
+.docProNav1, .docProNav2{
+    color: #777;
+    border: 1px solid #eee;
+    border-radius: 30px;
+    padding: 7px 23px;
+    background-color: transparent;
+    transition: .3s;
+}
+
+.docProNav1:hover{
+    background-color: #01B2C6;
+    color: #eee;
+    transition: .3s;
+}
+.docProNav2:hover{
+    background-color: #01B2C6;
+    color: #eee;
+    transition: .3s;
+}

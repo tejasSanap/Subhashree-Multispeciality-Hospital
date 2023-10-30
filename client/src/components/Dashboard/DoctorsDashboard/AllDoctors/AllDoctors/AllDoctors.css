@@ -1,0 +1,16 @@
+.adddoctor-icon {
+    margin-top: 20px;
+}
+.adddoctor-icon i{
+    border: 1px solid #007bff;
+    padding: 15px;
+    border-radius: 5px;
+    transition: .3s;
+    color: #007bff;
+}
+.adddoctor-icon i:hover{
+    background-color: #007bff;
+    color: aliceblue;
+    transition: .3s;
+    cursor: pointer;
+}

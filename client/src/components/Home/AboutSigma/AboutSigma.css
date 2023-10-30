@@ -1,0 +1,172 @@
+.sigma-about-fild {
+  background-color: #fef5f5;
+}
+
+.apb {
+  text-decoration: none;
+}
+
+.about-heding {
+  text-transform: uppercase;
+  color: #4676e3;
+  font-size: 15px;
+  letter-spacing: 3.5px;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.welcome-msg {
+  letter-spacing: 1px;
+  font-size: 45px;
+  font-weight: 300;
+}
+
+.bold-welcome {
+  font-weight: 400;
+}
+
+.content {
+  color: #00000094;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 24px 0px;
+}
+
+.opning-time {
+  background-color: #7093e5;
+  border-radius: 4px;
+  padding: 30px 20px;
+}
+
+.opning-time,
+.opning-time tbody tr td {
+  color: aliceblue;
+}
+
+.time {
+  color: white;
+  padding-left: 11px;
+  font-size: 30px;
+  font-family: auto;
+  letter-spacing: 1px;
+}
+
+.watch {
+  width: 110px;
+}
+
+.table-data {
+  padding: 19px 4px;
+}
+
+.checkbox-icon {
+  color: #f68685;
+  margin-right: 8px;
+  padding-top: 10px;
+}
+
+ul li {
+  list-style: none;
+  font-size: 18px;
+  margin-left: 3px;
+}
+
+.name {
+  margin-left: 33px;
+  font-size: 20px;
+  letter-spacing: 3px;
+  margin-top: 45px;
+}
+
+.co-funder {
+  font-size: 17px;
+  letter-spacing: 2px;
+  color: #4e87f2;
+  font-weight: 700;
+}
+
+.signature {
+  margin-left: 23px;
+}
+
+.appointment-btn {
+  margin-top: 50px;
+  margin-left: 28px;
+  border: none;
+  padding: 8px 10px;
+  background-color: #f68685;
+  color: white;
+  margin-bottom: 27px;
+}
+
+.btn-icon {
+  font-size: 18px;
+  margin-left: 10px;
+  color: white;
+  background-color: #f59d9c;
+  padding: 15px;
+}
+
+.appointment-btn:hover {
+  background-color: #7093e5;
+  transition: all 0.5s ease-in;
+}
+
+.appointment-btn:hover .btn-icon {
+  background-color: #a9c0f5;
+  transition: all 0.5s ease-in;
+}
+
+.img-about img {
+  width: 100%;
+}
+
+/* farid */
+.sigma-about-fild,
+.chooseUs-Fild,
+.our-service,
+.doctors,
+.faq,
+.team,
+.servicess,
+.history {
+  position: relative;
+}
+
+.sigma-about-fild h1,
+.chooseUs-Fild h2,
+.our-service h3,
+.doctors h3,
+.faq h4,
+.team h4,
+.servicess h5,
+.history h4 {
+  position: absolute;
+  top: 20px;
+  color: #171c2615;
+  font-size: 130px;
+  line-height: 94px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.padding-container {
+  padding: 80px 0;
+}
+
+.img-about {
+  width: 100%;
+  height: 650px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 993px) {
+
+  .sigma-about-fild h1,
+  .chooseUs-Fild h2,
+  .our-service h3,
+  .doctors h3 {
+    font-size: 60px;
+  }
+}

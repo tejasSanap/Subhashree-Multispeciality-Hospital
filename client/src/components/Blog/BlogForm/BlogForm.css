@@ -1,0 +1,448 @@
+.contact100-form input {
+  outline: none;
+  border: none;
+}
+
+.contact100-form textarea {
+  outline: none;
+  border: none;
+}
+
+.selection-2 {
+  border: none;
+}
+.selection-2:focus {
+  outline: none;
+}
+.contact100-form textarea:focus,
+.contact100-form input:focus {
+  border-color: transparent !important;
+}
+
+.contact100-form input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.contact100-form input:focus:-moz-placeholder {
+  color: transparent;
+}
+.contact100-form input:focus::-moz-placeholder {
+  color: transparent;
+}
+.contact100-form input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.contact100-form textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.contact100-form textarea:focus:-moz-placeholder {
+  color: transparent;
+}
+.contact100-form textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+.contact100-form textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.contact100-form input::-webkit-input-placeholder {
+  color: #adadad;
+}
+.contact100-form input:-moz-placeholder {
+  color: #adadad;
+}
+.contact100-form input::-moz-placeholder {
+  color: #adadad;
+}
+.contact100-form input:-ms-input-placeholder {
+  color: #adadad;
+}
+
+.contact100-form textarea::-webkit-input-placeholder {
+  color: #adadad;
+}
+.contact100-form textarea:-moz-placeholder {
+  color: #adadad;
+}
+.contact100-form textarea::-moz-placeholder {
+  color: #adadad;
+}
+.contact100-form textarea:-ms-input-placeholder {
+  color: #adadad;
+}
+
+.contact100-form button {
+  outline: none !important;
+  border: none;
+  background: transparent;
+}
+
+.contact100-form button:hover {
+  cursor: pointer;
+}
+
+.contact100-form iframe {
+  border: none !important;
+}
+.container-contact100 {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 100px;
+  /* background: #a64bf4;
+  background: -webkit-linear-gradient(45deg, #00dbde, #fc00ff);
+  background: -o-linear-gradient(45deg, #00dbde, #fc00ff);
+  background: -moz-linear-gradient(45deg, #00dbde, #fc00ff);
+  background: linear-gradient(45deg, #00dbde, #fc00ff); */
+}
+
+.wrap-contact100 {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 42px 55px 45px 55px;
+}
+
+/*------------------------------------------------------------------
+  [ Form ]*/
+
+.contact100-form {
+  width: 100%;
+}
+
+.contact100-form-title {
+  display: block;
+  font-family: Poppins-Bold;
+  font-size: 39px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 44px;
+}
+
+/*------------------------------------------------------------------
+  [ Input ]*/
+
+.wrap-input100 {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid #d9d9d9;
+  padding-bottom: 13px;
+  margin-bottom: 27px;
+}
+
+.label-input100 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  color: #666666;
+  line-height: 1.5;
+  padding-left: 5px;
+}
+
+.input100 {
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-family: Poppins-Medium;
+  font-size: 18px;
+  color: #333333;
+  line-height: 1.2;
+  padding: 0 5px;
+}
+
+.focus-input100 {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.focus-input100::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  background: #7f7f7f;
+}
+
+/*---------------------------------------------*/
+input.input100 {
+  height: 40px;
+}
+
+textarea.input100 {
+  min-height: 110px;
+  padding-top: 9px;
+  padding-bottom: 13px;
+}
+
+.input100:focus + .focus-input100::before {
+  width: 100%;
+}
+
+.has-val.input100 + .focus-input100::before {
+  width: 100%;
+}
+
+/*------------------------------------------------------------------
+  [ Button ]*/
+.container-contact100-form-btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 13px;
+}
+
+.wrap-contact100-form-btn {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.contact100-form-bgbtn {
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: #a64bf4;
+  background: -webkit-linear-gradient(left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  background: -o-linear-gradient(left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  background: -moz-linear-gradient(left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  background: linear-gradient(left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  top: 0;
+  left: -100%;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.contact100-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.wrap-contact100-form-btn:hover .contact100-form-bgbtn {
+  left: 0;
+}
+
+.contact100-form-btn i {
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.contact100-form-btn:hover i {
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  -o-transform: translateX(10px);
+  transform: translateX(10px);
+}
+
+/*------------------------------------------------------------------
+  [ Responsive ]*/
+
+@media (max-width: 576px) {
+  .wrap-contact100 {
+    padding: 72px 15px 65px 15px;
+  }
+}
+
+/*------------------------------------------------------------------
+  [ Alert validate ]*/
+
+.validate-input {
+  position: relative;
+}
+
+/*//////////////////////////////////////////////////////////////////
+  [ Restyle Select2 ]*/
+
+.select2-container {
+  display: block;
+  max-width: 100% !important;
+  width: auto !important;
+}
+
+.select2-container .select2-selection--single {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  height: 40px;
+  outline: none;
+  position: relative;
+}
+
+/*------------------------------------------------------------------
+  [ in select ]*/
+.select2-container .select2-selection--single .select2-selection__rendered {
+  font-size: 18px;
+  color: #333333;
+  line-height: 1.2;
+  padding-left: 5px;
+  background-color: transparent;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.select2-selection__arrow b {
+  display: none;
+}
+
+.select2-selection__arrow::before {
+  content: "";
+  display: block;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-bottom: 5px solid #999999;
+  margin-bottom: 2px;
+}
+
+.select2-selection__arrow::after {
+  content: "";
+  display: block;
+
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-top: 5px solid #999999;
+}
+.contact100-form-btn span i {
+  padding-left: 5px;
+}
+
+/* tag */
+.ReactTags__tags {
+  position: relative;
+}
+
+.ReactTags__clearAll {
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px;
+  background: #f88d8d;
+  color: #fff;
+  border: none;
+}
+
+/* Styles for the input */
+.ReactTags__tagInput {
+  border-radius: 2px;
+  display: inline-block;
+}
+.ReactTags__tagInput input.ReactTags__tagInputField,
+.ReactTags__tagInput input.ReactTags__tagInputField:focus {
+  height: 38px;
+  margin: 0;
+  font-size: 18px;
+  border: 1px solid rgb(48, 123, 173);
+  min-width: 150px;
+  padding: 0 5px;
+}
+
+.ReactTags__editInput {
+  border-radius: 1px;
+}
+
+.ReactTags__editTagInput {
+  display: inline-flex;
+}
+
+/* Styles for selected tags */
+.ReactTags__selected span.ReactTags__tag {
+  border: 1px solid rgb(101, 122, 172);
+  background: #63bcfd;
+  color: white;
+  font-size: 18px;
+  display: inline-block;
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 2px;
+}
+.ReactTags__selected span.ReactTags__tag:first-child {
+  margin-left: 0px;
+}
+.ReactTags__selected a.ReactTags__remove {
+  color: rgb(255, 5, 5);
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Styles for suggestions */
+.ReactTags__suggestions {
+  position: absolute;
+  top: 60px;
+}
+.ReactTags__suggestions ul {
+  list-style-type: none;
+  box-shadow: 0.05em 0.01em 0.5em rgba(0, 0, 0, 0.2);
+  background: white;
+  width: 200px;
+}
+.ReactTags__suggestions li {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+  margin: 0;
+}
+.ReactTags__suggestions li mark {
+  text-decoration: underline;
+  background: none;
+  font-weight: 600;
+}
+.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
+  background: #b7cfe0;
+  cursor: pointer;
+}
+
+.ReactTags__remove {
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: white;
+}

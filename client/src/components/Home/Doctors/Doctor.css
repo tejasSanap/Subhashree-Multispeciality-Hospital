@@ -1,0 +1,19 @@
+.doctor-section {
+  padding-top: 6rem;
+}
+.doctor-section h5 {
+  color: #7093e5;
+}
+.doctor-section h1 {
+  font-size: 45px;
+  font-weight: 400;
+}
+.doctor-section h1 span {
+  font-weight: 300;
+}
+@media only screen and (max-width: 600px) {
+  .doctor-section {
+    padding: 0rem;
+    margin-top: 5rem;
+  }
+}

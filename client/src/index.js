@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'jotai';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css'; // Import Font Awesome styles
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,0 +1,71 @@
+.doctor-card {
+  margin: 15px;
+  padding: 7px;
+}
+.icon-setup {
+  width: 20%;
+  margin-left: auto;
+}
+.icon-setup i {
+  padding: 15px;
+  margin: 5px;
+  background-color: #7093e5;
+  cursor: pointer;
+  color: #ffffff;
+}
+.icon-setup i:hover {
+  background-color: #f68685;
+  transition: 0.5s;
+}
+.about-doctor {
+  background-color: #ffffff;
+  border-left: 5px solid #7093e5;
+  transform: scaleX(0);
+  transition: 0.5s all linear;
+  visibility: hidden;
+  opacity: 0;
+  transform-origin: left;
+  padding: 15px 0;
+}
+.doctor-card:hover .about-doctor {
+  transform: scaleX(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.card-img-overlay {
+  padding: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+  .doctor-card {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  .about-doctor {
+    display: block;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .doctor-card {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  .icon-setup {
+    width: 35%;
+  }
+  .about-doctor {
+    display: block;
+  }
+}
+@media only screen and (min-width: 993px) and (max-width: 1281px) {
+  .doctor-card {
+    margin: 10px;
+    padding: 5px;
+  }
+  .icon-setup {
+    width: 30%;
+  }
+}

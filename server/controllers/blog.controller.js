@@ -16,6 +16,7 @@ const addBlog = async (req, res) => {
       subDescription4,
       blogType,
       date,
+      blogBy
     } = req.body;
 
     // const image = req.files?.image?.data;
@@ -36,6 +37,7 @@ const addBlog = async (req, res) => {
       subDescription4,
       blogType,
       date,
+      blogBy,
       likes: [],
       totalVisitor: [],
     };

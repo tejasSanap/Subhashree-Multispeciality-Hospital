@@ -57,9 +57,17 @@ exports.getAllDoctors = async (req, res, next) => {
   }
 };
 
+exports.getDoctor = async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const result = await Doctor.findById(id);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 exports.deleteDoctor = async (req, res, next) => {
   const id = req.params.id;
-
   try {
     const result = await Doctor.findByIdAndDelete(id);
     res.json(result);

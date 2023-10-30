@@ -1,0 +1,136 @@
+.service {
+  padding: 30px;
+  width: 360px;
+  height: 317px;
+  box-shadow: 0 6px 20px 0 rgba(124, 124, 124, 0.562);
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 50px;
+  transition: 0.5s;
+}
+.sr-nav {
+  margin: 0 10px;
+  color: #7093e5;
+}
+.service img {
+  margin-left: 74px;
+  margin-top: -66px;
+}
+
+.service:hover {
+  transform: translateY(-0.5em);
+  margin-top: 35px;
+}
+.sr {
+  color: #6ec1e4;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.kivi {
+  font-size: 45px;
+  font-weight: 500;
+}
+.kivi span {
+  color: #2c3238;
+  font-weight: 400;
+}
+.para {
+  color: #6c757d;
+  font-weight: 400;
+}
+.service .service-btn {
+  background-color: #f68685;
+  height: 50px;
+  width: 200px;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 45px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.service .service-btn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.service .service-btn:hover {
+  background-color: #7093e5;
+}
+
+.service .service-btn i {
+  background-color: #faa2a1;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0 5px 5px 0;
+}
+.service .service-btn:hover i {
+  background-color: #8bacf8;
+}
+
+.services {
+  margin: auto;
+}
+@media screen and (max-width: 467px) {
+  .service {
+    width: 90%;
+    height: 330px;
+  }
+  .service:hover {
+    height: 335px;
+    margin-top: 20px;
+  }
+  .service img {
+    margin-left: 65px;
+    margin-top: -66px;
+  }
+  .service .service-btn {
+    background-color: #f68685;
+    height: 50px;
+    width: 200px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 45px;
+    transition: 0.5s;
+    border-radius: 5px;
+  }
+
+  .service .service-btn span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  .service .service-btn:hover {
+    background-color: #7093e5;
+  }
+
+  .service .service-btn i {
+    background-color: #faa2a1;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 0 5px 5px 0;
+  }
+  .service .service-btn:hover i {
+    background-color: #8bacf8;
+  }
+}

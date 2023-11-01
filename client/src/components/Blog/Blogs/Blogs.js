@@ -8,9 +8,24 @@ import { format } from "timeago.js";
 import Footer from "../../Home/Footer/Footer";
 import Header from "../../Share/Header/Header";
 import "./Blogs.css";
+import axios from "../../../utils/axiosConfig";
+import { useEffect, useState } from "react";
 
 const Blogs = () => {
-  const blogCollection = {};
+  const [blogCollection,setBlogCollection] = useState([]);
+
+
+  useEffect(()=>{
+    const getAllBlog  = async() =>{
+      const res = await axios.get("/api/Blog")
+      console.log("Res",res.data);
+      setBlogCollection(res.data);
+    }
+    getAllBlog();
+  },[])
+
+
+  console.log("blogs",blogCollection);
 
   return (
     <>
@@ -23,12 +38,8 @@ const Blogs = () => {
 
         </div>
         <Row className="blog-my gx-4 gy-5" xs={1} md={2} lg={3} xl={4} >
-          {blogCollection.isLoading ? (
-            <div className="looder-my">
-              <ScaleLoader color={"#7093e5"} size={150} />
-            </div>
-          ) : (
-            blogCollection?.data?.map((blog) => (
+          {(
+            blogCollection?.map((blog) => (
               <Col>
                 <div className="card-design h-100">
                   <div className="img-design">

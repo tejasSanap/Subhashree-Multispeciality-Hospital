@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../../utils/axiosConfig";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaHeart } from "react-icons/fa";
@@ -17,6 +17,7 @@ const SingleBlog = () => {
   const { id } = useParams();
   const user = {}
   const blogInfo = {}
+  const [oneBlog,setOneBlog] = useState([]);
   const [loginUser, setLoginUser] = useState(null);
   const [singleBlog, setSingleBlog] = useState([]);
   const [liked, setLiked] = useState([]);
@@ -27,6 +28,22 @@ const SingleBlog = () => {
   // const [isLike, setIsLike] = useState([]);
   // const blogInfo = useGetBlogQuery();
   // const user = useSelector((state) => state.auth.auth);
+
+
+  useEffect(()=>{
+
+    const fetchSingleBlog = async()=>{
+      const res = await axios.get(`/api/Blog/${id}`);
+      console.log("Res blog",res.data)
+      setOneBlog(res.data);
+    }
+    fetchSingleBlog();
+  },[])  
+
+
+
+
+
   console.log(user, "user comment");
   useEffect(() => {
     axios
@@ -176,13 +193,13 @@ const SingleBlog = () => {
         className="backcrumb-my "
       >
         <nav aria-label="breadcrumb">
-          <h3>{singleBlog?.title}</h3>
+          <h3>{oneBlog?.title}</h3>
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
               <Link to="/">Home</Link>
             </li>
             <li className="breadcrumb-item" aria-current="page">
-              {singleBlog?.blogType}
+              {oneBlog?.blogType}
             </li>
           </ol>
         </nav>
@@ -194,12 +211,12 @@ const SingleBlog = () => {
               <div className="Img-blog my-5">
                 <img
                   className="img-fluid"
-                  src={`data:image/*;base64,${singleBlog?.photo}`}
+                  src={`data:image/*;base64,${oneBlog?.photo}`}
                   alt=""
                 />
               </div>
               <div className="single-blog-info">
-                <span className="btn-blog mb-3">{singleBlog?.blogType}</span>
+                <span className="btn-blog mb-3">{oneBlog?.blogType}</span>
                 <div className="d-flex justify-content-between align-items-center">
                   <span className="like-icon ">
                     {" "}
@@ -211,7 +228,7 @@ const SingleBlog = () => {
                       <GrLike
                         className="svg"
                         onClick={() => {
-                          handleUpdateLike(singleBlog?._id);
+                          handleUpdateLike(oneBlog?._id);
                         }}
                       />{" "}
                     </span>
@@ -220,7 +237,7 @@ const SingleBlog = () => {
                       <GrDislike
                         className="svg"
                         onClick={() => {
-                          handleUpdateUnLike(singleBlog?._id);
+                          handleUpdateUnLike(oneBlog?._id);
                         }}
                       />
                     </span>
@@ -228,23 +245,25 @@ const SingleBlog = () => {
                 </div>
 
                 <br />
-                <h2 className="show-unshow">{singleBlog?.title}</h2>
+                <h2 className="show-unshow">{oneBlog?.title}</h2>
                 <p className="admin-info">
-                  <span>{format(singleBlog?.date)}</span>
+                  <span>{format(oneBlog?.date)}</span>
                   <span style={{ color: "#f68685" }}>by Admin</span>
                 </p>
-                <p>{singleBlog?.description} </p>
-                <h4>{singleBlog?.subtitle1}</h4>
-                <p>{singleBlog?.subDescription1}</p>
-                <h4>{singleBlog?.subtitle2}</h4>
-                <p>{singleBlog?.subDescription2}</p>
-                <h4>{singleBlog?.subtitle3}</h4>
-                <p>{singleBlog?.subDescription3}</p>
-                <h4>{singleBlog?.subtitle4}</h4>
-                <p>{singleBlog?.subDescription4}</p>
+                <p>{oneBlog?.description} </p>
+                <h4>{oneBlog?.subtitle1}</h4>
+                <p>{oneBlog?.subDescription1}</p>
+                <h4>{oneBlog?.subtitle2}</h4>
+                <p>{oneBlog?.subDescription2}</p>
+                <h4>{oneBlog?.subtitle3}</h4>
+                <p>{oneBlog?.subDescription3}</p>
+                <h4>{oneBlog?.subtitle4}</h4>
+                <p>{oneBlog?.subDescription4}</p>
               </div>
             </div>
           </Col>
+
+          
           <Col lg={4} className="my-5">
             <div className="search">
               {" "}

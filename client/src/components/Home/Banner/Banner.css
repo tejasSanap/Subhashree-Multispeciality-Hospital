@@ -8,7 +8,7 @@
 }
 .banner_top_hidden h4 {
   font-size: 18px;
-  color: #D14836;
+  color: #d14836;
   margin-bottom: 10px;
   cursor: default;
 }
@@ -33,7 +33,7 @@
   margin: 30px 0;
   position: relative;
   /* background-image: url("../../../images/banner.png"); */
-  /* background-image: url("../../../images/New-Web-Banner.jpg"); */
+  background-image: url("../../../images/pngegg.png");
   background-size: contain;
   background-repeat: no-repeat;
   transition: ease-in-out 3s;
@@ -59,7 +59,7 @@
   left: 10px;
   height: 50px;
   width: 1px;
-  background-color: #D14836;
+  background-color: #d14836;
 }
 
 .banner_left {
@@ -77,11 +77,11 @@
   display: block;
 }
 .banner_left_social ul li a:hover {
-  color: #D14836;
+  color: #d14836;
 }
 .banner_left_bottom h4 {
   font-size: 18px;
-  color: #D14836;
+  color: #d14836;
   margin-bottom: 10px;
   cursor: default;
 }
@@ -117,7 +117,7 @@
   margin-left: 30px;
 }
 .banner_left_bottom .appointment_btn:hover {
-  background-color: #D14836;
+  background-color: #d14836;
 }
 
 .banner_left_bottom .appointment_btn i {
@@ -132,7 +132,7 @@
   border-radius: 0 5px 5px 0;
 }
 .banner_left_bottom .appointment_btn:hover i {
-  background-color: #D14836;
+  background-color: #d14836;
 }
 
 .banner_middle {
@@ -152,7 +152,7 @@
   font-size: 16px;
 }
 .banner_right .moto h2 {
-  color: #D14836;
+  color: #d14836;
   font-size: 34px;
   font-weight: normal;
 }
@@ -163,13 +163,13 @@
   margin-bottom: 20px;
 }
 .banner_right .specialization p {
-  color: #D14836;
+  color: #d14836;
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 5px;
 }
 .banner_right .madical_info h5 {
-  color: #D14836;
+  color: #d14836;
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 5px;

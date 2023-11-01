@@ -55,7 +55,6 @@ const ChooseUs = () => {
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?w=740&t=st=1698787552~exp=1698788152~hmac=332c5ad16d8c6687955fab56f8c0aa4dc35151bbca01ab97a50ec11b0662ba8b"
                       alt=""
                       className="image-icon"
                     />
@@ -75,7 +74,6 @@ const ChooseUs = () => {
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?w=740&t=st=1698787552~exp=1698788152~hmac=332c5ad16d8c6687955fab56f8c0aa4dc35151bbca01ab97a50ec11b0662ba8b"
                       alt=""
                       className="image-icon"
                     />

@@ -43,6 +43,7 @@ const Banner = () => {
               </Link>
             </div>
           </div>
+          {/* <img src="https://files.yappe.in/place/full/csmss-3806731.webp"></img> */}
 
           <div className="banner_middle ">
             {/* <img src={bannerImg} alt="" className="img-fluid" /> */}
@@ -62,7 +63,7 @@ const Banner = () => {
               </div>
               {/* <h5>MEDICAL INFO</h5>
               <h4>DR. UDAY RAJPUT</h4>
-              <img src="https://i.ibb.co/9rPhX7r/signature.png" alt="" /> */}
+              <img src="" alt="" /> */}
             </div>
           </div>
         </div>

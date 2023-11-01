@@ -59,15 +59,26 @@ const Header = () => {
       <div className="container-fluid">
         <div className="row d-flex">
           {/* Add Logo  */}
-          <div className="col-8 col-md-2">
+          <div className="col-8 col-md-3">
             <div className="header__middle__logo">
               <Link exact activeClassName="is-active" to="/">
-                <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="logo" />
+                {/* Subhashree Hospital */}
+                {/* <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="logo" /> */}
               </Link>
+              <h1
+                style={{
+                  fontSize: "28px",
+                  margin: "16px",
+                  fontWeight: "600",
+                  color: "#D14836",
+                }}
+              >
+                Subhashree Hospital
+              </h1>
             </div>
           </div>
 
-          <div className="col-4 col-md-10 ">
+          <div className="col-4 col-md-9 ">
             <div className="header__middle__menus">
               <nav className="main-nav">
                 {/* Responsive Menu Button*/}
@@ -78,8 +89,7 @@ const Header = () => {
                       style={{ display: "none" }}
                       onClick={toggleClass}
                     >
-                      {" "}
-                      <GrClose />{" "}
+                      <GrClose />
                     </span>
                   </>
                 ) : (
@@ -89,8 +99,7 @@ const Header = () => {
                       style={{ display: "none" }}
                       onClick={toggleClass}
                     >
-                      {" "}
-                      <GiHamburgerMenu />{" "}
+                      <GiHamburgerMenu />
                     </span>
                   </>
                 )}
@@ -113,72 +122,60 @@ const Header = () => {
                       to="/doctor"
                     >
                       Doctors
-                    </Link>{" "}
+                    </Link>
                   </li>
                   <li
                     onClick={toggleSubmenu1}
                     className="menu-item sub__menus__arrows"
                   >
-                    {" "}
                     <Link to="#">
-                      {" "}
-                      Specialization <FiChevronDown />{" "}
+                      Specialization <FiChevronDown />
                     </Link>
                     <ul className={boxClassSubMenu1.join(" ")}>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to="/specialization/oncologist"
                         >
-                          {" "}
-                          Oncologist{" "}
-                        </Link>{" "}
+                          Oncologist
+                        </Link>
                       </li>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to="/specialization/ent-specialist"
                         >
-                          {" "}
-                          ENT Specialist{" "}
-                        </Link>{" "}
+                          ENT Specialist
+                        </Link>
                       </li>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to="/specialization/neurologist"
                         >
-                          {" "}
-                          Cardiologist{" "}
-                        </Link>{" "}
+                          Cardiologist
+                        </Link>
                       </li>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to="/specialization/audiologist"
                         >
-                          {" "}
-                          Audiologist{" "}
-                        </Link>{" "}
+                          Audiologist
+                        </Link>
                       </li>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to={`/specialization/psychiatrists`}
                         >
-                          {" "}
-                          Psychiatrists{" "}
-                        </Link>{" "}
+                          Psychiatrists
+                        </Link>
                       </li>
                     </ul>
                   </li>
@@ -188,95 +185,79 @@ const Header = () => {
                       activeClassName="is-active"
                       to="/blog"
                     >
-                      {" "}
-                      Blog{" "}
-                    </Link>{" "}
+                      Blog
+                    </Link>
                   </li>
                   <li
                     onClick={toggleSubmenu}
                     className="menu-item sub__menus__arrows"
                   >
-                    {" "}
                     <Link to="#">
-                      {" "}
-                      Pages <FiChevronDown />{" "}
+                      Pages <FiChevronDown />
                     </Link>
                     <ul className={boxClassSubMenu.join(" ")}>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to="/about"
                         >
-                          {" "}
-                          About Us{" "}
-                        </Link>{" "}
+                          About Us
+                        </Link>
                       </li>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to="/service"
                         >
-                          {" "}
-                          Service{" "}
-                        </Link>{" "}
+                          Service
+                        </Link>
                       </li>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to="/team"
                         >
-                          {" "}
-                          Our Team{" "}
-                        </Link>{" "}
+                          Our Team
+                        </Link>
                       </li>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to="/faq"
                         >
-                          {" "}
-                          FAQ{" "}
-                        </Link>{" "}
+                          FAQ
+                        </Link>
                       </li>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to="/contact"
                         >
-                          {" "}
-                          Contact Us{" "}
-                        </Link>{" "}
+                          Contact Us
+                        </Link>
                       </li>
                       <li>
-                        {" "}
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
                           to="/review"
                         >
-                          {" "}
-                          Give Us Feedback{" "}
-                        </Link>{" "}
+                          Give Us Feedback
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   {user?.email ? (
                     <li
                       className="menu-item"
-                    // onClick={() => dispatch(removeUser())}
+                      // onClick={() => dispatch(removeUser())}
                     >
-                      {" "}
-                      <a> Logout </a>{" "}
+                      <a> Logout </a>
                     </li>
                   ) : (
                     <li className="menu-item">
@@ -285,9 +266,8 @@ const Header = () => {
                         activeClassName="is-active"
                         to="/login"
                       >
-                        {" "}
-                        Login{" "}
-                      </Link>{" "}
+                        Login
+                      </Link>
                     </li>
                   )}
                   <Link
@@ -296,12 +276,18 @@ const Header = () => {
                   >
                     Appointment <i className="fas fa-plus header-icon"></i>
                   </Link>
-                  {(admin.role === "nurse" || admin.role === "admin" || admin.role === "doctor" || admin.role === "recip" || admin.role === "pharma") && <Link
-                    to="/dashboard"
-                    className="header-btn text-decoration-none btn-hover"
-                  >
-                    Deshboard <i className="fas fa-plus header-icon"></i>
-                  </Link>}
+                  {(admin.role === "nurse" ||
+                    admin.role === "admin" ||
+                    admin.role === "doctor" ||
+                    admin.role === "recip" ||
+                    admin.role === "pharma") && (
+                    <Link
+                      to="/dashboard"
+                      className="header-btn text-decoration-none btn-hover"
+                    >
+                      Deshboard <i className="fas fa-plus header-icon"></i>
+                    </Link>
+                  )}
                 </ul>
                 {/* <span onClick={toggleShow} className="icon">
                   <GiHamburgerMenu />

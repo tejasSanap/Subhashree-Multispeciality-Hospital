@@ -83,7 +83,7 @@ const Login = () => {
                                 <input type="email" placeholder="Email" {...register('email', { required: true, pattern: /^\S+@\S+$/i })} />
                                 <input type="password" placeholder="Password" {...register('password')} />
                                 {errors.password && <span className='text-danger pt-2 d-inline-block'>Please add 8 digits. </span>}
-                                <button type="submit">Sign Up</button>
+                                <button style={{borderRadius: "4px"}} type="submit">Sign Up</button>
                             </form>
                         </div>
                         <div className="form-container sign-in-container">
@@ -102,7 +102,7 @@ const Login = () => {
                                 {errors2.password && 'Password is required'}
                                 {errors2.password && errors2.password.type === 'min' && <span className='text-danger pt-2 d-inline-block'>Please add 8 digits. </span>}
                                 <span className='py-2'>Forgot your password?</span>
-                                <button type="submit">Sign In</button>
+                                <button style={{borderRadius: "4px"}} type="submit">Sign In</button>
                             </form>
                         </div>
                         <div className="overlay-container">

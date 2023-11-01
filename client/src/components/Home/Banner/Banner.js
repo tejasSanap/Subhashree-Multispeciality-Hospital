@@ -27,7 +27,7 @@ const Banner = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.facebook.com/">
+                  <a href="https://www.instagram.com/">
                     <i className="fab fa-instagram"></i>
                   </a>
                 </li>
@@ -52,16 +52,17 @@ const Banner = () => {
               <h4>OUR MOTO</h4>
               <h2>GREAT HEALTH</h2>
             </div>
-            <div className="specialization">
-              <h6>SPECIALIZATION IN</h6>
-              <p>CARDIOLOGIST:</p>
-              <p>AUDIOLOGIST:</p>
-              <p>INTERNISTS:</p>
-            </div>
+
             <div className="madical_info">
-              <h5>MADICAL INFO</h5>
-              <h4>DR. K.F. BRANDINA</h4>
-              <img src="https://i.ibb.co/9rPhX7r/signature.png" alt="" />
+              <div className="specialization">
+                <h6>SPECIALIZATION IN</h6>
+                <p>CARDIOLOGIST</p>
+                <p>AUDIOLOGIST</p>
+                <p>INTERNISTS</p>
+              </div>
+              {/* <h5>MEDICAL INFO</h5>
+              <h4>DR. UDAY RAJPUT</h4>
+              <img src="https://i.ibb.co/9rPhX7r/signature.png" alt="" /> */}
             </div>
           </div>
         </div>

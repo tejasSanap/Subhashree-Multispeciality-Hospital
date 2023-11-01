@@ -122,7 +122,7 @@ const Comment = ({ blogId, loginUser }) => {
                 <div className="c-post w-100">
                   <div className="d-flex justify-content-between">
                     <span>
-                      <span style={{ fontSize: "20px", color: "#7093e5" }}>
+                      <span style={{ fontSize: "20px", color: "#2779a7" }}>
                         {" "}
                         Comment By
                       </span>{" "}

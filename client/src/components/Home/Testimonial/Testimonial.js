@@ -38,21 +38,21 @@ const Testimonial = () => {
               <div className="d-flex text-data">
                 <img src={manager} alt="" />
                 <div>
-                  <h2>2050+</h2>
+                  <h2>1000+</h2>
                   <p className="text-uppercase">Satisfied Patients</p>
                 </div>
               </div>
               <div className="d-flex text-data">
                 <img src={packages} alt="" />
                 <div>
-                  <h2>15+</h2>
+                  <h2>5+</h2>
                   <p className="text-uppercase">Health Sections</p>
                 </div>
               </div>
               <div className="d-flex text-data">
                 <img src={award} alt="" />
                 <div>
-                  <h2>45+</h2>
+                  <h2>15+</h2>
                   <p className="text-uppercase">Awards Won</p>
                 </div>
               </div>

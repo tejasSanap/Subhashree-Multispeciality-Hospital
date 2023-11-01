@@ -18,14 +18,15 @@ const Blogs = () => {
       <Container className="mb-5 pb-5">
         <div className="blog-tle pb-5">
           <div class="one">
-            <h1 className="re">Our Recent Article</h1>
+            <h1 style={{ color: "#D14836" }} className="re">
+              Our Recent Article
+            </h1>
           </div>
-
         </div>
-        <Row className="blog-my gx-4 gy-5" xs={1} md={2} lg={3} xl={4} >
+        <Row className="blog-my gx-4 gy-5" xs={1} md={2} lg={3} xl={4}>
           {blogCollection.isLoading ? (
             <div className="looder-my">
-              <ScaleLoader color={"#7093e5"} size={150} />
+              <ScaleLoader color={"#2779a7"} size={150} />
             </div>
           ) : (
             blogCollection?.data?.map((blog) => (

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
-import './ChooseUs.css';
+import React, { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
+import "./ChooseUs.css";
 
 const ChooseUs = () => {
   const [pageUs, setPageUs] = useState(0);
   const handleHight = () => setPageUs(window.pageYOffset);
   useEffect(() => {
-    window.addEventListener('scroll', handleHight);
+    window.addEventListener("scroll", handleHight);
   }, []);
 
   return (
@@ -18,11 +18,12 @@ const ChooseUs = () => {
         <div className="outer-why-content row">
           <div className="why-content col-lg-12">
             <p className="why-choose-pragraph">why choose us</p>
-            <h1 className="Turst-people">Why People Trust </h1>
-            <h4 className="Treatment">Sigma Treatment</h4>
+            <h1 className="Turst-people">Why Patients Rely on</h1>
+            <h4 className="Treatment">Our Treatment</h4>
             <p className="sigma-text">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
+              Discover the confidence that comes from our history of successful
+              treatment and our unwavering dedication to your health and
+              well-being.
             </p>
           </div>
         </div>
@@ -34,7 +35,7 @@ const ChooseUs = () => {
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="/images/icon-3-1-1.png"
+                      src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?w=740&t=st=1698787552~exp=1698788152~hmac=332c5ad16d8c6687955fab56f8c0aa4dc35151bbca01ab97a50ec11b0662ba8b"
                       alt=""
                       className="image-icon"
                     />
@@ -54,7 +55,7 @@ const ChooseUs = () => {
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="/images/icon-2-1-1.png"
+                      src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?w=740&t=st=1698787552~exp=1698788152~hmac=332c5ad16d8c6687955fab56f8c0aa4dc35151bbca01ab97a50ec11b0662ba8b"
                       alt=""
                       className="image-icon"
                     />
@@ -74,7 +75,7 @@ const ChooseUs = () => {
                 <div className="paper-item">
                   <div className="paper-hover">
                     <img
-                      src="/images/icon-1-1-1.png"
+                      src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?w=740&t=st=1698787552~exp=1698788152~hmac=332c5ad16d8c6687955fab56f8c0aa4dc35151bbca01ab97a50ec11b0662ba8b"
                       alt=""
                       className="image-icon"
                     />

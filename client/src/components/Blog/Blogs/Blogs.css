@@ -47,7 +47,7 @@
 }
 .blog-my .title-heading {
   position: relative;
-  color: #7093e5;
+  color: #2779a7;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -120,7 +120,7 @@
   transition: all 0.2s ease-in-out;
 }
 .blog-btn:hover {
-  background-color: #7093e5;
+  background-color: #2779a7;
   color: white;
 }
 .liked {

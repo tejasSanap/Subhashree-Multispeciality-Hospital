@@ -8,7 +8,7 @@
 
 .about-heding {
   text-transform: uppercase;
-  color: #4676e3;
+  color: #2779a7;
   font-size: 15px;
   letter-spacing: 3.5px;
   font-weight: 400;
@@ -26,14 +26,13 @@
 }
 
 .content {
-  color: #00000094;
-  font-size: 18px;
-  letter-spacing: 1px;
-  margin: 24px 0px;
+  color: #3a3a3a;
+  font-size: 16px;
+  margin: 20px 0px;
 }
 
 .opning-time {
-  background-color: #7093e5;
+  background-color: #2779a7;
   border-radius: 4px;
   padding: 30px 20px;
 }
@@ -45,7 +44,8 @@
 
 .time {
   color: white;
-  padding-left: 11px;
+  padding-left: 10px;
+  padding-top: 10px;
   font-size: 30px;
   font-family: auto;
   letter-spacing: 1px;
@@ -81,7 +81,7 @@ ul li {
 .co-funder {
   font-size: 17px;
   letter-spacing: 2px;
-  color: #4e87f2;
+  color: #2779a7;
   font-weight: 700;
 }
 
@@ -103,17 +103,17 @@ ul li {
   font-size: 18px;
   margin-left: 10px;
   color: white;
-  background-color: #f59d9c;
+  background-color: #d14836;
   padding: 15px;
 }
 
 .appointment-btn:hover {
-  background-color: #7093e5;
+  background-color: #2779a7;
   transition: all 0.5s ease-in;
 }
 
 .appointment-btn:hover .btn-icon {
-  background-color: #a9c0f5;
+  background-color: #2779a7;
   transition: all 0.5s ease-in;
 }
 
@@ -162,11 +162,15 @@ ul li {
 }
 
 @media only screen and (max-width: 993px) {
-
   .sigma-about-fild h1,
   .chooseUs-Fild h2,
   .our-service h3,
   .doctors h3 {
     font-size: 60px;
   }
+}
+
+.fa-check-square:before {
+  color: #d14836;
+  font-size: 16px;
 }

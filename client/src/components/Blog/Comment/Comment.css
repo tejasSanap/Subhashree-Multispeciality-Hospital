@@ -29,7 +29,7 @@
   width: 100%;
   height: 150px;
   background: #e7e7e7;
-  border: 1px solid #7093e5;
+  border: 1px solid #2779a7;
   border-radius: 10px;
   margin: 15px 0;
   padding: 10px;
@@ -40,10 +40,10 @@
 }
 .commentForm p {
   font-size: 20px;
-  color: #7093e5;
+  color: #2779a7;
 }
 .commentForm h3 {
-  color: #7093e5;
+  color: #2779a7;
   margin-top: 20px;
 }
 .commentForm .custom-btn {

@@ -30,9 +30,10 @@ const Services = () => {
                   We Provide <br /> <span> Medical Services</span>
                 </h1>
                 <p className="text-secondary lh-2 mt-3">
-                  It is a long established fact that a reader will be distracted
-                  by the <br /> readable content of a page when looking at its
-                  layout.
+                  We provide a variety of medical services, always placing your
+                  well-being first. <br /> Our experienced team combines compassion and
+                  expertise to ensure your <br /> health is in good hands. Trust us to
+                  be your partner on the journey to wellness.
                 </p>
                 <NavLink to="/service">
                   <button className="services-btn mt-5 mb-5">

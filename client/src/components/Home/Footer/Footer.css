@@ -1,8 +1,8 @@
 :root {
   --footer-bg: #eff1fe;
-  --primary-color: #7093e5;
+  --primary-color: #2779a7;
   --body-color: #6e7990;
-  --second-color: #f68685;
+  --second-color: #d14836;
 }
 footer {
   background-color: var(--footer-bg);
@@ -45,15 +45,20 @@ footer .container .row:first-child {
 
 .footer-menu-heading {
   margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
 }
+
 .footer-menu .footer-item {
   display: block;
   text-decoration: none;
   color: var(--body-color);
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 15px;
   transition: all 0.3s ease-in-out;
-  font-size: 18px;
+  font-size: 16px;
+  margin-left: 20px;
+
 }
 .footer-menu .footer-item:hover {
   color: var(--primary-color);
@@ -67,10 +72,11 @@ ul {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(82, 95, 129, 0.09);
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 16px;
   padding-bottom: 10px;
   margin-top: 3px;
+  margin-right: 50px;
 }
 .working li:last-child {
   border-bottom: none;
@@ -84,7 +90,7 @@ ul {
 
 .reach-us li {
   margin-bottom: 15px;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--body-color);
   font-weight: 400;
 }
@@ -101,7 +107,7 @@ ul {
   margin-right: 10px;
 }
 .reach-us li a:hover {
-  color: var(--primary-color);
+  color: var(--second-color);
 }
 .spical a {
   width: 35px;
@@ -129,7 +135,17 @@ ul {
   font-weight: 400;
   color: var(--body-color);
   margin-bottom: 10px;
+  font-size: 14px;
 }
 hr {
   color: var(--primary-color);
+}
+
+.footer-heading {
+  color: #d14836;
+}
+
+.descript {
+  font-weight: normal !important;
+  font-size: 16px !important;
 }

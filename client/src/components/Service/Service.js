@@ -10,7 +10,9 @@ const Service = () => {
     <>
       <Header />
       <div
-        style={{ background: `url(https://i.ibb.co/nkk3JJV/specialization-banner.jpg)` }}
+        style={{
+          background: `url(https://i.ibb.co/nkk3JJV/specialization-banner.jpg)`,
+        }}
         className="backcrumb-my mb-5"
       >
         <nav aria-label="breadcrumb">
@@ -32,16 +34,21 @@ const Service = () => {
           SigmaCare <span>Medical Services</span>
         </h1>
         <p className="text-center pt-3 para mb-3">
-          It is a long established fact that a reader will be distracted by the
-          readable <br />
-          content of a page when looking at its layout.
+          We provide a variety of medical services, always placing your
+          well-being first. <br /> Our experienced team combines compassion and
+          expertise to ensure your <br /> health is in good hands. Trust us to
+          be your partner on the journey to wellness.
         </p>
         <div className="services">
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/DWFNsJ3/Health-Check-Up.png" alt="" />
+                  <img
+                    className="img-fluid"
+                    src="https://i.ibb.co/DWFNsJ3/Health-Check-Up.png"
+                    alt=""
+                  />
                 </div>
                 <h4 className="text-center">Health CheckUp</h4>
                 <p className="para text-center">
@@ -49,29 +56,37 @@ const Service = () => {
                   urine tests lungs function tests, and cardiac test.
                 </p>
                 <Link to="/appointment" className="service-btn">
-                <span>Appointment</span> <i className="fas fa-plus"></i>
-              </Link>
+                  <span>Appointment</span> <i className="fas fa-plus"></i>
+                </Link>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/FKtN5rj/X-Ray.png" alt="" />
+                  <img
+                    className="img-fluid"
+                    src="https://i.ibb.co/FKtN5rj/X-Ray.png"
+                    alt=""
+                  />
                   <h4 className="text-center">X-Ray</h4>
                   <p className="para text-center">
                     An X-ray is an imaginaring test that produces pictures of
                     the organs, tissues, and bones of the body.
                   </p>
                   <Link to="/appointment" className="service-btn">
-                <span>Appointment</span> <i className="fas fa-plus"></i>
-              </Link>
+                    <span>Appointment</span> <i className="fas fa-plus"></i>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/XLKn1KF/Blood-Bank.png" alt="" />
+                  <img
+                    className="img-fluid"
+                    src="https://i.ibb.co/XLKn1KF/Blood-Bank.png"
+                    alt=""
+                  />
                 </div>
                 <h4 className="text-center">Blood Bank</h4>
                 <p className="para text-center">
@@ -79,14 +94,18 @@ const Service = () => {
                   make sure that donated blood, or blood products
                 </p>
                 <Link to="/appointment" className="service-btn">
-                <span>Appointment</span> <i className="fas fa-plus"></i>
-              </Link>
+                  <span>Appointment</span> <i className="fas fa-plus"></i>
+                </Link>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/xm4wKc6/Laboratory.png" alt="" />
+                  <img
+                    className="img-fluid"
+                    src="https://i.ibb.co/xm4wKc6/Laboratory.png"
+                    alt=""
+                  />
                 </div>
                 <h4 className="text-center">Laboratory</h4>
                 <p className="para text-center">
@@ -94,14 +113,18 @@ const Service = () => {
                   that are used to diagnose and treat patients.
                 </p>
                 <Link to="/appointment" className="service-btn">
-                <span>Appointment</span> <i className="fas fa-plus"></i>
-              </Link>
+                  <span>Appointment</span> <i className="fas fa-plus"></i>
+                </Link>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/4fCm8JX/Outdoor-Checkup.png" alt="" />
+                  <img
+                    className="img-fluid"
+                    src="https://i.ibb.co/4fCm8JX/Outdoor-Checkup.png"
+                    alt=""
+                  />
                 </div>
                 <h4 className="text-center">Outdoor Checkup</h4>
                 <p className="para text-center">
@@ -109,14 +132,18 @@ const Service = () => {
                   Care Service, Postoperative Care Service.
                 </p>
                 <Link to="/appointment" className="service-btn">
-                <span>Appointment</span> <i className="fas fa-plus"></i>
-              </Link>
+                  <span>Appointment</span> <i className="fas fa-plus"></i>
+                </Link>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="service mb-3">
                 <div>
-                  <img className="img-fluid" src="https://i.ibb.co/3W8XMwT/Ambulance.png" alt="" />
+                  <img
+                    className="img-fluid"
+                    src="https://i.ibb.co/3W8XMwT/Ambulance.png"
+                    alt=""
+                  />
                 </div>
                 <h4 className="text-center">Ambulance</h4>
                 <p className="para text-center">
@@ -124,8 +151,8 @@ const Service = () => {
                   medical conditions at any time anywhere.
                 </p>
                 <Link to="/appointment" className="service-btn">
-                <span>Appointment</span> <i className="fas fa-plus"></i>
-              </Link>
+                  <span>Appointment</span> <i className="fas fa-plus"></i>
+                </Link>
               </div>
             </div>
           </div>

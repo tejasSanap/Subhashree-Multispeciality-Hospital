@@ -24,12 +24,8 @@ const Blogs = () => {
           </div>
         </div>
         <Row className="blog-my gx-4 gy-5" xs={1} md={2} lg={3} xl={4}>
-          {blogCollection.isLoading ? (
-            <div className="looder-my">
-              <ScaleLoader color={"#2779a7"} size={150} />
-            </div>
-          ) : (
-            blogCollection?.data?.map((blog) => (
+          {(
+            blogCollection?.map((blog) => (
               <Col>
                 <div className="card-design h-100">
                   <div className="img-design">

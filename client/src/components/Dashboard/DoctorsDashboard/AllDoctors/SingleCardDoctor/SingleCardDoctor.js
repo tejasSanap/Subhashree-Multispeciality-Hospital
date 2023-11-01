@@ -18,7 +18,7 @@ const SingleCardDoctor = ({ doc }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:7050/doctors/${id}`, {
+        fetch(`http://localhost:7080/api/doctor/deleteDoctor/${id}`, {
           method: "DELETE",
           headers: { "content-type": "application/json" },
         })

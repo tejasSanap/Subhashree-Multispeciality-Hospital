@@ -9,5 +9,4 @@ router.post("/signup", authController.signup, (req, res) => {
 router.post("/login", authController.login, (req, res) => {
   console.log("login route hit");
 });
-
 module.exports = router;

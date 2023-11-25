@@ -1,8 +1,8 @@
 .login-form button,
 .overlay-container button {
   border-radius: 20px;
-  border: 1px solid #7093e5;
-  background-color: #7093e5;
+  border: 1px solid #2779a7;
+  background-color: #2779a7;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -27,8 +27,10 @@
 
 button.ghost {
   background-color: transparent;
-  border-color: #ffffff;
-  margin-top: 15px;
+  border-color: #000;
+  margin-top: 16px;
+  color: #000;
+  border-radius: 4px;
 }
 
 .login-form {
@@ -52,7 +54,7 @@ button.ghost {
 
 .con {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 4px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
@@ -123,13 +125,13 @@ button.ghost {
 }
 
 .overlay {
-  background: #7093e5;
-  background: -webkit-linear-gradient(to right, #7093e5, #f68685);
-  background: linear-gradient(to right, #7093e5, #f68685);
+  background: #2779a7;
+  background: -webkit-linear-gradient(to right, #2779a7, #fff);
+  background: linear-gradient(to right, #2779a7, #fff);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
-  color: #ffffff;
+  color: #000;
   position: relative;
   left: -100%;
   height: 100%;
@@ -294,9 +296,9 @@ button.ghost {
   }
 
   .overlay {
-    background: #7093e5;
-    background: -webkit-linear-gradient(to right, #7093e5, #f68685);
-    background: linear-gradient(to right, #7093e5, #f68685);
+    background: #2779a7;
+    background: -webkit-linear-gradient(to right, #2779a7, #d14836);
+    background: linear-gradient(to right, #2779a7, #d14836);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -363,9 +365,9 @@ button.ghost {
     z-index: 2;
   }
   .overlay {
-    background: #7093e5;
-    background: -webkit-linear-gradient(to right, #7093e5, #f68685);
-    background: linear-gradient(to right, #7093e5, #f68685);
+    background: #2779a7;
+    background: -webkit-linear-gradient(to right, #2779a7, #d14836);
+    background: linear-gradient(to right, #2779a7, #d14836);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;

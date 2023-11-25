@@ -1,5 +1,5 @@
 .btn-blog {
-  background-color: #7093e5;
+  background-color: #2779a7;
   color: white;
   padding: 5px 10px;
   border-radius: 3px;
@@ -9,7 +9,7 @@
 }
 .single-blog-info h2 {
   margin: 15px 0;
-  color: #7093e5;
+  color: #2779a7;
   position: relative;
   display: inline-block;
 }
@@ -18,7 +18,7 @@
   left: 0;
   top: 100%;
   content: "";
-  background-color: #7093e5;
+  background-color: #2779a7;
   width: 0%;
   height: 2px;
   transition: 0.3s all linear;
@@ -36,7 +36,7 @@
 }
 .single-blog-info h4 {
   margin: 15px 0;
-  color: #7093e5;
+  color: #2779a7;
 }
 .single-blog-info {
   margin-bottom: 40px;
@@ -112,7 +112,7 @@
 
 .search input:focus {
   box-shadow: none;
-  border: 2px solid #7093e5;
+  border: 2px solid #2779a7;
 }
 
 .search .fa-search {
@@ -125,7 +125,7 @@
   position: absolute;
   height: 100%;
   width: 110px;
-  background: #7093e5;
+  background: #2779a7;
   transition: 0.2s all ease-in;
 }
 .search button:hover {

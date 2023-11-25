@@ -2,36 +2,34 @@
   padding: 50px;
   margin: 0 50px;
   background-color: #7093e52d;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 .input-field-name,
 .service-doctor-shift,
 .description-box {
   width: 100%;
   padding: 10px 15px;
-  font-family: "Font Awesome 5 Brands";
-  border: 1px solid #f68685;
+  border: 1px solid #D14836;
 }
 
 .input-field-name:focus-visible,
 .service-doctor-shift:focus-visible,
 .description-box:focus-visible {
-  border: 1px solid #0062ff;
+  border: 1px solid #2779a7;
   outline: none;
 }
 
 .service-doctor:focus-visible {
-  border: 1px solid #0062ff;
+  border: 1px solid #2779a7;
   outline: none;
 }
 .service-doctor {
   width: 100%;
   padding: 12px 15px;
-  border: 1px solid #f68685;
+  border: 1px solid #D14836;
 }
 
 .appointment {
-  letter-spacing: 2px;
   font-weight: 600;
 }
 
@@ -44,32 +42,38 @@
 
 @-webkit-keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 #f68685;
+    box-shadow: 0 0 0 0 #D14836;
   }
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 #f68685;
+    box-shadow: 0 0 0 0 #D14836;
   }
 }
 
 button.pulse {
-  color: #022adf;
+  color: #2779a7;
   transition: 0.25s;
 }
 button.pulse:hover,
 button.pulse:focus {
-  border-color: #f68685;
-  color: #f68685;
+  border-color: #D14836;
+  color: #D14836;
 }
 button.pulse {
   background: none;
   border: 2px solid;
   line-height: 1;
-  font-size: 18px;
+  font-size: 16px;
   margin: 30px 12px;
   padding: 1em 2em;
-  width: 350px;
-  letter-spacing: 3px;
+  width: 250px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.input-field-name{
+  font-size: 16px;
+  color: #3a3a3a;
 }

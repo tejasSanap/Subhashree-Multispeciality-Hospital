@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Col, Container, NavLink, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Col, Container, NavLink, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 // import { useGetDoctorsQuery } from '../../../features/sigmaApi';
-import axios from '../../../utils/axiosConfig';
+import axios from "../../../utils/axiosConfig";
 
 const SingleTeam = () => {
   const [doctorsCollection, setDoctorsCollection] = useState([]);
@@ -10,14 +10,14 @@ const SingleTeam = () => {
     const fetchDoctors = async () => {
       const res = await axios.get("/api/doctor/getAllDoctors");
       setDoctorsCollection(res);
-    }
+    };
     fetchDoctors();
-  }, [])
+  }, []);
   return (
     <Container>
       <Row>
         <div className="title text-center">
-          <h6>Doctors</h6>
+          <h6 style={{ color: "#2779a7" }}>Doctors</h6>
           <h3>Best Specialist Doctors</h3>
         </div>
       </Row>
@@ -31,27 +31,6 @@ const SingleTeam = () => {
                 alt="..."
               />
               <div className="row card-img-overlay">
-                <div className="icon-setup">
-                  <a
-                    href={doctor?.facebook}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <i className="fab fa-facebook-square"></i>
-                  </a>
-                  <br />
-                  <a
-                    href={doctor?.twitter}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <i className="fab fa-twitter-square"></i>
-                  </a>
-                  <br />
-                  <a href={doctor?.email} target="_blank" rel="noreferrer">
-                    <i className="fab fa-google"></i>
-                  </a>
-                </div>
                 <div className="mt-auto text-center  about-doctor">
                   <h2>
                     <Link

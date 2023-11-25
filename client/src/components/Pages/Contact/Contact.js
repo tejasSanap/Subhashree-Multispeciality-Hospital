@@ -14,30 +14,31 @@ const Contact = () => {
   const sendEmail = (e) => {
     console.log(form.current);
     e.preventDefault();
-    emailjs.sendForm(
-      "service_5fctlnm",
-      "template_c9ss9cm",
-      form.current,
-      "user_cKgbE80VqOVlLKlhO7S97"
-    )
+    emailjs
+      .sendForm(
+        "service_5fctlnm",
+        "template_c9ss9cm",
+        form.current,
+        "user_cKgbE80VqOVlLKlhO7S97"
+      )
       .then(
         (result) => {
           Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your Message has been Send',
+            position: "top-end",
+            icon: "success",
+            title: "Your Message has been Send",
             showConfirmButton: false,
-            timer: 1500
-          })
+            timer: 1500,
+          });
         },
         (error) => {
           Swal.fire({
-            position: 'top-end',
-            icon: 'error',
-            title: 'Something worng',
+            position: "top-end",
+            icon: "error",
+            title: "Something worng",
             showConfirmButton: false,
-            timer: 1500
-          })
+            timer: 1500,
+          });
         }
       );
   };
@@ -45,7 +46,10 @@ const Contact = () => {
   return (
     <>
       <Header />
-      <div style={{ background: `url(https://i.ibb.co/9nmC6s9/ki-14-1.jpg)` }} className="backcrumb-my ">
+      <div
+        style={{ background: `url(https://i.ibb.co/9nmC6s9/ki-14-1.jpg)` }}
+        className="backcrumb-my "
+      >
         <nav aria-label="breadcrumb">
           <h3>Contact Us</h3>
           <ol className="breadcrumb">
@@ -66,21 +70,22 @@ const Contact = () => {
               <div className="contact-item">
                 <RiMapPinLine />
                 <h6>LOCATION</h6>
-                <p>1234 North Avenue Luke, South Bend, IN 360001</p>
+                First Floor, Durganand Heights Gajanan Mandir, Road, Pundlik
+                Nagar, Aurangabad, Maharashtra 431009
               </div>
             </Col>
             <Col>
               <div className="contact-item">
                 <FaEnvelopeOpen />
                 <h6>EMAIL</h6>
-                <p>sigmacare2022@gmail.com</p>
+                <p>subhasharihospital123</p>
               </div>
             </Col>
             <Col>
               <div className="contact-item">
                 <RiPhoneLine />
                 <h6>CALL ANYTIME</h6>
-                <p>+8801629094984</p>
+                <p>+91 XXXXX XXXXX</p>
               </div>
             </Col>
           </Row>
@@ -165,7 +170,7 @@ const Contact = () => {
                                 {errors.Message && errors.Message.type === "maxLength" && <span className='text-danger pt-2  d-inline-block'>Message text overloaded</span>}
                             </Col> */}
               <button type="submit" className="header-btn btn-hover">
-                Sent Message
+                Send Message
               </button>
             </Row>
           </form>

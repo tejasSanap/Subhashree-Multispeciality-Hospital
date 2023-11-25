@@ -10,6 +10,7 @@ const Test = () => {
     const [role] = useAtom(roleAtom);
     const [admin] = useAtom(adminAtom);
     const [doctor] = useAtom(doctorAtom);
+    // console.log("2")
 
     return (
         <div>

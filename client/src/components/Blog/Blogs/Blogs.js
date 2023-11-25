@@ -10,11 +10,8 @@ import Header from "../../Share/Header/Header";
 import "./Blogs.css";
 import axios from "../../../utils/axiosConfig";
 import { useEffect, useState } from "react";
-
 const Blogs = () => {
   const [blogCollection,setBlogCollection] = useState([]);
-
-
   useEffect(()=>{
     const getAllBlog  = async() =>{
       const res = await axios.get("/api/Blog")
@@ -23,10 +20,7 @@ const Blogs = () => {
     }
     getAllBlog();
   },[])
-
-
   console.log("blogs",blogCollection);
-
   return (
     <>
       <Header />
@@ -35,7 +29,6 @@ const Blogs = () => {
           <div class="one">
             <h1 className="re">Our Recent Article</h1>
           </div>
-
         </div>
         <Row className="blog-my gx-4 gy-5" xs={1} md={2} lg={3} xl={4} >
           {(
@@ -89,5 +82,4 @@ const Blogs = () => {
     </>
   );
 };
-
 export default Blogs;

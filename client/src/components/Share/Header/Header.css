@@ -6,24 +6,26 @@
   color: white;
   transition: all 0.5s ease-in;
   font-weight: 400;
-  border-radius: 5px;
+  border-radius: 4px;
   height: 48px;
-  margin-top: 35px;
+  margin-top: 8px;
   display: inline-block;
 }
 
 .header-btn.btn-hover {
-  background-color: #f68685;
+  background-color: #2779a7;
 }
 .header-btn.btn-hover .header-icon {
-  background-color: #f59d9c;
+  background-color: #2779a7;
+  border-radius: 4px;
+
 }
 .header-btn.btn-hover:hover {
-  background-color: #a9c0f5;
+  background-color: #D14836;
   color: white;
 }
 .header-btn.btn-hover:hover .header-icon {
-  background-color: #7d9eeb;
+  background-color: #D14836;
 }
 .header-icon {
   font-size: 15px;
@@ -39,13 +41,13 @@
   margin-top: 35px;
   margin-left: 8px;
   color: white;
-  background-color: #f68685;
+  background-color: #D14836;
   padding: 0px 10px 2px 10px;
   transition: all 0.5s ease-in;
   display: inline-block;
 }
 .header-btn:hover .header-icon {
-  background-color: #a9c0f5;
+  background-color: #2779a7;
 }
 
 .shoping-card {
@@ -82,7 +84,7 @@
   margin-left: 0;
   font-size: 30px;
   padding: 1px 10px;
-  background-color: #f59d9c;
+  background-color: #D14836;
   margin-bottom: 5px;
 }
 .icon:hover .icon-position {
@@ -114,7 +116,7 @@
   max-height: 120px;
 }
 .is-active {
-  color: #ff5800 !important;
+  color: #D14836 !important;
 }
 
 .navBar .col-md-3 {
@@ -142,19 +144,19 @@ li {
   list-style-type: none;
 }
 .menu-item a {
-  padding: 12px;
-  font-size: 17px;
+  padding: 0 12px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 40px;
+  line-height: 20px;
   position: relative;
   display: block;
-  color: #545050;
-  margin: 27px 0px;
+  color: #3a3a3a;
+  margin: 16px 0px;
   text-decoration: none;
   cursor: pointer;
 }
 .menu-item .sub__menus a:hover {
-  background-color: #7093e5;
+  background-color: #2779a7;
   color: #ffffff;
 }
 .header__middle__logo {
@@ -203,7 +205,7 @@ li {
 /* user info  */
 .users-info img {
   border-radius: 50%;
-  border: 5px solid #335ab4;
+  border: 5px solid #2779a7;
   margin-bottom: 15px;
 }
 .users-info h3 {
@@ -211,17 +213,17 @@ li {
   background: -webkit-radial-gradient(
     circle farthest-corner at top center,
     #ff1800 0%,
-    #335ab4 100%
+    #2779a7 100%
   );
   background: -moz-radial-gradient(
     circle farthest-corner at top center,
     #ff1800 0%,
-    #335ab4 100%
+    #2779a7 100%
   );
   background: radial-gradient(
     circle farthest-corner at top center,
     #ff1800 0%,
-    #335ab4 100%
+    #2779a7 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -242,7 +244,7 @@ li {
 }
 
 .menu-item:hover > a {
-  color: #7093e5 !important;
+  color: #2779a7 !important;
 }
 .menu-item .sub__menus li:hover a {
   color: #ffffff !important;

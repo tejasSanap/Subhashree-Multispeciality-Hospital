@@ -51,7 +51,7 @@
 }
 
 .menu_area .right_icon_area ul li::before {
-  background-color: #f68685;
+  background-color: #d14836;
   position: absolute;
   content: attr(data-tag);
   top: 50px;
@@ -74,7 +74,7 @@
 }
 .menu_area .right_icon_area ul li:last-child {
   /* margin-right: 0px; */
-  background-color: #f68685;
+  background-color: #d14836;
   color: #fff;
   border-radius: 5px;
 }
@@ -86,7 +86,7 @@
   content: "";
   width: 10px;
   height: 10px;
-  background-color: rgb(194, 56, 56);
+  background-color: #d14836;
   border-radius: 50%;
   position: absolute;
   right: 14px;
@@ -212,12 +212,12 @@
 
 /* for mobile devices */
 .dashboard_hamburger_btn {
-  background-color: #f68685;
+  background-color: #d14836;
   color: white;
   font-size: 22px;
 }
 .dashboard_hamburger_btn:hover {
-  background-color: #7093e6;
+  background-color: #2779a7;
   color: white;
   font-size: 22px;
 }
@@ -232,7 +232,7 @@
 }
 
 .offcanvas_header {
-  background-color: #f68685;
+  background-color: #d14836;
   height: 58px;
   color: #fff;
 }

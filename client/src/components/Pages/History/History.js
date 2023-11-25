@@ -31,7 +31,7 @@ const History = () => {
         <Container>
           <Row>
             <div className="title text-center">
-              <h6>HISTORY</h6>
+              <h6 style={{color:"#2779a7"}}>HISTORY</h6>
               <h3>OUR HISTORY</h3>
             </div>
           </Row>

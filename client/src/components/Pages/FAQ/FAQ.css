@@ -2,10 +2,10 @@
   font-size: 18px;
   letter-spacing: 3px;
   margin-bottom: 10px;
-  color: #4e87f2;
+  color: #2779a7;
 }
 .title h3 {
-  font-size: 45px;
+  font-size: 40px;
   margin-bottom: 30px;
 }
 .accordion-button::after {
@@ -15,8 +15,8 @@
   margin-left: auto;
   content: "+";
   background-image: none;
-  transition: transform 0.2s ease-in-out;
-  font-size: 40px;
+  transition: transform 0.5s ease-in-out;
+  font-size: 24px;
   margin-top: -25px;
 }
 
@@ -32,7 +32,7 @@
   box-shadow: none;
 }
 .accordion-button:not(.collapsed) {
-  background-color: #4e87f2;
+  background-color: #2779a7;
   color: #fff;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
@@ -41,10 +41,14 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 27px;
-  background-color: #4e87f2b2;
+  background-color: #2779a7;
 }
 .accordion-item {
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
   margin-bottom: 20px;
 }
+/* 
+.accordion-header button{
+  font-size: 24px !important;
+} */

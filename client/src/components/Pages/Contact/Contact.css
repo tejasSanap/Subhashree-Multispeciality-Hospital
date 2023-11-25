@@ -28,13 +28,13 @@
 }
 .contact-item svg {
   font-size: 45px;
-  color: #f68685;
+  color: #d14836;
   margin-bottom: 20px;
 }
 .contact-item h6,
 .contact-title h6 {
   letter-spacing: 3px;
-  color: #1885ce;
+  color: #2779a7;
 }
 .contact-item p {
   margin-top: 7px;
@@ -48,7 +48,7 @@
   font-weight: 300;
 }
 .contact-title h2 strong {
-  color: #f68685;
+  color: #d14836;
 }
 .contact-title p {
   color: #6e7990;
@@ -58,8 +58,8 @@
 .contact form textarea {
   width: 100%;
   display: inline-block;
-  padding: 15px;
-  border: 1px solid transparent;
+  padding: 14px;
+  border: 2px solid transparent;
   background-color: #ecf2ff;
   outline: none;
   transition: 0.3s all ease-in-out;
@@ -68,7 +68,7 @@
 .contact form textarea:hover,
 .contact form input:focus,
 .contact form textarea:focus {
-  border: 1px solid #f68685;
+  border: 1px solid #d14836;
 }
 .contact form .header-btn {
   padding: 15px;

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -18,7 +17,7 @@ import axios from "../../../utils/axiosConfig";
 const Review = () => {
   // const user = useSelector((state) => state.auth.auth);
   const [user, setUser] = useAtom(userAtom);
-  console.log("user", user.email)
+  console.log("user", user.email);
   const [rating, setRate] = useState(0);
   const {
     register,

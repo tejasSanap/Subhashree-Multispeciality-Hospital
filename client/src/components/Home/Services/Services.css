@@ -12,7 +12,7 @@
 }
 
 .service-left h6 {
-  color: #7093e5;
+  color: #2779a7;
 }
 .service-left h1 {
   font-weight: 400;
@@ -29,7 +29,7 @@
 .services-btn {
   margin-top: 50px;
   border: none;
-  background-color: #f68685;
+  background-color: #D14836;
   color: white;
   margin-bottom: 27px;
   transition: all 0.5s ease-in;
@@ -43,14 +43,14 @@
 }
 
 .services-btn:hover {
-  background-color: #7093e5;
+  background-color: #2779a7;
 }
 .services-btn:hover .btn-icon {
   background-color: #8bacf8;
 }
 
 .service-right {
-  background-color: #f68685;
+  background-color: #D14836;
   height: 100vh;
   width: 100%;
   margin: auto;
@@ -73,16 +73,16 @@
 }
 
 .read-more-link {
-  color: #7093e5;
+  color: #2779a7;
   font-weight: 500;
 }
 .read-more-link:hover {
-  color: #f68685;
+  color: #D14836;
   font-weight: 500;
 }
 
 .service-card-icon {
-  background-color: #7093e5;
+  background-color: #2779a7;
   padding: 1rem;
   margin-top: 2rem;
   margin-right: auto;
@@ -93,7 +93,7 @@
 }
 
 .service-card-icon:hover {
-  background: #7093e5;
+  background: #2779a7;
   animation: zoom-in-zoom-out 1s ease infinite;
 }
 

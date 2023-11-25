@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { Button, Card, Container, Form } from "react-bootstrap";
-import axios from "../../utils/axiosConfig"
+import axios from "../../utils/axiosConfig";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
 import { adminAtom } from "../../store/atom";
@@ -47,10 +47,18 @@ const AddDoctorsDetails = () => {
       newDoctorData[field] = e.target.checked
         ? [...newDoctorData[field], value]
         : newDoctorData[field].filter((shift) => shift !== value);
-    } else if (field === "eduLine1" || field === "eduLine2" || field === "eduLine3") {
+    } else if (
+      field === "eduLine1" ||
+      field === "eduLine2" ||
+      field === "eduLine3"
+    ) {
       // Handle eduLines as nested objects
       newDoctorData.eduLines[field] = value;
-    } else if (field === "awardFirst" || field === "awardSecond" || field === "awardThird") {
+    } else if (
+      field === "awardFirst" ||
+      field === "awardSecond" ||
+      field === "awardThird"
+    ) {
       // Handle awards as nested objects
       newDoctorData.awards[field] = value;
     } else {
@@ -79,33 +87,29 @@ const AddDoctorsDetails = () => {
         }
       }
     }
-    console.log("formData", doctorData)
+    console.log("formData", doctorData);
 
     try {
-      let token = localStorage.getItem('token')
+      let token = localStorage.getItem("token");
       if (token) {
         const config = {
           headers: { Authorization: `JWT ${token}` },
-        }
+        };
         console.log(config);
         console.log(token);
-        let res = await axios.post("/api/doctor/addDoctor", doctorData, config)
+        let res = await axios.post("/api/doctor/addDoctor", doctorData, config);
         console.log("Res", res);
-        console.log("object id", admin.id)
+        console.log("object id", admin.id);
 
-        console.log("referce id", admin.referenceId)
-
-
+        console.log("referce id", admin.referenceId);
 
         if (res.status === 200) {
-          navigate('/adminLogin');
+          navigate("/adminLogin");
         }
       }
     } catch (e) {
-      console.log("error", e)
+      console.log("error", e);
     }
-
-
 
     // formData.append("image", image);
 
@@ -336,7 +340,6 @@ const AddDoctorsDetails = () => {
                     />
                   </Form.Group>
                 </div>
-
 
                 <div className="row">
                   <div className="col-12 col-sm-6 col-md-6 col-lg-6">

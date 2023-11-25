@@ -367,7 +367,7 @@ const DashboardMain = () => {
       <div className="dashboardHeader container-fluid">
         <div className="logo_area">
           <Link to="/home">
-            <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="" />
+            {/* <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="" /> */}
           </Link>
         </div>
         <div className="menu_area">
@@ -413,7 +413,7 @@ const DashboardMain = () => {
           <div className="dasboard_user">
             <img src={admin?.photoURL} alt="doctor or user" />
             <div>
-              <span>Welcome lol </span>
+              <span>Welcome</span>
               <div>
                 <NavDropdown
                   title={admin.name}

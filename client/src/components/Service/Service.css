@@ -10,7 +10,7 @@
 }
 .sr-nav {
   margin: 0 10px;
-  color: #7093e5;
+  color: #2779a7;
 }
 .service img {
   margin-left: 74px;
@@ -22,7 +22,7 @@
   margin-top: 35px;
 }
 .sr {
-  color: #6ec1e4;
+  color: #2779a7;
   text-transform: uppercase;
   letter-spacing: 3px;
 }
@@ -39,7 +39,7 @@
   font-weight: 400;
 }
 .service .service-btn {
-  background-color: #f68685;
+  background-color: #2779a7;
   height: 50px;
   width: 200px;
   text-decoration: none;
@@ -61,11 +61,11 @@
 }
 
 .service .service-btn:hover {
-  background-color: #7093e5;
+  background-color: #d14836;
 }
 
 .service .service-btn i {
-  background-color: #faa2a1;
+  background-color: #2779a7 ;
   height: 50px;
   width: 50px;
   display: flex;
@@ -75,7 +75,7 @@
   border-radius: 0 5px 5px 0;
 }
 .service .service-btn:hover i {
-  background-color: #8bacf8;
+  background-color: #d14836;
 }
 
 .services {
@@ -117,11 +117,11 @@
   }
 
   .service .service-btn:hover {
-    background-color: #7093e5;
+    background-color: #2779a7;
   }
 
   .service .service-btn i {
-    background-color: #faa2a1;
+    background-color: #d14836 ;
     height: 50px;
     width: 50px;
     display: flex;
@@ -131,6 +131,6 @@
     border-radius: 0 5px 5px 0;
   }
   .service .service-btn:hover i {
-    background-color: #8bacf8;
+    background-color: #2779a7;
   }
 }

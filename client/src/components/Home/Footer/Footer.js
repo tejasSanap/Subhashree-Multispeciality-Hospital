@@ -52,18 +52,12 @@ const Footer = () => {
       <Container>
         <Row>
           <Col sm={6} lg={4}>
-            <div className="footer-logo">
-              <img
-                className="img-fluid"
-                src="https://i.ibb.co/hRX83Sc/logo.png"
-                alt="Sigma Central Hospital"
-              />
-            </div>
+            <h1 className="footer-heading">Subhashree Hospital</h1>
             <div className="footer-text">
-              <h2>Newsletter</h2>
-              <p>
-                It is a long established fact that a reader will be distracted
-                by the readable content.
+              <h2 style={{ fontWeight: 500, fontSize: "18px" }}>Newsletter</h2>
+              <p className="descript">
+                Subscribe to our newsletter for the latest health tips, updates,
+                and exclusive offers delivered directly to your inbox.
               </p>
             </div>
             <div className="footer-form">
@@ -72,7 +66,7 @@ const Footer = () => {
                   <input
                     type="email"
                     {...register("email", { required: true })}
-                    placeholder="Email Adress"
+                    placeholder="Email Address"
                   />
 
                   <button type="submit" value="sign up">
@@ -88,7 +82,9 @@ const Footer = () => {
           </Col>
           <Col sm={6} lg={2}>
             <div className="footer-menu-heading">
-              <h3>Useful Links</h3>
+              <h3 style={{ fontWeight: 600, fontSize: "20px", marginLeft: "20px"}}>
+                Useful Links
+              </h3>
             </div>
             <ul className="footer-menu">
               <Link className="footer-item" to="/about">
@@ -110,37 +106,35 @@ const Footer = () => {
           </Col>
           <Col sm={6} lg={3}>
             <div className="footer-menu-heading">
-              <h3>Working Day</h3>
+              <h3 style={{ fontWeight: 600, fontSize: "20px" }}>
+                Working Days
+              </h3>
             </div>
             <ul className="working">
               <li>
                 <span>Weekdays</span>
-                <span>9:00 - 20:00</span>
-              </li>
-              <li>
-                <span>Friday</span>
-                <span>9:00 - 20:00</span>
+                <span>11:00 - 22:00</span>
               </li>
               <li>
                 <span>Saturday</span>
-                <span>10:00 - 18:00</span>
+                <span>10:00 – 22:00</span>
               </li>
               <li>
                 <span>Sunday</span>
-                <span>Closed</span>
+                <span>10:00 – 23:00</span>
               </li>
             </ul>
           </Col>
           <Col sm={6} lg={3}>
             <div className="footer-menu-heading">
-              <h3>Reach Us</h3>
+              <h3 style={{ fontWeight: 500, fontSize: "18px" }}>Reach Us</h3>
             </div>
             <ul className="reach-us">
               <li>
                 <a rel="noreferrer" target="_blank" href="tell:01629094984">
                   {" "}
                   <FaPhone />
-                  +8801629094984
+                  +91 XXXXX XXXXX
                 </a>
               </li>
               <li>
@@ -150,13 +144,13 @@ const Footer = () => {
                   href="mailto:support@gmail.com"
                 >
                   <FaEnvelope />
-                  support@gmail.com
+                  subhasharihospital123@gmail.com
                 </a>
               </li>
               <li>
-                {" "}
                 <FaMapMarkerAlt />
-                1234 North Avenue Luke, South Bend, IN 360001
+                First Floor, Durganand Heights Gajanan Mandir, Road, Pundlik
+                Nagar, Aurangabad, Maharashtra 431009
               </li>
               <li className="spical">
                 <a
@@ -189,7 +183,7 @@ const Footer = () => {
         <Row>
           <Col>
             <p className="foot-note">
-              Copyright 2022 Sigma All Rights Reserved.
+              Copyright 2023 | Subhashree Hospital | All Rights Reserved.
             </p>
           </Col>
         </Row>

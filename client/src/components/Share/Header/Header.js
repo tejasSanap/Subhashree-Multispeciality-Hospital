@@ -3,11 +3,12 @@ import { FiChevronDown } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
 // import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { removeUser } from "../../../features/authSlice";
 import "./Header.css";
 import { userAtom } from "../../../store/atom";
 import { useAtom } from "jotai";
+import { isLoginAtom } from "../../../store/atom";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -18,9 +19,10 @@ const Header = () => {
   const admin = {};
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
-
+  const navigate = useNavigate();
   const [isMenu, setisMenu] = useState(false);
   const [isResponsiveclose, setResponsiveclose] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useAtom(isLoginAtom);
   const toggleClass = () => {
     setisMenu(isMenu === false ? true : false);
     setResponsiveclose(isResponsiveclose === false ? true : false);
@@ -50,9 +52,10 @@ const Header = () => {
     localStorage.removeItem('adminData');
     localStorage.removeItem('doctor');
     localStorage.removeItem('user');
-    localStorage.removeItem('isLogin');
+    // localStorage.removeItem('isLogin');
+    setIsLoggedIn(false);
     console.log("Removed local storage atoms")
-
+    window.location.reload();
   }
   let boxClassSubMenu = ["sub__menus"];
   let boxClassSubMenu1 = ["sub__menus"];
@@ -69,7 +72,12 @@ const Header = () => {
   // const user = useSelector((state) => state.auth.auth);
   console.log(user, "user");
   // const admin = useSelector((state) => state.admin.admin);
-
+  const handleAppointmentClick = ()=>{
+    console.log("Cleck",isLoggedIn)
+    if (isLoggedIn === false) {
+      navigate('/login');
+    }
+  }
   return (
     <header className="header__middle">
       <div className="container-fluid">
@@ -287,13 +295,18 @@ const Header = () => {
                       </Link>
                     </li>
                   )}
-
-                  <Link
+                  {isLoggedIn? (<Link
                     to="/appointment"
                     className="header-btn text-decoration-none btn-hover"
                   >
                     Appointment <i className="fas fa-plus header-icon"></i>
-                  </Link>
+                  </Link>):(<Link
+                    to="/login"
+                    className="header-btn text-decoration-none btn-hover"
+                  >
+                    Appointment <i className="fas fa-plus header-icon"></i>
+                  </Link>) }
+   
                   {(admin.role === "nurse" ||
                     admin.role === "admin" ||
                     admin.role === "doctor" ||

@@ -6,7 +6,8 @@ import "./AddDoctors.css";
 const AddDoctors = () => {
   const [doctorData, setDoctorData] = useState({});
   const [image, setImage] = useState(null);
-
+  const [percent,setPercent] = useState(0)
+  const [url,setUrl] = useState('')
   const handleAddDoctor = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -15,8 +16,34 @@ const AddDoctors = () => {
     setDoctorData(newDoctorData);
   };
 
+  const handleUpload = async() =>{
+    if (!file) {
+        alert("Please choose a file first!")
+    }
+    const storageRef = ref(storage,`/files/${file.name}` );
+    const  uploadTask = uploadBytesResumable(storageRef,file);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+          const percent = Math.round(
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          // update progress
+          setPercent(percent);
+      },
+      (err) => console.log(err),
+      () => {
+          // download url
+          getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+              setUrl(url);
+              console.log("url", url);
+          });
+      }
+  ); 
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleUpload()
 
     const formData = new FormData();
     for (const key in doctorData) {
@@ -25,23 +52,23 @@ const AddDoctors = () => {
         formData.append(`${key}`, element);
       }
     }
-    formData.append("image", image);
+    formData.append("image", url);
 
-    fetch("http://localhost:7050/addDoctor", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          Swal.fire({
-            icon: "success",
-            title: "A doctor has been successfully added!",
-            showConfirmButton: false,
-            timer: 2000,
-          });
-        }
-      });
+    // fetch("http://localhost:7050/addDoctor", {
+    //   method: "POST",
+    //   body: formData,
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.insertedId) {
+    //       Swal.fire({
+    //         icon: "success",
+    //         title: "A doctor has been successfully added!",
+    //         showConfirmButton: false,
+    //         timer: 2000,
+    //       });
+    //     }
+    //   });
   };
 
   return (
@@ -285,7 +312,14 @@ const AddDoctors = () => {
                   className="btn btn-primary mx-auto doctor-update"
                   type="submit"
                 >
-                  Submit
+                  Submits
+                </Button>
+                <Button
+                  className="btn btn-primary mx-auto doctor-update"
+                  type="submit"
+                  onClick={handleUpload}
+                >
+                  upload
                 </Button>
                 <Button
                   className="btn btn-primary mx-auto ms-3 doctor-delete"

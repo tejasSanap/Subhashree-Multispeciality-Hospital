@@ -30,7 +30,7 @@ import Cardiologist from "./components/Specialization/Cardiologist/Cardiologist"
 import Neurologist from "./components/Specialization/Neurologist/Neurologist";
 import Psychiatrists from "./components/Specialization/Psychiatrists/Psychiatrists";
 import ENTspecialist from "./components/Specialization/ENTspecialist/ENTspecialist";
-
+import ImageUpload from "./components/ImageUpload.js";
 // import { tokkenAtom } from './store/atoms';
 
 // export const tokkenAtom = atom(null);
@@ -90,6 +90,7 @@ function App() {
           <Route path="/review" element={<Review />} />
           {/* </Route> */}
           <Route path="/blog" element={<Blogs />} />
+          <Route path="/image" element={<ImageUpload />} />
         </Routes>
       </Router>
     </div>

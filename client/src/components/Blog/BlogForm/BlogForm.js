@@ -6,6 +6,8 @@ import "./BlogForm.css";
 import axios from "../../../utils/axiosConfig";
 import { adminAtom } from "../../../store/atom";
 import { useAtom } from "jotai";
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { storage } from '../../../utils/firebase';
 const suggestionsTag = ["eye", "health", "medicien"];
 const suggestions = suggestionsTag.map((country) => {
   return {
@@ -21,6 +23,7 @@ const KeyCodes = {
 
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
+
 const BlogForm = () => {
   const [admin] = useAtom(adminAtom);
   const [addBlog, setAddBlog] = useState({
@@ -29,7 +32,8 @@ const BlogForm = () => {
   const [image, setImage] = useState(null);
   const date = new Date().toDateString();
   const [tags, setTags] = useState([{ id: "eye", text: "Eye" }]);
-
+  const [percent,setPercent] = useState(0)
+  const[url,setUrl] = useState('')
   const handleDelete = (i) => {
     setTags(tags.filter((tag, index) => index !== i));
   };
@@ -72,9 +76,39 @@ const BlogForm = () => {
 
   console.log(tags);
 
+  const handleUpload = async() =>{
+    return new Promise((resolve, reject) =>{
+      console.log("image",image)
+      if (!image) {
+          alert("Please choose a file first!")
+      }
+      const storageRef = ref(storage,`/files/${image.name}` );
+      const  uploadTask = uploadBytesResumable(storageRef,image);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+            const percent = Math.round(
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+            // update progress
+            setPercent(percent);
+        },
+        (err) => console.log(err),
+        () => {
+            // download url
+            getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                setUrl(url);
+                console.log("url", url);
+                resolve(url);
+            });
+        }
+    ); 
+    })
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const url= await handleUpload()
 
     const likes = new Array([]);
     const comments = new Array([]);
@@ -91,20 +125,20 @@ const BlogForm = () => {
         formData.append(`${key}`, element);
       }
     }
-
+    
     formData.append("image", image);
     formData.append("likes", likes);
     formData.append("comments", comments);
     formData.append("date", date);
     formData.append("totalVisitor", totalVisitor);
     formData.append("tag", JSON.stringify(tag));
-
+    formData.append("photo", "url");
     console.log("blog data", formData)
-
-
     console.log("add blog st", addBlog);
+    addBlog["photo"] = url
+    console.log("add blog",addBlog)
     const resp = await axios.post("/api/addBlog", addBlog);
-    console.log(resp);
+    console.log("res",resp);
 
     // fetch("http://localhost:7080/api/addBlog", {
     //   method: "POST",
@@ -146,7 +180,6 @@ const BlogForm = () => {
                   placeholder="Write Your Blog Title"
                   name="title"
                   onChange={handleAddBlog}
-                  required
                 />
                 <span className="focus-input100"></span>
               </div>
@@ -160,7 +193,6 @@ const BlogForm = () => {
                   placeholder="Write Your Blog Description"
                   name="description"
                   onChange={handleAddBlog}
-                  required
                 />
                 <span className="focus-input100"></span>
               </div>
@@ -174,7 +206,6 @@ const BlogForm = () => {
                   placeholder="Write Your Blog Sub Title"
                   name="subtitle1"
                   onChange={handleAddBlog}
-                  required
                 />
                 <span className="focus-input100"></span>
               </div>
@@ -188,7 +219,6 @@ const BlogForm = () => {
                   placeholder="Enter your Blog Sub Title Description"
                   name="subDescription1"
                   onChange={handleAddBlog}
-                  required
                 />
                 <span className="focus-input100"></span>
               </div>
@@ -202,7 +232,6 @@ const BlogForm = () => {
                   placeholder="Write Your Blog Sub Title"
                   name="subtitle2"
                   onChange={handleAddBlog}
-                  required
                 />
                 <span className="focus-input100"></span>
               </div>
@@ -216,7 +245,6 @@ const BlogForm = () => {
                   placeholder="Enter your Blog Sub Title Description"
                   name="subDescription2"
                   onChange={handleAddBlog}
-                  required
                 />
                 <span className="focus-input100"></span>
               </div>
@@ -230,7 +258,6 @@ const BlogForm = () => {
                   placeholder="Write Your Blog Sub Title"
                   name="subtitle3"
                   onChange={handleAddBlog}
-                  required
                 />
                 <span className="focus-input100"></span>
               </div>
@@ -244,7 +271,6 @@ const BlogForm = () => {
                   placeholder="Write Your Blog Sub Title Description"
                   name="subDescription3"
                   onChange={handleAddBlog}
-                  required
                 />
                 <span className="focus-input100"></span>
               </div>
@@ -297,7 +323,6 @@ const BlogForm = () => {
                     className="selection-2"
                     name="blogType"
                     onChange={handleAddBlog}
-                    required
                   >
                     <option>Select</option>
                     <option value="Health Care">Health Care</option>

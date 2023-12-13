@@ -1,4 +1,9 @@
 const Appointment = require("../models/Appointment");
+require("dotenv").config();
+
+const accountSenderId = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILO_AUTH_TOKEN;
+const client = require('twilio')(accountSenderId, authToken);
 
 // create a new appointment
 const createAppointment = async (req, res) => {
@@ -96,6 +101,61 @@ const updateAppointment = async (req, res) => {
   }
 };
 
+// Approve appointment by ID
+const approveAppointment = async (req, res) => {
+  try {
+    const updatedAppointment = await Appointment.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    if (!updatedAppointment) {
+      return res.status(404).json({ error: "Appointment not found" });
+    }
+    const patientPhone = updatedAppointment?.mobileNumber
+    console.log("no",patientPhone);
+    // if (process.env.TWILIO_PHONE_NUMBER && patientPhone) {
+    //   client.messages.create({
+    //     body:
+    //     'Your appointment for SubhaShree has been approved. Date - ' +
+    //     new Date(updatedAppointment.date).toDateString(),
+    //     from: process.env.TWILIO_PHONE_NUMBER,
+    //     to: '+91' + patientPhone,
+    //   });
+    // }
+    res.json(updatedAppointment);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+// Reject appointment by ID
+const rejectAppointment = async (req, res) => {
+  try {
+    const updatedAppointment = await Appointment.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    if (!updatedAppointment) {
+      return res.status(404).json({ error: "Appointment not found" });
+    }
+    const patientPhone = updatedAppointment?.mobileNumber
+    console.log("no",patientPhone);
+    // if (process.env.TWILIO_PHONE_NUMBER && patientPhone) {
+    //   client.messages.create({
+    //     body:
+    //     'Your appointment for SubhaShree has been rejected. Date - ' +
+    //     new Date(updatedAppointment.date).toDateString(),
+    //     from: process.env.TWILIO_PHONE_NUMBER,
+    //     to: '+91' + patientPhone,
+    //   });
+    // }
+    res.json(updatedAppointment);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // Delete appointment by ID
 const deleteAppointment = async (req, res) => {
   try {
@@ -119,4 +179,6 @@ module.exports = {
   getAppointmentById,
   updateAppointment,
   deleteAppointment,
+  approveAppointment,
+  rejectAppointment
 };

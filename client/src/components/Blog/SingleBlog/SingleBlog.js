@@ -31,7 +31,6 @@ const SingleBlog = () => {
 
 
   useEffect(()=>{
-
     const fetchSingleBlog = async()=>{
       const res = await axios.get(`/api/Blog/${id}`);
       console.log("Res blog",res.data)
@@ -41,15 +40,12 @@ const SingleBlog = () => {
   },[])  
 
 
-
-
-
   console.log(user, "user comment");
-  useEffect(() => {
-    axios
-      .get(`http://localhost:7050/users/${user?.email}`)
-      .then((res) => setLoginUser(res.data));
-  }, [user?.email]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:7050/users/${user?.email}`)
+  //     .then((res) => setLoginUser(res.data));
+  // }, [user?.email]);
 
   useEffect(() => {
     const foundBlog = blogInfo?.data?.find((doctors) => doctors?._id === id);
@@ -211,7 +207,8 @@ const SingleBlog = () => {
               <div className="Img-blog my-5">
                 <img
                   className="img-fluid"
-                  src={`data:image/*;base64,${oneBlog?.photo}`}
+                  src={oneBlog?.photo}
+                  style={{height: '400px',width:'auto'}}
                   alt=""
                 />
               </div>
@@ -300,8 +297,9 @@ const SingleBlog = () => {
                     <div className="info-img ">
                       <img
                         className="img-fluid"
-                        src={`data:image/*;base64,${item?.photo}`}
+                        src={item?.photo}
                         alt=""
+                        style={{ width: '100px', height: '100px' }}
                       />
                     </div>
                   </div>

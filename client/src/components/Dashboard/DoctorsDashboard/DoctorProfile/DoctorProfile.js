@@ -40,7 +40,7 @@ const DoctorProfile = () => {
   //   // );
   //   // setSingleDoctorInfo(doctorData);
   // }, [alldoctorInfo?.data, id]);
-
+  console.log('doctor atom',doctor );
   const handleUpdateDoctor = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -99,9 +99,10 @@ const DoctorProfile = () => {
           <div className="col-12 col-sm-6 col-md-6 col-lg-4">
             <Card className="text-center card-control2">
               <Card.Img
-                className="w-50 mx-auto rounded-circle mt-3"
+                // className="w-50 mx-auto -circle mt-3"
                 variant="top"
-                src={`data:image/*;base64,${singleDoctorInfo?.photo}`}
+                src={doctor?.photo}
+                // src={`data:image/*;base64,${singleDoctorInfo?.photo}`}
               />
               <Card.Body>
                 <Card.Title>{doctor?.name}</Card.Title>

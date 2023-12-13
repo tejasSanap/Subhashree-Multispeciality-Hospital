@@ -5,7 +5,8 @@ import axios from "../../utils/axiosConfig";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
 import { adminAtom } from "../../store/atom";
-
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { storage } from '../../utils/firebase';
 const AddDoctorsDetails = () => {
   const navigate = useNavigate();
   const initialDoctorData = {
@@ -36,7 +37,8 @@ const AddDoctorsDetails = () => {
   const [doctorData, setDoctorData] = useState(initialDoctorData);
   const [image, setImage] = useState(null);
   const [admin, setAdmin] = useAtom(adminAtom);
-
+  const [percent,setPercent] = useState(0)
+  const[url,setUrl] = useState('')
   const handleAddDoctor = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -65,12 +67,40 @@ const AddDoctorsDetails = () => {
       // Handle other fields
       newDoctorData[field] = value;
     }
-
     setDoctorData(newDoctorData);
   };
 
+  const handleUpload = async() =>{
+    return new Promise((resolve, reject) =>{
+      if (!image) {
+          alert("Please choose a file first!")
+      }
+      const storageRef = ref(storage,`/files/${image.name}` );
+      const  uploadTask = uploadBytesResumable(storageRef,image);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+            const percent = Math.round(
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+            // update progress
+            setPercent(percent);
+        },
+        (err) => console.log(err),
+        () => {
+            // download url
+            getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                setUrl(url);
+                console.log("url", url);
+                resolve(url);
+            });
+        }
+    ); 
+    })
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const url =  await handleUpload()
 
     const formData = new FormData();
     for (const key in doctorData) {
@@ -87,8 +117,8 @@ const AddDoctorsDetails = () => {
         }
       }
     }
-    console.log("formData", doctorData);
-
+    doctorData.photo = url
+    console.log("doctorData", doctorData);
     try {
       let token = localStorage.getItem("token");
       if (token) {
@@ -133,7 +163,6 @@ const AddDoctorsDetails = () => {
   return (
     <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
       <Container>
-        <Button>lol</Button>
         <Card className="shadow p-3">
           <Card.Body>
             <Card.Text className="mb-3 fs-4">
@@ -386,6 +415,12 @@ const AddDoctorsDetails = () => {
                 >
                   Submit
                 </Button>
+                {/* <Button
+                  className="btn btn-primary mx-auto doctor-update"
+                  onClick={handleUpload}
+                >
+                  upload
+                </Button> */}
                 <Button
                   className="btn btn-primary mx-auto ms-3 doctor-delete"
                   type="reset"

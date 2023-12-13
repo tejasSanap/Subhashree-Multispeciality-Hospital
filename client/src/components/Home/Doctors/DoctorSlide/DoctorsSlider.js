@@ -12,7 +12,6 @@ const DoctorsSlider = () => {
 
     const [doctorInfo, setDoctorInfo] = useState([]);
 
-
     useEffect(() => {
         const fetchDoctors = async () => {
             const res = await axios.get("/api/doctor/getAllDoctors");
@@ -70,7 +69,7 @@ const DoctorsSlider = () => {
                         doctorInfo?.map(doctor =>
                             <div key={doctor._id}>
                                 <div className="card doctor-card">
-                                    <img src={`data:image/*;base64,${doctor?.photo}`} className="card-img" alt="..." />
+                                    <img src={doctor.photo} className="card-img" alt="..." />
                                     <h2>{doctor.name}</h2>
                                     <div className="row card-img-overlay">
                                         <div className='mt-auto about-doctor'>

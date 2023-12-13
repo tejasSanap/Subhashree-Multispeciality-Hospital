@@ -26,7 +26,7 @@ const SingleTeam = () => {
           <Col key={doctor._id}>
             <div className="card my-doctor doctor-card my-3">
               <img
-                src={`data:image/*;base64,${doctor?.photo}`}
+                src={doctor?.photo}
                 className="card-img"
                 alt="..."
               />

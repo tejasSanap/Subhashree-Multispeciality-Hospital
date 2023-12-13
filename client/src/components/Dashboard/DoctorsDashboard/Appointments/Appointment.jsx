@@ -31,9 +31,23 @@ function Appointment() {
   const handleApproveAppointment = async (appointmentId) => {
     try {
       const res = await axios.put(
-        `/api/appointment/updateappointment/${appointmentId}`,
+        `/api/appointment/approveAppointment/${appointmentId}`,
         {
           status: "confirmed",
+        }
+      );
+      fetchAppointment();
+    } catch (error) {
+      // Handle error if the API call fails
+      console.error("Error approving appointment:", error);
+    }
+  };
+  const handleRejectAppointment = async (appointmentId) => {
+    try {
+      const res = await axios.put(
+        `/api/appointment/rejectAppointment/${appointmentId}`,
+        {
+          status: "rejected",
         }
       );
       fetchAppointment();
@@ -83,6 +97,15 @@ function Appointment() {
                   onClick={() => handleApproveAppointment(appointment._id)}
                 >
                   Approve
+                </Button>
+              </td>
+              <td>
+                <Button
+                  style={{ color: "#fff", backgroundColor: "#2779a7" }}
+                  variant="primary"
+                  onClick={() => handleRejectAppointment(appointment._id)}
+                >
+                  Reject
                 </Button>
               </td>
             </tr>

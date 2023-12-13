@@ -19,13 +19,14 @@ import {
   RiWechatLine,
 } from "react-icons/ri";
 import { Link, Outlet } from "react-router-dom";
-
+import { Navigate, useNavigate } from "react-router-dom";
 import "./DashboardMain.css";
 import { useAtom } from "jotai";
 import { adminAtom, doctorAtom, roleAtom } from "../../../store/atom";
 import axios from "../../../utils/axiosConfig";
 
 const DashboardMain = () => {
+  const navigate = useNavigate();
   const [role] = useAtom(roleAtom);
   const [admin] = useAtom(adminAtom);
   const [doctor, setDoctor] = useAtom(doctorAtom);
@@ -34,8 +35,6 @@ const DashboardMain = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-
   useEffect(() => {
     const getDocInfo = async () => {
       const res = await axios.get(`/api/doctor/getDoctor/${admin.referenceId}`)
@@ -49,7 +48,14 @@ const DashboardMain = () => {
     console.log("referenc id is ", admin.referenceId);
   }, []);
 
-
+  const handleLogout = async() => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('adminData');
+    localStorage.removeItem('doctor');
+    
+    navigate("/adminLogin");
+  }
 
   return (
     <>
@@ -411,7 +417,7 @@ const DashboardMain = () => {
       <div className="dashboard_main">
         <div className="dashboard_left_side_bar d-none d-md-block">
           <div className="dasboard_user">
-            <img src={admin?.photoURL} alt="doctor or user" />
+            <img src={doctor?.photo} alt="doctor or user" />
             <div>
               <span>Welcome</span>
               <div>
@@ -420,9 +426,9 @@ const DashboardMain = () => {
                   id="basic-nav-dropdown"
                   className="basic_nav_dropdown_custom"
                 >
-                  <NavDropdown.Item as={Link} to="" className="dash_drop_item">
+                  <NavDropdown.Item className="dash_drop_item" onClick={handleLogout}>
                     <RiLogoutCircleLine />
-                    {/* <span onClick={() => dispatch(logOut())}>Logout</span> */}
+                    <span>Logout</span>
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>

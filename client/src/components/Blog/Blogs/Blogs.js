@@ -38,7 +38,7 @@ const Blogs = () => {
                   <div className="img-design">
                     <img
                       className="img-fluid"
-                      src={`data:image/*;base64,${blog?.photo}`}
+                      src={blog?.photo}
                       alt=""
                     />
                     <p data-tag="Total View" className="view-div">

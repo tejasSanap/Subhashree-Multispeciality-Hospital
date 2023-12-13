@@ -8,7 +8,7 @@ import Header from '../Share/Header/Header';
 import './Login.css';
 import axios from '../../utils/axiosConfig';
 import { useAtom } from 'jotai';
-import { roleAtom, tokkenAtom, userAtom } from '../../store/atom';
+import { roleAtom, tokkenAtom, userAtom,isLoginAtom } from '../../store/atom';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Login = () => {
     const [role, setRole] = useAtom(roleAtom);
     const [token, setToken] = useAtom(tokkenAtom);
     const [user, setUser] = useAtom(userAtom);
-
+    const [isLoggedIn, setIsLoggedIn] = useAtom(isLoginAtom);
     const {
         register,
         handleSubmit,
@@ -60,6 +60,7 @@ const Login = () => {
             setUser(res.data);
             localStorage.setItem('token', res.data.accesstoken);
             localStorage.setItem('user', JSON.stringify(res.data));
+            setIsLoggedIn(true)
         }
         console.log("resss", user);
     };
@@ -69,6 +70,7 @@ const Login = () => {
             <Header />
             <div className="login-section">
                 <Container>
+                    {isLoggedIn?(<p>You are already logged in</p>) : (
                     <div className={`con ${classAdd}`} id="container">
                         <div className="form-container sign-up-container">
                             <form onSubmit={handleSubmit(onSubmit)} className="login-form">
@@ -120,6 +122,7 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
+                    )}
                 </Container>
             </div>
             <Footer />

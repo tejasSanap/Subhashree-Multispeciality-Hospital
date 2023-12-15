@@ -114,15 +114,15 @@ const approveAppointment = async (req, res) => {
     }
     const patientPhone = updatedAppointment?.mobileNumber
     console.log("no",patientPhone);
-    // if (process.env.TWILIO_PHONE_NUMBER && patientPhone) {
-    //   client.messages.create({
-    //     body:
-    //     'Your appointment for SubhaShree has been approved. Date - ' +
-    //     new Date(updatedAppointment.date).toDateString(),
-    //     from: process.env.TWILIO_PHONE_NUMBER,
-    //     to: '+91' + patientPhone,
-    //   });
-    // }
+    if (process.env.TWILIO_PHONE_NUMBER && patientPhone) {
+      client.messages.create({
+        body:
+        'Your appointment for SubhaShree has been approved. Date - ' +
+        new Date(updatedAppointment.date).toDateString(),
+        from: process.env.TWILIO_PHONE_NUMBER,
+        to: '+91' + patientPhone,
+      });
+    }
     res.json(updatedAppointment);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -141,15 +141,15 @@ const rejectAppointment = async (req, res) => {
     }
     const patientPhone = updatedAppointment?.mobileNumber
     console.log("no",patientPhone);
-    // if (process.env.TWILIO_PHONE_NUMBER && patientPhone) {
-    //   client.messages.create({
-    //     body:
-    //     'Your appointment for SubhaShree has been rejected. Date - ' +
-    //     new Date(updatedAppointment.date).toDateString(),
-    //     from: process.env.TWILIO_PHONE_NUMBER,
-    //     to: '+91' + patientPhone,
-    //   });
-    // }
+    if (process.env.TWILIO_PHONE_NUMBER && patientPhone) {
+      client.messages.create({
+        body:
+        'Your appointment for SubhaShree has been rejected. Date - ' +
+        new Date(updatedAppointment.date).toDateString(),
+        from: process.env.TWILIO_PHONE_NUMBER,
+        to: '+91' + patientPhone,
+      });
+    }
     res.json(updatedAppointment);
   } catch (error) {
     res.status(500).json({ error: error.message });

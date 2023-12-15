@@ -2,12 +2,12 @@ import axios from "axios";
 
 const getUserType = () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    return user.id;
+    return user?.id || "null";
 }
 
 const getUserId = () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    return user.userRole;
+    return user?.userRole || "null";
 }
 
 const instance = axios.create({

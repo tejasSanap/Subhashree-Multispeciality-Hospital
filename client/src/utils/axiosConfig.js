@@ -1,7 +1,21 @@
 import axios from "axios";
 
+const getUserType = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user.id;
+}
+
+const getUserId = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    return user.userRole;
+}
+
 const instance = axios.create({
-    baseURL: "http://localhost:7080"
-})
+  baseURL: "https://tejasanap.tech",
+  headers: {
+    'usertype': getUserType(),
+    'userid': getUserId()
+  }
+});
 
 export default instance;

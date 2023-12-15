@@ -56,7 +56,7 @@ app.use(
         referrer: req.get("Referrer"),
         requestPath: req.originalUrl.split("?")[0],
       };
-
+ 
       let meta = {
         httpRequest,
       };

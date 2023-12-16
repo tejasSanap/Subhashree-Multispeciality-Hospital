@@ -70,7 +70,7 @@ const AdminLogin = () => {
 
                                     <div className="col-lg-12 d-flex justify-content-between">
                                         <button type='submit' className="pure-button fuller-button blue">ACCEPT</button>
-                                        <Link to="/home"> <button className="pure-button fuller-button blue">Go To Home</button></Link>
+                                        <Link to="/"> <button className="pure-button fuller-button blue">Go To Home</button></Link>
                                     </div>
                                     <div className='lol'>{token}</div>
                                 </div>

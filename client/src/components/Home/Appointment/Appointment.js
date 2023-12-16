@@ -43,8 +43,17 @@ const Appointment = () => {
     data.doctorId = doctorId
     console.log("data", data);
 
-
-    axios.post("/api/appointment/addappointment", data).then((res) => {
+    axios.post("/api/appointment/addappointment",data,{
+      headers: {
+        'Content-Type': 'application/json',
+        'Patients-age': data.age,
+        'Doctor-appointments' : data.doctor,
+        'Patients-gender' : data.gender,
+        'Patients-service' : data.service,
+        'Appointment-shift' : data.shift
+      },
+    })
+    .then((res) => {
       if (res.status === 200) {
         // successfull modal
         Swal.fire({

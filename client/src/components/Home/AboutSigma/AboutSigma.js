@@ -107,10 +107,6 @@ const AboutSigma = () => {
             </ul>
 
             <br />
-            <Link to="/appointment" className="header-btn apb btn-hover mt-4">
-              <span>Appointment</span>{" "}
-              <i className="fas fa-plus header-icon"></i>
-            </Link>
           </div>
           <div className="col-lg-4 col-md-12 d-lg-block d-none col-sm-12">
             <div

@@ -58,7 +58,7 @@ function App() {
             <Route path="allDoctors" element={<AllDoctors />}></Route>
             <Route path="allDoctors/update/:id" element={<DoctorProfile2 />} />
           </Route>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/singleDoctor/:id" element={<SingleDoctor />} />
           <Route path="/login" element={<Login />} />
           <Route path="/appointment" element={<AppointmentHeader />} />

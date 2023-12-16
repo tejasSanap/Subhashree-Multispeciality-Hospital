@@ -83,26 +83,21 @@ const Header = () => {
       <div className="container-fluid">
         <div className="row d-flex">
           {/* Add Logo  */}
-          <div className="col-8 col-md-3">
+          <div className="col-8 col-md-2">
             <div className="header__middle__logo">
-              <Link exact activeClassName="is-active" to="/">
-                {/* Subhashree Hospital */}
-                {/* <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="logo" /> */}
+              <Link className="no-underline" activeclassname="is-active" to="/">
+                <div className="Header-icon">
+                  <img src="Subhashree-logo.png" className="w-20" alt="logo" />
+                  <div className="title">
+                    <div className="title-upper">Subhashree</div>
+                    <div className="title-below">Hospital</div>
+                  </div>
+                </div>
               </Link>
-              <h1
-                style={{
-                  fontSize: "28px",
-                  margin: "16px",
-                  fontWeight: "600",
-                  color: "#D14836",
-                }}
-              >
-                Subhashree Hospital
-              </h1>
             </div>
           </div>
 
-          <div className="col-4 col-md-9 ">
+          <div className="col-4 col-md-10">
             <div className="header__middle__menus">
               <nav className="main-nav">
                 {/* Responsive Menu Button*/}
@@ -134,7 +129,7 @@ const Header = () => {
                       exact
                       activeClassName="is-active"
                       onClick={toggleClass}
-                      to="/home"
+                      to="/"
                     >
                       Home
                     </Link>

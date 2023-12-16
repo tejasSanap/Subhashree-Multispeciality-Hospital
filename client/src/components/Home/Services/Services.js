@@ -9,9 +9,8 @@ const Services = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleHight);
   }, []);
-  console.log(pageServices - pageServices + 1);
   return (
-    <div className="our-service mb-5" style={{ backgroundColor: "#FDF4F4" }}>
+    <div className="our-service mb-5" style={{ backgroundColor: "#cefcfe" }}>
       <h3
         style={{
           transform: `translateX(${(pageServices - 1500) * 0.5}px)`,
@@ -29,12 +28,11 @@ const Services = () => {
                 <h1>
                   We Provide <br /> <span> Medical Services</span>
                 </h1>
-                <p className="text-secondary lh-2 mt-3">
-                  We provide a variety of medical services, always placing your
-                  well-being first. <br /> Our experienced team combines compassion and
-                  expertise to ensure your <br /> health is in good hands. Trust us to
-                  be your partner on the journey to wellness.
-                </p>
+                {/* <p className="text-secondary lh-2 mt-3">
+                  It is a long established fact that a reader will be distracted
+                  by the <br /> readable content of a page when looking at its
+                  layout.
+                </p> */}
                 <NavLink to="/service">
                   <button className="services-btn mt-5 mb-5">
                     <span>Services</span>
@@ -46,11 +44,7 @@ const Services = () => {
           </Col>
           <Col className="col-12 col-md-5">
             <Card className="service-right border-0 rounded-0">
-              <img
-                variant="top"
-                alt="servicePhoto"
-                src="https://i.ibb.co/JKW8S58/ki-020.png"
-              />
+
             </Card>
           </Col>
         </Row>
@@ -63,8 +57,7 @@ const Services = () => {
             <Card.Body>
               <h2>Family Consultation</h2>
               <Card.Text className="mt-4 mb-4 text-secondary">
-                It is a long established fact that a will be distracted by the
-                readable content of a page looking at its layout.
+                Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin.
               </Card.Text>
               {/* <Nav.Link className='read-more-link'>
                                 APPOINTMENT <i className="fas fa-plus"></i>
@@ -78,8 +71,7 @@ const Services = () => {
             <Card.Body>
               <h2>Home Health Services</h2>
               <Card.Text className="mt-4 mb-4 text-secondary">
-                It is a long established fact that a will be distracted by the
-                readable content of a page looking at its layout.
+                Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin.
               </Card.Text>
               {/* <Nav.Link className='read-more-link'>
                                 APPOINTMENT <i className="fas fa-plus"></i>
@@ -93,8 +85,7 @@ const Services = () => {
             <Card.Body>
               <h2>Minor Procedures</h2>
               <Card.Text className="mt-4 mb-4 text-secondary">
-                It is a long established fact that a will be distracted by the
-                readable content of a page looking at its layout.
+                Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin.
               </Card.Text>
               {/* <Nav.Link className='read-more-link'>
                                 APPOINTMENT <i className="fas fa-plus"></i>

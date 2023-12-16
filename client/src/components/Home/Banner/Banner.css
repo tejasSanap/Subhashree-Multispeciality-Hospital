@@ -1,3 +1,8 @@
+:root {
+  --primary: #00c2cb;
+  --secondary: #03989e;
+  --tertiary: #a6a6a6;
+}
 .banner_top_hidden {
   margin-top: 50px;
   text-align: center;
@@ -33,7 +38,7 @@
   margin: 30px 0;
   position: relative;
   /* background-image: url("../../../images/banner.png"); */
-  background-image: url("../../../images/pngegg.png");
+  background-image: url("./../../../../public/mainLogo.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   transition: ease-in-out 3s;
@@ -61,10 +66,9 @@
   width: 1px;
   background-color: #d14836;
 }
-
 .banner_left {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-direction: column;
   height: 100%;
 }
@@ -77,28 +81,28 @@
   display: block;
 }
 .banner_left_social ul li a:hover {
-  color: #d14836;
+  color: #03989e;
 }
 .banner_left_bottom h4 {
   font-size: 18px;
-  color: #d14836;
+  color: #24d7dd;
   margin-bottom: 10px;
   cursor: default;
 }
 .banner_left_bottom h2 {
   font-size: 34px;
-  color: #2779a7;
+  color: #03989e;
   font-weight: 400;
   cursor: default;
 }
 .banner_left_bottom p {
   font-size: 34px;
-  color: #2779a7;
+  color: #016568;
   font-weight: 300;
   cursor: default;
 }
 .banner_left_bottom .appointment_btn {
-  background-color: #2779a7;
+  background-color: var(--primary);
   height: 50px;
   width: 230px;
   text-decoration: none;
@@ -117,11 +121,11 @@
   margin-left: 30px;
 }
 .banner_left_bottom .appointment_btn:hover {
-  background-color: #d14836;
+  background-color: var(--secondary);
 }
 
 .banner_left_bottom .appointment_btn i {
-  background-color: #2779a7;
+  background-color: #00000044;
   /* padding: 20px; */
   height: 50px;
   width: 50px;
@@ -132,7 +136,7 @@
   border-radius: 0 5px 5px 0;
 }
 .banner_left_bottom .appointment_btn:hover i {
-  background-color: #d14836;
+  background-color: #00000044;
 }
 
 .banner_middle {
@@ -148,34 +152,34 @@
   cursor: default;
 }
 .banner_right .moto h4 {
-  color: #2779a7;
+  color: var(--primary);
   font-size: 16px;
 }
 .banner_right .moto h2 {
-  color: #d14836;
+  color: var(--secondary);
   font-size: 34px;
   font-weight: normal;
 }
 .banner_right .specialization h6 {
-  color: #2779a7;
+  color: #a6a6a6;
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 20px;
 }
 .banner_right .specialization p {
-  color: #d14836;
+  color: #03989e;
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 5px;
 }
 .banner_right .madical_info h5 {
-  color: #d14836;
+  color: #03989e;
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 5px;
 }
 .banner_right .madical_info h4 {
-  color: #2779a7;
+  color: #a6a6a6;
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 20px;

@@ -8,36 +8,15 @@ const Banner = () => {
     <Container>
       <div className="banner">
         <div className="banner_top_hidden">
-          <h4>TOP DOCTORS</h4>
+          {/* <h4>TOP DOCTORS</h4>
           <h2>Make Your</h2>
-          <p>Life Helthy</p>
+          <p>Life Helthy</p> */}
         </div>
         <div className="banner_container">
           <div className="banner_left ">
             <div className="banner_left_social">
-              <ul>
-                <li>
-                  <a href="https://www.facebook.com/">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.facebook.com/">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.instagram.com/">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </li>
-              </ul>
             </div>
             <div className="banner_left_bottom">
-              <h4>TOP DOCTORS</h4>
-              <h2>Make Your</h2>
-              <p>Life Helthy</p>
-
               <Link to="/appointment" className="appointment_btn">
                 <span>Get Appointment</span> <i className="fas fa-plus"></i>
               </Link>
@@ -46,7 +25,7 @@ const Banner = () => {
           {/* <img src="https://files.yappe.in/place/full/csmss-3806731.webp"></img> */}
 
           <div className="banner_middle ">
-            {/* <img src={bannerImg} alt="" className="img-fluid" /> */}
+            <img src ="/" alt="" className="img-fluid" />
           </div>
           <div className="banner_right">
             <div className="moto">
@@ -61,9 +40,8 @@ const Banner = () => {
                 <p>AUDIOLOGIST</p>
                 <p>INTERNISTS</p>
               </div>
-              {/* <h5>MEDICAL INFO</h5>
-              <h4>DR. UDAY RAJPUT</h4>
-              <img src="" alt="" /> */}
+              <h5>MEDICAL INFO</h5>
+              {/* <h4>DR. UDAY RAJPUT</h4> */}
             </div>
           </div>
         </div>

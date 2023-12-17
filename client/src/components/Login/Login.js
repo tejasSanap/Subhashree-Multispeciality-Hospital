@@ -60,7 +60,9 @@ const Login = () => {
             setUser(res.data);
             localStorage.setItem('token', res.data.accesstoken);
             localStorage.setItem('user', JSON.stringify(res.data));
+            localStorage.setItem('isLoggedIn',true)
             setIsLoggedIn(true)
+            navigate("/myAppointments")
         }
         console.log("resss", user);
     };

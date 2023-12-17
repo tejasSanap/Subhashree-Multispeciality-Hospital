@@ -269,6 +269,7 @@ const Header = () => {
                           Give Us Feedback
                         </Link>
                       </li>
+
                     </ul>
                   </li>
 
@@ -290,6 +291,14 @@ const Header = () => {
                       </Link>
                     </li>
                   )}
+
+                  {isLoggedIn? (<li  className="menu-item">
+                   <Link
+                    to="/myappointments"
+                    activeClassName="is-active"
+                  >
+                    My Appointments
+                  </Link>  </li>):(<></>) }
                   {isLoggedIn? (<Link
                     to="/appointment"
                     className="header-btn text-decoration-none btn-hover"
@@ -301,7 +310,8 @@ const Header = () => {
                   >
                     Appointment <i className="fas fa-plus header-icon"></i>
                   </Link>) }
-   
+
+
                   {(admin.role === "nurse" ||
                     admin.role === "admin" ||
                     admin.role === "doctor" ||

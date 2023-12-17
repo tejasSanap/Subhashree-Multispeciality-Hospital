@@ -95,9 +95,9 @@ const DoctorProfile2 = () => {
           <div className="col-12 col-sm-6 col-md-6 col-lg-4">
             <Card className="text-center card-control2">
               <Card.Img
-                className="w-50 mx-auto rounded-circle mt-3"
+                className=""
                 variant="top"
-                src={`data:image/*;base64,${singleDoctorInfo?.photo}`}
+                src={doctor?.photo}
               />
               <Card.Body>
                 <Card.Title>{doctor?.name}</Card.Title>

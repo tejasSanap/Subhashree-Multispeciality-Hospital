@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../../Home/Footer/Footer';
 import Header from '../../Share/Header/Header';
 import './FAQ.css'
-
+import specializationBanner from '../../../images/specialization_banner.jpg';
 const FAQ = () => {
     const [pageFaq, setPageFaq] = useState(0)
     const handleHight = () => setPageFaq(window.pageYOffset);
@@ -14,7 +14,7 @@ const FAQ = () => {
     return (
         <>
         <Header/>
-            <div style={{ background: `url(https://i.ibb.co/9nmC6s9/ki-14-1.jpg)` }} className="backcrumb-my ">
+            <div style={{ background: `url(${specializationBanner})` }} className="backcrumb-my ">
 
                 <nav aria-label="breadcrumb">
                     <h3>FAQ</h3>

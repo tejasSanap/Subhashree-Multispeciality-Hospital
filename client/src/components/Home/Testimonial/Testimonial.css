@@ -2,12 +2,12 @@
   max-height: 100vh;
 }
 .testimoneal-right {
-  background-color: #d14836;
+  background-color: #03989e;
   width: 100%;
   margin: auto;
   padding: 10%;
   border-radius: 25px;
-  box-shadow: #d14836 0px 5px 15px;
+  box-shadow: #03989e 0px 5px 15px;
 }
 .text-data {
   width: 100%;
@@ -20,13 +20,13 @@
   margin-right: 2.5rem;
 }
 .testimonial-section {
-  padding: 100px 0;
+  padding: 100px 30px;
 }
 .our-service h3 {
   top: 80px;
 }
 .our-service h6 {
-  color: #2779a7;
+  color: #03989e;
   font-size: 14px;
 }
 .service-lef h1 {

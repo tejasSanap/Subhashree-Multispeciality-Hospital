@@ -14,6 +14,7 @@ const AllDoctors = () => {
             const res = await axios.get("/api/doctor/getAllDoctors");
             setDoctorsCollection(res);
         }
+        console.log(doctorsCollection)
         fetchDoctors();
     }, [])
 
@@ -32,7 +33,7 @@ const AllDoctors = () => {
     }
 
     return (
-        <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
+        <div style={{ padding: "20px 0" }}>
             <Container>
                 <Row xs={1} sm={2} md={2} lg={4} className="g-4">
                     {doctorsCollection?.data?.map((doc) => (

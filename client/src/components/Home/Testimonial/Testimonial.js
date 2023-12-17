@@ -13,7 +13,7 @@ const Testimonial = () => {
   }, []);
 
   return (
-    <div className="our-service" style={{ backgroundColor: "#FDF4F4" }}>
+    <div className="our-service" style={{ backgroundColor: "#cefcfe" }}>
       <h3 style={{ transform: `translateX(${(pageServices - 3000) * 0.5}px)` }}>
         TESTIMONIAL
       </h3>
@@ -38,21 +38,21 @@ const Testimonial = () => {
               <div className="d-flex text-data">
                 <img src={manager} alt="" />
                 <div>
-                  <h2>1000+</h2>
+                  <h2>2050+</h2>
                   <p className="text-uppercase">Satisfied Patients</p>
                 </div>
               </div>
               <div className="d-flex text-data">
                 <img src={packages} alt="" />
                 <div>
-                  <h2>5+</h2>
+                  <h2>15+</h2>
                   <p className="text-uppercase">Health Sections</p>
                 </div>
               </div>
               <div className="d-flex text-data">
                 <img src={award} alt="" />
                 <div>
-                  <h2>15+</h2>
+                  <h2>45+</h2>
                   <p className="text-uppercase">Awards Won</p>
                 </div>
               </div>

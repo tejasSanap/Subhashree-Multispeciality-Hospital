@@ -12,6 +12,8 @@ import Home from "./components/Home/Home/Home";
 import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 import Login from "./components/Login/Login";
 import AppointmentHeader from "./components/Home/Appointment/AppointmentHeader";
+
+import MyAppointmentHeader from "./components/Home/Appointment/MyAppoinmentHeader.js";
 import HospitalDetails from "./components/Dashboard/HospitalDetails/HospitalDetails";
 import AllDoctors from "./components/Dashboard/DoctorsDashboard/AllDoctors/AllDoctors/AllDoctors";
 import DoctorProfile2 from "./components/Dashboard/DoctorsDashboard/DoctorProfile2/DoctorProfile2";
@@ -86,6 +88,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           {/* <Route path="/" element={<PrivateRoute />}> */}
           <Route path="/appointment" element={<AppointmentHeader />} />
+          <Route path="/myappointments" element={<MyAppointmentHeader />} />
           <Route path="/blog/:id" element={<SingleBlog />} />
           <Route path="/review" element={<Review />} />
           {/* </Route> */}

@@ -62,8 +62,7 @@ const SingleDoctor = () => {
         };
         fetchDoctor();
     }, [id]);
-
-
+    console.log("single doctor",singleDoctor)
 
 
 
@@ -96,73 +95,60 @@ const SingleDoctor = () => {
                     <div className='row'>
                         <div className='col-md-4 col-12'>
                             <div className="card doctor-card">
-                                <img src={`data:image/*;base64,${singleDoctor?.photo}`} className="card-img" alt="..." />
-                                <div className="row card-img-overlay">
-                                    <div className='icon-setup'>
-                                        <a href={singleDoctor?.facebook} target="_blank" rel="noreferrer"><i className="fab fa-facebook-square"></i></a>
-                                        <br />
-                                        <a href={singleDoctor?.twitter} target="_blank" rel="noreferrer"><i className="fab fa-twitter-square"></i></a>
-                                        <br />
-                                        <a href={singleDoctor?.linkedin} target="_blank" rel="noreferrer"><i className="fab fa-linkedin"></i></a>
-                                    </div>
-                                    <div className='mt-auto about-doctor2'>
-                                        <h2>{singleDoctor?.name}</h2>
-                                        <h5>{singleDoctor?.title}</h5>
-                                    </div>
-                                </div>
+                                <img src={singleDoctor?.photo} className="card-img" alt="..." />
                             </div>
-                            <div className="mb-4 d-flex justify-content-center align-items-center ">
-                                <NavLink to={`/appointment`}>
-                                    <button style={{ margin: "0 auto" }} className="services-btn">
-                                        <span>Get Appoinment</span><i className="fas fa-plus btn-icon"></i>
-                                    </button>
-                                </NavLink>
-                            </div>
+
                             <div className='opning-time2'>
                                 <div className='service-card-icon2'>
                                     <i className="fas fa-clock fa-3x"></i>
                                 </div>
-                                <h4 className='time2'>Opening Time</h4>
+                                <h4 className='time2'>Shifts Avalable</h4>
                                 <div className='table-data2'>
                                     <Table>
                                         <tbody>
                                             <tr>
-                                                <td>{singleDoctor?.day}</td>
-                                                <td>{singleDoctor?.time}</td>
+                                            {singleDoctor?.shifts?.map((shift, index) => (
+                                                <td key={index}>{shift}</td>
+                                            ))}
                                             </tr>
                                         </tbody>
                                     </Table>
                                 </div>
                             </div>
                             {/* <ContactForEveryPage /> */}
+                            <div className="mb-4 d-flex justify-content-center align-items-center ">
+                                <NavLink to={`/appointment`}>
+                                    <button style={{ marginTop: "2rem auto" }} className="services-btn">
+                                        <span>Get Appoinment</span><i className="fas fa-plus btn-icon" style={{background:"#05c9d0"}}></i>
+                                    </button>
+                                </NavLink>
+                            </div>
                         </div>
 
                         <div className='col-md-8 col-12'>
                             <div className='single-doctor-right'>
                                 <h1 className='mt-3'>{singleDoctor?.title}</h1>
-                                <p>{singleDoctor?.description}</p>
+
 
                                 <div className='row'>
-                                    <div className='col-md-6 col-12 HonorsandAwards'>
+                                    <div className='col-md-6 col-6 HonorsandAwards'>
                                         <h4 className='mb-5'>Honors and Awards</h4>
-                                        <div className='row award-setup'>
+                                        {Object.entries(singleDoctor?.awards || {}).map(([key, value]) => (
+                                            <div key={key} className='row award-setup'>
                                             <div className='col-md-2 col-12'>
                                                 <i className="fas fa-award fa-3x"></i>
                                             </div>
                                             <div className='col-md-10 col-12'>
-                                                {singleDoctor?.awardFirst}
+                                                {value}
                                             </div>
-                                        </div>
-                                        <div className='row award-setup'>
-                                            <div className='col-md-2 col-12'>
-                                                <i className="fas fa-award fa-3x"></i>
                                             </div>
-                                            <div className='col-md-10 col-12'>
-                                                {singleDoctor?.awardSecond}
-                                            </div>
-                                        </div>
+                                        ))}
                                     </div>
                                     <div className='col-md-6 col-12 Skillset'>
+                                        <h4 className='mb-5'>Decription</h4>
+                                        <p>{singleDoctor?.description}</p>
+                                    </div>
+                                    {/* <div className='col-md-6 col-12 Skillset'>
                                         <h4 className='mb-5'>Skillset</h4>
                                         <div className='d-flex justify-content-between align-items-center'>
                                             <p>Technique</p>
@@ -179,7 +165,7 @@ const SingleDoctor = () => {
                                             <p>{`${singleDoctor?.percent3}%`}</p>
                                         </div>
                                         <ProgressBar variant='info' now={singleDoctor?.percent3} />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className='row award-setup'>
                                     <div className='col-md-3'>
@@ -189,16 +175,18 @@ const SingleDoctor = () => {
                                         <i className="far fa-star"></i> {singleDoctor?.speciality}
                                     </div>
                                 </div>
+                                
                                 <div className='row award-setup'>
                                     <div className='col-md-3'>
                                         <h4>Education</h4>
                                     </div>
                                     <div className='col-md-9'>
-                                        <i className="fas fa-check"></i> {singleDoctor?.eduLine1}
-                                        <br /> <br />
-                                        <i className="fas fa-check"></i> {singleDoctor?.eduLine2}
-                                        <br /> <br />
-                                        <i className="fas fa-check"></i> {singleDoctor?.eduLine3}
+                                    {Object.entries(singleDoctor?.eduLines || {}).map(([key, value]) => (
+                                        <div key={key}>
+                                            <i className="fas fa-check"></i> {value}
+                                            <br /> <br />
+                                        </div>
+                                    ))}
                                     </div>
                                 </div>
                                 <div className='row award-setup'>

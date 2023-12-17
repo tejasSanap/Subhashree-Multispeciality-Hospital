@@ -24,6 +24,7 @@ import "./DashboardMain.css";
 import { useAtom } from "jotai";
 import { adminAtom, doctorAtom, roleAtom } from "../../../store/atom";
 import axios from "../../../utils/axiosConfig";
+import logo from "../../../images/Subhashree-logo.png"
 
 const DashboardMain = () => {
   const navigate = useNavigate();
@@ -59,24 +60,24 @@ const DashboardMain = () => {
 
   return (
     <>
-      {/* <div className="dashboard_mobile_header">
-        <div>lol</div>
-        <div>
-          <Button
-            className="d-block d-md-none dashboard_hamburger_btn"
-            variant="primary"
-            onClick={handleShow}
-          >
-            <GiHamburgerMenu />
-          </Button>
-        </div>
+        {/* <div className="dashboard_mobile_header">
+          <div>lol</div>
+          <div>
+            <Button
+              className="d-block d-md-none dashboard_hamburger_btn"
+              variant="primary"
+              onClick={handleShow}
+            >
+              <GiHamburgerMenu />
+            </Button>
+          </div>
 
-        <div className="dashboard_mobole_logo  d-block d-md-none">
-          <Link to="/home">
-            <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="" />
-          </Link>
-        </div>
-      </div> */}
+          <div className="dashboard_mobole_logo  d-block d-md-none">
+            <Link to="/home">
+              <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="" />
+            </Link>
+          </div>
+        </div> */}
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton className="offcanvas_header">
@@ -370,54 +371,21 @@ const DashboardMain = () => {
           </div>
         </Offcanvas.Body>
       </Offcanvas>
+
       <div className="dashboardHeader container-fluid">
         <div className="logo_area">
           <Link to="/home">
-            {/* <img src="https://i.ibb.co/hRX83Sc/logo.png" alt="" /> */}
+            <img src={logo} style={{height:"70px"}} />
           </Link>
-        </div>
-        <div className="menu_area">
-          <div className="search_area">
-            <input type="text" placeholder="Search here..." />
-            <RiSearchLine />
-          </div>
-          <div className="right_icon_area">
-            <ul>
-              <Link to="/dashboard/appointment">
-                <li data-tag="Appointment">
-                  <FaRegCalendarAlt />
-                </li>
-              </Link>
-              <Link to="/dashboard/chat">
-                <li data-noti="" data-tag="Chat">
-                  <RiWechatLine />
-                </li>
-              </Link>
-              {/* <li data-noti="" data-tag="Inbox">
-                <AiOutlineMail />
-              </li> */}
-              {/* <li data-noti="" data-tag="Notification">
-                <IoMdNotificationsOutline />
-              </li> */}
-              {/* <li data-tag="Setting">
-                <GiSettingsKnobs />
-              </li> */}
-              {/* <li data-tag="Logout" onClick={() => dispatch(logOut())}>
-                <BiLogIn />
-              </li> */}
-            </ul>
-          </div>
+            <text style={{marginLeft:'10px', fontWeight:"600"}}>Subhashree Hospital</text>
         </div>
       </div>
-
-
-
 
       {/* left side bar */}
       <div className="dashboard_main">
         <div className="dashboard_left_side_bar d-none d-md-block">
           <div className="dasboard_user">
-            <img src={doctor?.photo} alt="doctor or user" />
+            {/* <img src={doctor?.photo} alt="doctor or user" /> */}
             <div>
               <span>Welcome</span>
               <div>
@@ -501,8 +469,6 @@ const DashboardMain = () => {
                   data-bs-toggle="collapse"
                   to="/dashboard/allDoctors"
                   role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
                 >
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
@@ -510,7 +476,6 @@ const DashboardMain = () => {
                     </span>
                     <span>Doctors</span>
                   </span>
-                  <BsChevronDown />
                 </Link>
                 <div className="collapse" id="collapseDoctors">
                   <ul className="dashboard_sub_menu">

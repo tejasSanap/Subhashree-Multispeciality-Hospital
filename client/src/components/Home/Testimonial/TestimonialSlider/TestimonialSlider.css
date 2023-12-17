@@ -2,7 +2,7 @@
   border-radius: 50%;
   height: 5.5rem;
   width: auto;
-  border: 2px dashed #d14836;
+  border: 2px dashed #03989E;
 }
 .testimoneal-name {
   font-size: 20px;
@@ -13,13 +13,13 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 1px;
-  color: #d14836;
+  color: #03989E;
 }
 .testimonial-arrow {
   font-size: 24px;
   padding: 7px 15px 7px;
   border: none;
-  background-color: #d14836;
+  background-color: #03989E;
   color: white;
   transition: all 0.5s ease-in;
   font-weight: 600;
@@ -40,7 +40,7 @@
 }
 .testi-main p {
   font-size: 15px;
-  color: #d14836;
+  color: #03989E;
   font-weight: 500;
   text-align: center;
 }
@@ -48,7 +48,7 @@
   margin-right: 10px;
 }
 .reviewRating {
-  color: #d14836;
+  color: #03989E;
 }
 /* @media only screen and (min-width: 1400px) and (max-width: 1900px) {
   .testimonial-slider {

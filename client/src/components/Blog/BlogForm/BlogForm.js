@@ -165,10 +165,10 @@ const BlogForm = () => {
 
   return (
     <div className="container-contact100">
-      <div className="wrap-contact100  container">
+      <div className="wrap-contact100  container"  style={{paddingTop:'0'}}>
         <form className="contact100-form validate-form" onSubmit={handleSubmit}>
-          <div class="one">
-            <h1 className="re">Write Your Blog</h1>
+          <div>
+            <h1 className="">Write Your Blog</h1>
           </div>
           <Row>
             <Col sm={12} md={6} lg={5}>

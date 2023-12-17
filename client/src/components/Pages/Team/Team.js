@@ -4,6 +4,7 @@ import Footer from "../../Home/Footer/Footer";
 import Header from "../../Share/Header/Header";
 import SingleTeam from "./SingleTeam";
 import "./Team.css";
+import specializationBanner from '../../../images/specialization_banner.jpg';
 
 const Team = () => {
   const [pageTeam, setPageTeam] = useState(0);
@@ -14,7 +15,7 @@ const Team = () => {
   return (
     <>
       <Header />
-      <div style={{ background: `url(https://i.ibb.co/9nmC6s9/ki-14-1.jpg)` }} className="backcrumb-my ">
+      <div style={{ background: `url(${specializationBanner})` }} className="backcrumb-my ">
         <nav aria-label="breadcrumb">
           <h3>OUR TEAM</h3>
           <ol className="breadcrumb">

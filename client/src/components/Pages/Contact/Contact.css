@@ -7,6 +7,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  background-color: #e9eefc;
 }
 .breadcrumb {
   justify-content: center;
@@ -28,13 +29,13 @@
 }
 .contact-item svg {
   font-size: 45px;
-  color: #d14836;
+  color: #a6a6a6;
   margin-bottom: 20px;
 }
 .contact-item h6,
 .contact-title h6 {
   letter-spacing: 3px;
-  color: #2779a7;
+  color: #1885ce;
 }
 .contact-item p {
   margin-top: 7px;
@@ -48,7 +49,7 @@
   font-weight: 300;
 }
 .contact-title h2 strong {
-  color: #d14836;
+  color: #a6a6a6;
 }
 .contact-title p {
   color: #6e7990;
@@ -58,8 +59,8 @@
 .contact form textarea {
   width: 100%;
   display: inline-block;
-  padding: 14px;
-  border: 2px solid transparent;
+  padding: 15px;
+  border: 1px solid transparent;
   background-color: #ecf2ff;
   outline: none;
   transition: 0.3s all ease-in-out;
@@ -68,7 +69,7 @@
 .contact form textarea:hover,
 .contact form input:focus,
 .contact form textarea:focus {
-  border: 1px solid #d14836;
+  border: 1px solid #a6a6a6;
 }
 .contact form .header-btn {
   padding: 15px;

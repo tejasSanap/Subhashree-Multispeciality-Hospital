@@ -10,8 +10,8 @@ const AboutHome = () => {
         <div>
             <Header />
             <Progress />
-            <History />
-            <Patner />
+            {/* <History /> */}
+            {/* <Patner /> */}
             <Footer />
         </div>
     );

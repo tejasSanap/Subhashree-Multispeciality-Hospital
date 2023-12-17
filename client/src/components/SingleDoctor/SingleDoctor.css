@@ -1,5 +1,5 @@
 .single-doctor-header {
-  background-image: url("../../images/ki-14-1.jpg");
+  background-image: url("../../images/ki-14-11.jpg");
   background-color: #ecf2ff;
   background-position: center center;
   background-repeat: no-repeat;
@@ -31,7 +31,7 @@
   color: black;
   padding-left: 11px;
   font-size: 30px;
-  font-family: auto;
+  font-family: "Roboto", sans-serif;
   letter-spacing: 1px;
 }
 
@@ -68,7 +68,7 @@
 
 .about-doctor2 {
   background-color: #ffffff;
-  border-left: 5px solid #7093e5;
+  border-left: 5px solid #05c9d0;
   padding: 15px 10px;
 }
 
@@ -77,7 +77,7 @@
 }
 
 .about-doctor2 h5 {
-  color: #f68685;
+  color: #a6a6a6;
 }
 
 .contact2 {
@@ -148,14 +148,14 @@ h4 {
   margin: 20px 0 0 0;
 }
 .award-setup i {
-  color: #7093e5;
+  color: #05c9d0;
 }
 
 .single-doctor-right-footer {
   margin: 5rem 0 0 0;
 }
 .single-doctor-right-footer h6 {
-  color: #7093e5;
+  color: #05c9d0;
 }
 .single-doctor-right-footer h2 {
   font-weight: 400;

@@ -49,7 +49,7 @@ const SingleCardDoctor = ({ doc }) => {
           <Card.Img
             className="doctor-image"
             variant="top"
-            src={`data:image/*;base64,${photo}`}
+            src={photo}
           />
           <Card.Body>
             <NavLink
@@ -59,19 +59,6 @@ const SingleCardDoctor = ({ doc }) => {
               <Card.Title>{name}</Card.Title>
             </NavLink>
             <small className="text-secondary">{title}</small>
-            <div className="doctor-social-media">
-              <a href={facebook} target="_blank" rel="noreferrer">
-                <i className="fab fa-facebook-f text-secondary"></i>
-              </a>
-              <br />
-              <a href={linkedin} target="_blank" rel="noreferrer">
-                <i className="fab fa-linkedin-in text-secondary"></i>
-              </a>
-              <br />
-              <a href={twitter} target="_blank" rel="noreferrer">
-                <i className="fab fa-twitter text-secondary"></i>
-              </a>
-            </div>
             <Card.Text>{address}</Card.Text>
             <div className="d-flex justify-content-evenly align-items-start mt-3">
               <NavLink to={`/dashboard/allDoctors/update/${_id}`}>

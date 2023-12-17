@@ -74,9 +74,8 @@ const DoctorsSlider = () => {
                                     <div className="row card-img-overlay">
                                         <div className='mt-auto about-doctor'>
                                             <NavLink to={`/singleDoctor/${doctor?._id}`} className="text-decoration-none">
-                                                {/* <h2>{doctor?.name}</h2> */}
-                                                <h2>{doctor.name}</h2>
-                                                {/* <h5>{doctor.title}</h5> */}
+                                                <h2>{doctor?.name}</h2>
+                                                <h5>{doctor.title}</h5>
                                             </NavLink>
                                         </div>
                                     </div>

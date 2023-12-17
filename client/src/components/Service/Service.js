@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Testimonial from "../Home/Testimonial/Testimonial";
 import Header from "../Share/Header/Header";
 import Footer from "../Home/Footer/Footer";
+import specializationBanner from '../../images/specialization_banner.jpg';
 
 const Service = () => {
   return (
@@ -11,7 +12,7 @@ const Service = () => {
       <Header />
       <div
         style={{
-          background: `url(https://i.ibb.co/nkk3JJV/specialization-banner.jpg)`,
+          background:`url(${specializationBanner})`,
         }}
         className="backcrumb-my mb-5"
       >

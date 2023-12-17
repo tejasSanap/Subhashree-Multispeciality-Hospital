@@ -161,7 +161,7 @@ const AddDoctorsDetails = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#F4F7F6", padding: "20px 0" }}>
+    <div style={{ backgroundColor: "#F4F7F6", height:"100vh",  padding: "10% 0" }}>
       <Container>
         <Card className="shadow p-3">
           <Card.Body>

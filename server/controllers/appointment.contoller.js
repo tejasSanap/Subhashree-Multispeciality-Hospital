@@ -23,6 +23,7 @@ const createAppointment = async (req, res) => {
       doctor,
       doctorEmail,
       patientId,
+      doctorNumber
     } = req.body;
 
     const newAppointment = new Appointment({
@@ -43,6 +44,16 @@ const createAppointment = async (req, res) => {
     });
 
     const appointment = await newAppointment.save();
+    console.log("doc no",doctorNumber)
+    if (process.env.TWILIO_PHONE_NUMBER && doctorNumber) {
+      client.messages.create({
+        body:
+        `${firstName} ${lastName} - AGE(${age}) has requested appointment for you on` +
+        new Date(date).toDateString() + `Description - ${description}` + `Accept appointment on website`,
+        from: process.env.TWILIO_PHONE_NUMBER,
+        to: '+91' + doctorNumber,
+      });
+    }
     res.status(200).json(appointment);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -117,7 +128,7 @@ const approveAppointment = async (req, res) => {
     if (process.env.TWILIO_PHONE_NUMBER && patientPhone) {
       client.messages.create({
         body:
-        'Your appointment for SubhaShree has been approved. Date - ' +
+        'Your appointment for SubhaShree has been approved For Date : ' +
         new Date(updatedAppointment.date).toDateString(),
         from: process.env.TWILIO_PHONE_NUMBER,
         to: '+91' + patientPhone,

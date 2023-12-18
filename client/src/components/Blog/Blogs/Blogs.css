@@ -47,7 +47,7 @@
 }
 .blog-my .title-heading {
   position: relative;
-  color: #2779a7;
+  color: #05c9d0;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -60,7 +60,7 @@
 }
 
 .blog-my .title-heading::before {
-  background-color: #f68685;
+  background-color: #a6a6a6;
   position: absolute;
   content: attr(data-tag);
   top: 0px;
@@ -76,7 +76,7 @@
   width: 100%;
 }
 .blog-my .title-heading:hover {
-  color: #f68685;
+  color: #a6a6a6;
 }
 .blog-my .title-heading:hover::before {
   display: block;
@@ -112,7 +112,7 @@
 }
 .blog-my .blog-btn {
   margin: 15px 0;
-  background-color: #f68685;
+  background-color: #a6a6a6;
   color: white;
   padding: 10px 15px;
   display: inline-block;
@@ -120,7 +120,7 @@
   transition: all 0.2s ease-in-out;
 }
 .blog-btn:hover {
-  background-color: #2779a7;
+  background-color: #05c9d0;
   color: white;
 }
 .liked {
@@ -130,7 +130,7 @@
 .love {
   position: absolute;
   top: 10px;
-  background-color: #f68685;
+  background-color: #a6a6a6;
   color: white;
   display: block;
   width: 50px;
@@ -151,13 +151,13 @@
 }
 
 .service-card p span {
-  color: #f68685;
+  color: #a6a6a6;
 }
 
 .view-div::before,
 .love-div::before,
 .liked::before {
-  background-color: #f68685;
+  background-color: #a6a6a6;
   content: attr(data-tag);
 
   position: absolute;
@@ -205,7 +205,7 @@
 .custom-btn {
   width: 130px;
   height: 40px;
-  border: 2px solid #f68685;
+  border: 2px solid #a6a6a6;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
@@ -222,7 +222,7 @@
   z-index: 2;
   transition: all 0.3s ease;
   overflow: hidden;
-  color: #f68685;
+  color: #a6a6a6;
 }
 .btn-9:after {
   position: absolute;
@@ -242,7 +242,13 @@
 .btn-9:hover:after {
   -webkit-transform: scale(2) rotate(180deg);
   transform: scale(2) rotate(180deg);
-  background: #f68685;
+  background: #a6a6a6;
   box-shadow: 4px 4px 6px 0 #f68785e5, -4px -4px 6px 0 #f687859a,
     inset -4px -4px 6px 0 #f6878554, inset 4px 4px 6px 0 #f6878531;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

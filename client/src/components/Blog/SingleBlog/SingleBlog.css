@@ -61,7 +61,11 @@
   padding: 6px;
   cursor: pointer;
 }
-
+.Img-blog{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
 .Img-blog img {
   border-radius: 25px;
   border: 2px dotted #f68685;

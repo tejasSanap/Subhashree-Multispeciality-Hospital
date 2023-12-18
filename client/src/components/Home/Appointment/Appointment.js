@@ -42,7 +42,13 @@ const Appointment = () => {
     data.patientId = user.id;
     data.doctorId = doctorId
     console.log("data", data);
-
+    let dp = '';
+    doctors.map((dc)=>{
+      if(dc.email===data.doctorEmail){
+        dp = dc.phone;
+      }
+    })
+    data.doctorNumber = dp;
     axios.post("/api/appointment/addappointment",data,{
       headers: {
         'Content-Type': 'application/json',

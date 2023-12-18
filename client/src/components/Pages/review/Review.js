@@ -17,7 +17,7 @@ import axios from "../../../utils/axiosConfig";
 const Review = () => {
   // const user = useSelector((state) => state.auth.auth);
   const [user, setUser] = useAtom(userAtom);
-  console.log("user", user.email);
+  console.log("333", user);
   const [rating, setRate] = useState(0);
   const {
     register,
@@ -28,11 +28,12 @@ const Review = () => {
 
   const onSubmit = (data) => {
     data["rating"] = rating;
-    data["email"] = user?.email;
-    data["displayName"] = user?.displayName;
-    data["photoURL"] = user?.photoURL;
-
-    axios.post("http://localhost:7050/reviewAdd", data).then((data) => {
+    data["email"] = user?.email || 'null';
+    data["displayName"] = data?.name;
+    data["photoURL"] = user?.photoURL
+    data["description"]= data.describe;
+    console.log("data", data);
+    axios.post("/api/reviewAdd", data).then((data) => {
       console.log(data, "info");
       if (data.status === 200) {
         reset();
@@ -103,6 +104,10 @@ const Review = () => {
                       I just love it. <BsHeartFill />
                     </p>
                   )}
+                  <textarea
+                    placeholder="Your Name"
+                    {...register("name", { required: true })}
+                  ></textarea>
                   <textarea
                     placeholder="Describe your experience..."
                     {...register("describe", { required: true })}

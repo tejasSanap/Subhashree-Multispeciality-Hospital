@@ -264,7 +264,7 @@ const Header = () => {
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
-                          to="/review"
+                          to={user[0]?.email? "/review":"/login"}
                         >
                           Give Us Feedback
                         </Link>

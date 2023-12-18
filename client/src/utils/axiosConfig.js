@@ -11,7 +11,9 @@ import axios from "axios";
 // }
 
 const instance = axios.create({
-  baseURL: "https://tejasanap.tech"
+  // baseURL: "https://tejasanap.tech"
+  baseURL: "http://localhost:7080"
+  // headers: {
   // headers: {
   //   'usertype': getUserType(),
   //   'userid': getUserId()

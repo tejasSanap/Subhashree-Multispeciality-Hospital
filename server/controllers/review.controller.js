@@ -2,13 +2,14 @@ const Review = require("../models/Review");
 
 const addReview = async (req, res) => {
     try {
-      const { description, rating, email, photoURL } = req.body;
+      const { describe, rating, email, photoURL,name } = req.body;
       const info = {
-        description: description,
+        description: describe,
         rating,
         email,
         time: new Date(),
-        photoURL,
+        photoURL ,
+        name:name 
       };
   
       const result = await Review.create(info);

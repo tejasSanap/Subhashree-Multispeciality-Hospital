@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../../../utils/axiosConfig";
 import React, { useEffect, useRef, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import { BiHappyHeartEyes } from "react-icons/bi";
@@ -14,8 +14,8 @@ const TestimonialSlider = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await axios.get("http://localhost:7050/reviewAdd");
-        console.log(data);
+        const data = await axios.get("/api/reviews");
+        console.log("data",data);
         setData(data?.data);
       } catch (error) {}
     };
@@ -43,7 +43,7 @@ const TestimonialSlider = () => {
       >
         {data?.map((item) => (
           <Carousel.Item>
-            <p className="lh-2 fz-1 mb-5 text-jf">{item?.describe}</p>
+            <p className="lh-2 fz-1 mb-5 text-jf">{item?.description}</p>
             <div className="d-flex align-items-center justify-content-between mt-4 flex-grow-1">
               <div className="d-flex align-items-center">
                 <img
@@ -56,7 +56,7 @@ const TestimonialSlider = () => {
                   alt=""
                 />
                 <div>
-                  <h5 className="testimoneal-name">{item?.displayName}</h5>
+                  <h5 className="testimoneal-name">{item?.name}</h5>
                   <span className="testimoneal-email">{item?.email}</span>
                   <span className="testimoneal-role">{format(item?.time)}</span>
                 </div>

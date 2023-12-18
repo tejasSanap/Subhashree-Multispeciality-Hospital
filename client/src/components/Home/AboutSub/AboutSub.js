@@ -2,9 +2,9 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import "./AboutSigma.css";
+import "./AboutSub.css";
 
-const AboutSigma = () => {
+const AboutSub = () => {
   /*
     const [pageHight, setPageHight] = useState(0)
     const handleHight = () => setPageHight(window.pageYOffset);
@@ -124,4 +124,4 @@ const AboutSigma = () => {
   );
 };
 
-export default AboutSigma;
+export default AboutSub;

@@ -55,16 +55,18 @@ const Login = () => {
             password: data.password
         })
         if (res.status === 200) {
-            alert("loged in");
+            // alert("loged in");
             setToken(res.data.accesstoken);
-            setUser(res.data);
+            setUser(res.data,);
             localStorage.setItem('token', res.data.accesstoken);
             localStorage.setItem('user', JSON.stringify(res.data));
             localStorage.setItem('isLoggedIn',true)
             setIsLoggedIn(true)
             navigate("/myAppointments")
+        }else{
+            alert("Incorrect Password")
         }
-        console.log("resss", user);
+        console.log("resss", res.data);
     };
 
     return (

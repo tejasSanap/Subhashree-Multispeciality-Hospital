@@ -1,5 +1,5 @@
 import React from "react";
-import AboutSigma from "../AboutSigma/AboutSigma";
+import AboutSub from "../AboutSub/AboutSub";
 import Testimonial from "../Testimonial/Testimonial";
 import Banner from "../Banner/Banner";
 import ChooseUs from "../ChooseUs/ChooseUs";
@@ -13,7 +13,7 @@ const Home = () => {
     <div>
       <Header />
       <Banner />
-      <AboutSigma />
+      <AboutSub />
       <ChooseUs />
       <Services />
       <Doctors />

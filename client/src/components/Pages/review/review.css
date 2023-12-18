@@ -9,30 +9,31 @@
   margin-bottom: 100px;
 }
 .error-des {
-  color: #d14836;
+  color: #000000;
   font-size: 12;
   padding: 5px 0;
 }
 .one .re {
-  color: #d14836;
+  color: #0a0a0a; 
+  font-size : 24px;
 }
 .review-form p {
-  color: #d14836;
+  color: #000000;
   margin-bottom: 15px;
   font-size: 20px;
   letter-spacing: 3px;
 }
 .review-form textarea::placeholder {
-  color: #d14836;
+  color: #000000;
 }
 .reviewRating {
   padding: 10px 0;
 }
 .review-form {
-  padding: 50px 25px;
+  padding: 25px 25px;
   color: rgb(255, 255, 255);
   /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
   text-align: center;
   border-radius: 25px;
@@ -42,13 +43,13 @@
   background: transparent;
   padding: 15px;
   border-radius: 10px;
-  border: 2px dashed #d14836;
-  color: #d14836;
-  height: 200px;
+  border: 2px solid #2779a7;
+  color: #000000;
+  height: 100px;
 }
 .review-form textarea:focus {
   outline: none;
-  border: 2px dashed #2779a7;
+  border: 2px solid #2779a7;
 }
 .bttn {
   color: #2779a7;
@@ -105,14 +106,14 @@
   opacity: 1;
 }
 .reviewRating {
-  color: #d14836;
+  color: #000000;
 }
 .low {
-  color: #2779a7;
+  color: #0c0c0c;
 }
 .medium {
-  color: #2779a7;
+  color: #000000;
 }
 .high {
-  color: #2779a7;
+  color: #0d0d0d;
 }

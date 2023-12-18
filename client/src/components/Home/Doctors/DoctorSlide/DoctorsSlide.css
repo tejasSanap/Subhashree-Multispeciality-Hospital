@@ -9,19 +9,19 @@
 .icon-setup i {
   padding: 15px;
   margin: 5px;
-  background-color: #7093e5;
+  background-color: #2779a7;
   cursor: pointer;
   color: #ffffff;
 }
 .icon-setup i:hover {
-  background-color: #f68685;
+  background-color: #d14836;
   transition: 0.5s;
 }
 .about-doctor {
   background-color: #ffffff;
-  border-left: 5px solid #7093e5;
+  border-left: 10px solid #2779a7;
   transform: scaleX(0);
-  transition: 0.5s all linear;
+  transition: 0.4s all linear;
   visibility: hidden;
   opacity: 0;
   transform-origin: left;
@@ -34,7 +34,7 @@
 }
 
 .card-img-overlay {
-  padding: 25px;
+  padding: 19px;
 }
 
 @media only screen and (max-width: 600px) {

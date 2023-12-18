@@ -18,7 +18,10 @@ const Banner = () => {
             <div className="banner_left_bottom">
               <Link to="/appointment" className="appointment_btn">
                 <span style={{ fontWeight: "500" }}>Get Appointment</span>{" "}
-                <i className="fas fa-plus"></i>
+                <i
+                  style={{ backgroundColor: "#03989e" }}
+                  className="fas fa-plus"
+                ></i>
               </Link>
             </div>
           </div>

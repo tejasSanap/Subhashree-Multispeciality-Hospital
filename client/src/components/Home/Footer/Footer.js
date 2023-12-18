@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { Col, Container, Row } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import axios from "axios";
+import { Col, Container, Row } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import {
   FaEnvelope,
   FaFacebookF,
@@ -8,10 +8,10 @@ import {
   FaMapMarkerAlt,
   FaPhone,
   FaTwitter,
-} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import './Footer.css';
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import "./Footer.css";
 
 const Footer = () => {
   const {
@@ -38,7 +38,7 @@ const Footer = () => {
           </Col>
           <Col sm={6} lg={4}>
             <div className="footer-menu-heading">
-              <h3>Useful Links</h3>
+              <h3 style={{ fontSize: "24px" }}>Useful Links</h3>
             </div>
             <ul className="footer-menu">
               <Link className="footer-item" to="/about">
@@ -60,29 +60,35 @@ const Footer = () => {
           </Col>
           <Col sm={6} lg={4}>
             <div className="footer-menu-heading">
-              <h3>Reach Us</h3>
+              <h3 style={{ fontSize: "24px" }}>Reach Us</h3>
             </div>
             <ul className="reach-us">
               <li>
-                <a rel="noreferrer" target="_blank" href="tell:01629094984">
+                <a
+                  style={{ fontSize: "15px" }}
+                  rel="noreferrer"
+                  target="_blank"
+                  href="tell:01629094984"
+                >
                   <FaPhone />
                   +91 072493 71093
                 </a>
               </li>
               <li>
                 <a
+                  style={{ fontSize: "15px" }}
                   rel="noreferrer"
                   target="_blank"
                   href="mailto:contact@subhashreehospital.com"
                 >
                   <FaEnvelope />
-                  contact@subhashreehospital.com
+                  @subhashreehospital.com
                 </a>
               </li>
-              <li>
-                {' '}
+              <li style={{ fontSize: "15px" }}>
                 <FaMapMarkerAlt />
-                Shop No. 1, First Floor, Durganand Heights Gajanan Mandir, Road, Pundlik Nagar, Aurangabad, Maharashtra 431009
+                First Floor, Durganand Heights, Pundlik Nagar, Aurangabad,
+                Maharashtra 431009
               </li>
               <li className="spical">
                 <a
@@ -97,14 +103,18 @@ const Footer = () => {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <FaTwitter />
+                  {/* <FaTwitter /> */}
+                  <i
+                    class="fa-brands fa-x-twitter"
+                    style={{ color: "#fafafa" }}
+                  ></i>{" "}
                 </a>
                 <a
                   href="https://www.instagram.com/"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  {' '}
+                  {" "}
                   <FaInstagram />
                 </a>
               </li>
@@ -115,7 +125,7 @@ const Footer = () => {
         <Row>
           <Col>
             <p className="foot-note">
-              Copyright 2022 subhashree All Rights Reserved.
+              Copyright© 2023 Subhashree All Rights Reserved.
             </p>
           </Col>
         </Row>

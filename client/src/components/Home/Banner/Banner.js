@@ -14,18 +14,18 @@ const Banner = () => {
         </div>
         <div className="banner_container">
           <div className="banner_left ">
-            <div className="banner_left_social">
-            </div>
+            <div className="banner_left_social"></div>
             <div className="banner_left_bottom">
               <Link to="/appointment" className="appointment_btn">
-                <span>Get Appointment</span> <i className="fas fa-plus"></i>
+                <span style={{ fontWeight: "500" }}>Get Appointment</span>{" "}
+                <i className="fas fa-plus"></i>
               </Link>
             </div>
           </div>
           {/* <img src="https://files.yappe.in/place/full/csmss-3806731.webp"></img> */}
 
           <div className="banner_middle ">
-            <img src ="/" alt="" className="img-fluid" />
+            <img src="/" alt="" className="img-fluid" />
           </div>
           <div className="banner_right">
             <div className="moto">

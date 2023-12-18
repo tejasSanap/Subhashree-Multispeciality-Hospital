@@ -14,7 +14,7 @@ const Header = () => {
   const [show, setShow] = useState(false);
   // const dispatch = useDispatch();
   const user = useAtom(userAtom);
-  console.log("user atom",user[0].email);
+  console.log("user atom", user[0].email);
   // const user = {};
   const admin = {};
   const handleClose = () => setShow(false);
@@ -44,19 +44,18 @@ const Header = () => {
   const toggleSubmenu1 = () => {
     setMenuSubMenu1(isMenuSubMenu1 === false ? true : false);
   };
-  const handleLogout = () =>{
-
-     // Clear local storage values
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('adminData');
-    localStorage.removeItem('doctor');
-    localStorage.removeItem('user');
+  const handleLogout = () => {
+    // Clear local storage values
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("adminData");
+    localStorage.removeItem("doctor");
+    localStorage.removeItem("user");
     // localStorage.removeItem('isLogin');
     setIsLoggedIn(false);
-    console.log("Removed local storage atoms")
+    console.log("Removed local storage atoms");
     window.location.reload();
-  }
+  };
   let boxClassSubMenu = ["sub__menus"];
   let boxClassSubMenu1 = ["sub__menus"];
   if (isMenuSubMenu) {
@@ -72,12 +71,12 @@ const Header = () => {
   // const user = useSelector((state) => state.auth.auth);
   console.log(user, "user");
   // const admin = useSelector((state) => state.admin.admin);
-  const handleAppointmentClick = ()=>{
-    console.log("Cleck",isLoggedIn)
+  const handleAppointmentClick = () => {
+    console.log("Cleck", isLoggedIn);
     if (isLoggedIn === false) {
-      navigate('/login');
+      navigate("/login");
     }
-  }
+  };
   return (
     <header className="header__middle">
       <div className="container-fluid">
@@ -148,7 +147,8 @@ const Header = () => {
                     className="menu-item sub__menus__arrows"
                   >
                     <Link to="#">
-                      Specialization <FiChevronDown />
+                      Specializations🢓
+                      {/* <FiChevronDown /> */}
                     </Link>
                     <ul className={boxClassSubMenu1.join(" ")}>
                       <li>
@@ -212,7 +212,8 @@ const Header = () => {
                     className="menu-item sub__menus__arrows"
                   >
                     <Link to="#">
-                      Pages <FiChevronDown />
+                      Pages🢓
+                      {/* <FiChevronDown /> */}
                     </Link>
                     <ul className={boxClassSubMenu.join(" ")}>
                       <li>
@@ -269,15 +270,11 @@ const Header = () => {
                           Give Us Feedback
                         </Link>
                       </li>
-
                     </ul>
                   </li>
 
                   {user[0]?.email ? (
-                    <li
-                      className="menu-item"
-                      onClick={handleLogout}
-                    >
+                    <li className="menu-item" onClick={handleLogout}>
                       <a> Logout </a>
                     </li>
                   ) : (
@@ -292,25 +289,31 @@ const Header = () => {
                     </li>
                   )}
 
-                  {isLoggedIn? (<li  className="menu-item">
-                   <Link
-                    to="/myappointments"
-                    activeClassName="is-active"
-                  >
-                    My Appointments
-                  </Link>  </li>):(<></>) }
-                  {isLoggedIn? (<Link
-                    to="/appointment"
-                    className="header-btn text-decoration-none btn-hover"
-                  >
-                    Appointment <i className="fas fa-plus header-icon"></i>
-                  </Link>):(<Link
-                    to="/login"
-                    className="header-btn text-decoration-none btn-hover"
-                  >
-                    Appointment <i className="fas fa-plus header-icon"></i>
-                  </Link>) }
-
+                  {isLoggedIn ? (
+                    <li className="menu-item">
+                      <Link to="/myappointments" activeClassName="is-active">
+                        My Appointments
+                      </Link>
+                    </li>
+                  ) : (
+                    <></>
+                  )}
+                  {isLoggedIn ? (
+                    <Link
+                      to="/appointment"
+                      className="header-btn text-decoration-none btn-hover"
+                    >
+                      Appointment <i className="fas fa-plus header-icon"></i>
+                    </Link>
+                  ) : (
+                    <Link
+                      style={{ fontWeight: "500", margin: "8px 0 0 4px" }}
+                      to="/login"
+                      className="header-btn text-decoration-none btn-hover"
+                    >
+                      Appointment <i className="fas fa-plus header-icon"></i>
+                    </Link>
+                  )}
 
                   {(admin.role === "nurse" ||
                     admin.role === "admin" ||

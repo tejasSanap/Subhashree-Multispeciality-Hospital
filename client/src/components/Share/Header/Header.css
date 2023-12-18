@@ -180,14 +180,14 @@ li {
   list-style-type: none;
 }
 .menu-item a {
-  padding: 12px;
-  font-size: 17px;
+  padding: 0 12px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 40px;
   position: relative;
   display: block;
   color: #545050;
-  margin: 27px 0px;
+  margin: 10px 0px;
   text-decoration: none;
   cursor: pointer;
 }

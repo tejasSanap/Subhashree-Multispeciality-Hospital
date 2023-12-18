@@ -117,7 +117,7 @@ const approveAppointment = async (req, res) => {
     if (process.env.TWILIO_PHONE_NUMBER && patientPhone) {
       client.messages.create({
         body:
-        'Your appointment for SubhaShree has been approved. Date - ' +
+        'Your appointment for SubhaShree has been approved For Date : ' +
         new Date(updatedAppointment.date).toDateString(),
         from: process.env.TWILIO_PHONE_NUMBER,
         to: '+91' + patientPhone,

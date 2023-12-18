@@ -18,9 +18,10 @@ const AboutSigma = () => {
         <div className="row align-items-center pt-3">
           <div className="col-lg-4 col-md-6 col-sm-12">
             <p className="about-heding">About Subhashree Hospital</p>
-            <h3 className="welcome-msg">
-              <strong className="bold-welcome">Welcome To Subhashree </strong>
-              Hospital
+            <h3 className="welcome-msg">Welcome to
+              <div className="bold-welcome">
+                 Subhashree Hospital
+              </div>
             </h3>
             <p className="content">
               Committed to Providing Exceptional Care, Supporting Your Health
@@ -65,7 +66,10 @@ const AboutSigma = () => {
           <div className="col-lg-4 col-md-6 col-sm-12 ps-5">
             <ul>
               <li>
-                <i className="far fa-check-square checkbox-icon"></i>
+                <i
+                  style={{ fontSize: "16px" }}
+                  className="far fa-check-square checkbox-icon"
+                ></i>
                 Treats minor illnesses
               </li>
               <li>

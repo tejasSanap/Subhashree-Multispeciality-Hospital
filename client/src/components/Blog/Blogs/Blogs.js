@@ -41,16 +41,6 @@ const Blogs = () => {
                       src={blog?.photo}
                       alt=""
                     />
-                    <p data-tag="Total View" className="view-div">
-                      <span className="view">
-                        <MdVisibility /> {blog?.totalVisitor.length}
-                      </span>
-                    </p>
-                    <p data-tag="Total Love" className="love-div">
-                      <span className="love">
-                        <BsFillSuitHeartFill /> {blog?.likes.length}
-                      </span>
-                    </p>
                   </div>
                   <div className="service-card">
                     <Link
@@ -66,7 +56,7 @@ const Blogs = () => {
                     <br />
                     <p className="blog-des">{blog?.description}</p>
                     <Link
-                      className="custom-btn btn-9 text-decoration-none "
+                      className="custom-btn btn-9 text-decoration-none"
                       to={`/blog/${blog?._id}`}
                     >
                       Read More

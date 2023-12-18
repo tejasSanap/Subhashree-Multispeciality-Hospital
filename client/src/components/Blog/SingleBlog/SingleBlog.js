@@ -201,20 +201,20 @@ const SingleBlog = () => {
         </nav>
       </div>
       <Container>
-        <Row>
-          <Col md={8}>
+        <Row style={{display:"flex"}}>
+          <Col md={12}>
             <div className="hover-effect">
               <div className="Img-blog my-5">
                 <img
                   className="img-fluid"
                   src={oneBlog?.photo}
-                  style={{height: '400px',width:'auto'}}
+                  style={{height: '400px',width:'auto',display:"flex"}}
                   alt=""
                 />
               </div>
               <div className="single-blog-info">
                 <span className="btn-blog mb-3">{oneBlog?.blogType}</span>
-                <div className="d-flex justify-content-between align-items-center">
+                {/* <div className="d-flex justify-content-between align-items-center">
                   <span className="like-icon ">
                     {" "}
                     <FaHeart /> {number} people likes this{" "}
@@ -239,8 +239,7 @@ const SingleBlog = () => {
                       />
                     </span>
                   )}
-                </div>
-
+                </div> */}
                 <br />
                 <h2 className="show-unshow">{oneBlog?.title}</h2>
                 <p className="admin-info">
@@ -259,56 +258,7 @@ const SingleBlog = () => {
               </div>
             </div>
           </Col>
-
-          
-          <Col lg={4} className="my-5">
-            <div className="search">
-              {" "}
-              <i className="fa fa-search"></i>{" "}
-              <input
-                onChange={(e) => setSearch(e.target.value)}
-                type="text"
-                className="form-control"
-                placeholder="Have a question? Ask Now"
-              />{" "}
-              <button
-                onClick={() => handleSearch()}
-                className="btn btn-primary"
-              >
-                Search
-              </button>{" "}
-            </div>
-            {search.length > 0 &&
-              newData.map((item, i) => (
-                <div className="help" key={i}>
-                  <Link to={`/Blog/${item?._id}`}>
-                    <h3>{item?.title}</h3>
-                  </Link>
-                </div>
-              ))}
-            <Slider {...settings}>
-              {blogInfo?.data?.map((item) => (
-                <Link to={`/Blog/${item?._id}`}>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div className="info-slider">
-                      <h5>{item?.title}</h5>
-                      <p>{item?.description}</p>
-                    </div>
-                    <div className="info-img ">
-                      <img
-                        className="img-fluid"
-                        src={item?.photo}
-                        alt=""
-                        style={{ width: '100px', height: '100px' }}
-                      />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </Slider>
-          </Col>
         </Row>
-        <Comment blogId={singleBlog} loginUser={loginUser} />
       </Container>
       <Footer />
     </>

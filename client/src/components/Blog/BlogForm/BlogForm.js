@@ -6,8 +6,8 @@ import "./BlogForm.css";
 import axios from "../../../utils/axiosConfig";
 import { adminAtom } from "../../../store/atom";
 import { useAtom } from "jotai";
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../../utils/firebase';
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage } from "../../../utils/firebase";
 const suggestionsTag = ["eye", "health", "medicien"];
 const suggestions = suggestionsTag.map((country) => {
   return {
@@ -23,17 +23,16 @@ const KeyCodes = {
 
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
-
 const BlogForm = () => {
   const [admin] = useAtom(adminAtom);
   const [addBlog, setAddBlog] = useState({
-    blogBy: admin.id
+    blogBy: admin.id,
   });
   const [image, setImage] = useState(null);
   const date = new Date().toDateString();
   const [tags, setTags] = useState([{ id: "eye", text: "Eye" }]);
-  const [percent,setPercent] = useState(0)
-  const[url,setUrl] = useState('')
+  const [percent, setPercent] = useState(0);
+  const [url, setUrl] = useState("");
   const handleDelete = (i) => {
     setTags(tags.filter((tag, index) => index !== i));
   };
@@ -76,39 +75,39 @@ const BlogForm = () => {
 
   console.log(tags);
 
-  const handleUpload = async() =>{
-    return new Promise((resolve, reject) =>{
-      console.log("image",image)
+  const handleUpload = async () => {
+    return new Promise((resolve, reject) => {
+      console.log("image", image);
       if (!image) {
-          alert("Please choose a file first!")
+        alert("Please choose a file first!");
       }
-      const storageRef = ref(storage,`/files/${image.name}` );
-      const  uploadTask = uploadBytesResumable(storageRef,image);
+      const storageRef = ref(storage, `/files/${image.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, image);
       uploadTask.on(
         "state_changed",
         (snapshot) => {
-            const percent = Math.round(
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            // update progress
-            setPercent(percent);
+          const percent = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          // update progress
+          setPercent(percent);
         },
         (err) => console.log(err),
         () => {
-            // download url
-            getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                setUrl(url);
-                console.log("url", url);
-                resolve(url);
-            });
+          // download url
+          getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+            setUrl(url);
+            console.log("url", url);
+            resolve(url);
+          });
         }
-    ); 
-    })
-  }
+      );
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url= await handleUpload()
+    const url = await handleUpload();
 
     const likes = new Array([]);
     const comments = new Array([]);
@@ -125,7 +124,7 @@ const BlogForm = () => {
         formData.append(`${key}`, element);
       }
     }
-    
+
     formData.append("image", image);
     formData.append("likes", likes);
     formData.append("comments", comments);
@@ -133,7 +132,7 @@ const BlogForm = () => {
     formData.append("totalVisitor", totalVisitor);
     formData.append("tag", JSON.stringify(tag));
     formData.append("photo", "url");
-    console.log("blog data", formData)
+    console.log("blog data", formData);
     console.log("add blog st", addBlog);
     addBlog["photo"] = url
     console.log("add blog",addBlog)
@@ -169,10 +168,12 @@ const BlogForm = () => {
 
   return (
     <div className="container-contact100">
-      <div className="wrap-contact100  container"  style={{paddingTop:'0'}}>
+      <div className="wrap-contact100  container" style={{ paddingTop: "0" }}>
         <form className="contact100-form validate-form" onSubmit={handleSubmit}>
           <div>
-            <h1 className="">Write Your Blog</h1>
+            <h1 style={{ fontSize: "26px", fontWeight: "600" }} className="">
+              Write Your Blog
+            </h1>
           </div>
           <Row>
             <Col sm={12} md={6} lg={5}>

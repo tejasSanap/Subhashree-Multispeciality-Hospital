@@ -78,7 +78,7 @@ function Appointment() {
             <th>Age</th>
             <th>Gender</th>
             <th>Patient Email</th>
-            <th>Mobile Number</th>
+            <th>Mobile No.</th>
             <th>Service</th>
             <th>Shift</th>
             <th>Date</th>
@@ -91,21 +91,104 @@ function Appointment() {
         <tbody>
           {myAppointment.map((appointment, index) => (
             <tr key={index}>
-              <td>{`${appointment.firstName} ${appointment.lastName}`}</td>
-              <td>{appointment.age}</td>
-              <td>{appointment.gender}</td>
-              <td>{appointment.patientEmail}</td>
-              <td>{appointment.mobileNumber}</td>
-              <td>{appointment.service}</td>
-              <td>{appointment.shift}</td>
-              <td>{new Date(appointment.date).toLocaleString()}</td>
-              <td>{appointment.description}</td>
-              <td>{appointment.status}</td>
+              <td
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                }}
+              >{`${appointment.firstName} ${appointment.lastName}`}</td>
+              <td
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                }}
+              >
+                {appointment.age}
+              </td>
+              <td
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                }}
+              >
+                {appointment.gender}
+              </td>
+              <td
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                }}
+              >
+                {appointment.patientEmail}
+              </td>
+              <td
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                }}
+              >
+                {appointment.mobileNumber}
+              </td>
+              <td
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                }}
+              >
+                {appointment.service}
+              </td>
+              <td
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                }}
+              >
+                {appointment.shift}
+              </td>
+              <td
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                }}
+              >
+                {new Date(appointment.date).toLocaleString()}
+              </td>
+              <td
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                }}
+              >
+                {appointment.description}
+              </td>
+              <td
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                }}
+              >
+                {appointment.status}
+              </td>
               {role == "admin" && <td>{appointment.doctor}</td>}
               <td>
                 <Button
-                  style={{ color: "#fff", backgroundColor: "#2779a7" }}
-                  variant="primary"
+                  style={{
+                    color: "#fff",
+                    backgroundColor: "#24b9be",
+                    border: "none",
+                    fontSize: "12px",
+                    fontWeight: "500",
+                  }}
+                  // variant="primary"
                   onClick={() => handleApproveAppointment(appointment._id)}
                 >
                   Approve
@@ -113,8 +196,14 @@ function Appointment() {
               </td>
               <td>
                 <Button
-                  style={{ color: "#fff", backgroundColor: "#2779a7" }}
-                  variant="primary"
+                  style={{
+                    color: "#fff",
+                    backgroundColor: "#d14836",
+                    border: "none",
+                    fontSize: "12px",
+                    fontWeight: "500",
+                  }}
+                  // variant="primary"
                   onClick={() => handleRejectAppointment(appointment._id)}
                 >
                   Reject

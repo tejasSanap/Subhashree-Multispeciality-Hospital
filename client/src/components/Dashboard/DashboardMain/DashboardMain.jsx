@@ -24,7 +24,7 @@ import "./DashboardMain.css";
 import { useAtom } from "jotai";
 import { adminAtom, doctorAtom, roleAtom } from "../../../store/atom";
 import axios from "../../../utils/axiosConfig";
-import logo from "../../../images/Subhashree-logo.png"
+import logo from "../../../images/Subhashree-logo.png";
 
 const DashboardMain = () => {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const DashboardMain = () => {
   const handleShow = () => setShow(true);
   useEffect(() => {
     const getDocInfo = async () => {
-      const res = await axios.get(`/api/doctor/getDoctor/${admin.referenceId}`)
+      const res = await axios.get(`/api/doctor/getDoctor/${admin.referenceId}`);
       console.log("doc info", res.data);
 
       if (res.status === 200) {
@@ -49,18 +49,18 @@ const DashboardMain = () => {
     console.log("referenc id is ", admin.referenceId);
   }, []);
 
-  const handleLogout = async() => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('adminData');
-    localStorage.removeItem('doctor');
-    
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("adminData");
+    localStorage.removeItem("doctor");
+
     navigate("/adminLogin");
-  }
+  };
 
   return (
     <>
-        {/* <div className="dashboard_mobile_header">
+      {/* <div className="dashboard_mobile_header">
           <div>lol</div>
           <div>
             <Button
@@ -157,7 +157,6 @@ const DashboardMain = () => {
                 </Link>
               </li>
 
-
               <li>
                 <Link to="/dashboard/blogForm">
                   <span className="dashboard_nav_icon">
@@ -203,7 +202,7 @@ const DashboardMain = () => {
                 </li>
               )}
 
-              {(role === "admin") && (
+              {role === "admin" && (
                 <li>
                   <Link
                     /* className="btn btn-primary" */
@@ -375,9 +374,11 @@ const DashboardMain = () => {
       <div className="dashboardHeader container-fluid">
         <div className="logo_area">
           <Link to="/home">
-            <img src={logo} style={{height:"70px"}} />
+            <img src={logo} style={{ height: "70px" }} />
           </Link>
-            <text style={{marginLeft:'10px', fontWeight:"600"}}>Subhashree Hospital</text>
+          <text style={{ marginLeft: "10px", fontWeight: "600" }}>
+            Subhashree Hospital
+          </text>
         </div>
       </div>
 
@@ -387,14 +388,19 @@ const DashboardMain = () => {
           <div className="dasboard_user">
             {/* <img src={doctor?.photo} alt="doctor or user" /> */}
             <div>
-              <span>Welcome</span>
+              <span style={{ fontSize: "12px" }}>Welcome,</span>
               <div>
                 <NavDropdown
+                  style={{ fontWeight: "500", color: "#24b9be" }}
                   title={admin.name}
                   id="basic-nav-dropdown"
                   className="basic_nav_dropdown_custom"
                 >
-                  <NavDropdown.Item className="dash_drop_item" onClick={handleLogout}>
+                  <NavDropdown.Item
+                    style={{ fontWeight: "500", color: "#d14836" }}
+                    className="dash_drop_item"
+                    onClick={handleLogout}
+                  >
                     <RiLogoutCircleLine />
                     <span>Logout</span>
                   </NavDropdown.Item>
@@ -423,7 +429,9 @@ const DashboardMain = () => {
                   <span className="nav_icon">
                     <FaRegCalendarAlt />
                   </span>
-                  <span>Appointments</span>
+                  <span style={{ fontSize: "16px", fontWeight: "500" }}>
+                    Appointments
+                  </span>
                 </span>
               </Link>
             </li>
@@ -435,10 +443,13 @@ const DashboardMain = () => {
                     <span className="nav_icon">
                       <FaRegCalendarAlt />
                     </span>
-                    <span>Edit profile</span>
+                    <span style={{ fontSize: "16px", fontWeight: "500" }}>
+                      Edit Profile
+                    </span>
                   </span>
                 </Link>
-              </li>)}
+              </li>
+            )}
 
             {role === "admin" && (
               <li>
@@ -447,10 +458,13 @@ const DashboardMain = () => {
                     <span className="nav_icon">
                       <FaRegCalendarAlt />
                     </span>
-                    <span>Edit Hospital</span>
+                    <span style={{ fontSize: "16px", fontWeight: "500" }}>
+                      Edit Hospital
+                    </span>
                   </span>
                 </Link>
-              </li>)}
+              </li>
+            )}
 
             <li>
               <Link to="/dashboard/blogForm">
@@ -458,7 +472,9 @@ const DashboardMain = () => {
                   <span className="nav_icon">
                     <RiWechatLine />
                   </span>
-                  <span>Create Blog</span>
+                  <span style={{ fontSize: "16px", fontWeight: "500" }}>
+                    Create Blog
+                  </span>
                 </span>
               </Link>
             </li>
@@ -555,7 +571,6 @@ const DashboardMain = () => {
                 </ul>
               </div>
             </li> */}
-
           </ul>
         </div>
         <div className="dashboard_content_area">

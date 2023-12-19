@@ -28,33 +28,41 @@ const Review = () => {
 
   const onSubmit = (data) => {
     data["rating"] = rating;
-    data["email"] = user?.email || 'null';
+    data["email"] = user?.email || "null";
     data["displayName"] = data?.name;
-    data["photoURL"] = user?.photoURL
-    data["description"]= data.describe;
+    data["photoURL"] = user?.photoURL;
+    data["description"] = data.describe;
     console.log("data", data);
-    axios.post("/api/reviewAdd", data).then((data) => {
-      console.log(data, "info");
-      if (data.status === 200) {
-        reset();
-        setRate(0);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your Review has been saved",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      } else {
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: "Your Review has been not saved",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
+    axios
+      .post("/api/reviewAdd", data, {
+        headers: {
+          "Content-Type": "application/json",
+          "Review-Rating": rating,
+          "Review-By":data?.name
+        },
+      })
+      .then((data) => {
+        console.log(data, "info");
+        if (data.status === 200) {
+          reset();
+          setRate(0);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your Review has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Your Review has been not saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
 
   return (

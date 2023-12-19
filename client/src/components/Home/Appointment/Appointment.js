@@ -56,7 +56,8 @@ const Appointment = () => {
         'Doctor-appointments' : data.doctor,
         'Patients-gender' : data.gender,
         'Patients-service' : data.service,
-        'Appointment-shift' : data.shift
+        'Appointment-shift' : data.shift,
+        "Appointment-status": "pending",
       },
     })
     .then((res) => {
@@ -255,7 +256,7 @@ const Appointment = () => {
               <textarea
                 placeholder="Please type what you want..."
                 rows="5"
-                // {...register("description", { required: false })}
+                {...register("description", { required: false })}
                 className="description-box"
               ></textarea>{" "}
             </div>

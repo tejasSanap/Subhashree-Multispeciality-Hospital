@@ -134,10 +134,14 @@ const BlogForm = () => {
     formData.append("photo", "url");
     console.log("blog data", formData);
     console.log("add blog st", addBlog);
-    addBlog["photo"] = url;
-    console.log("add blog", addBlog);
-    const resp = await axios.post("/api/addBlog", addBlog);
-    console.log("res", resp);
+    addBlog["photo"] = url
+    console.log("add blog",addBlog)
+    const resp = await axios.post("/api/addBlog", addBlog,{
+      headers: {
+        "blog-type": formData.blogType,
+      },
+    });
+    console.log("res",resp);
 
     // fetch("http://localhost:7080/api/addBlog", {
     //   method: "POST",

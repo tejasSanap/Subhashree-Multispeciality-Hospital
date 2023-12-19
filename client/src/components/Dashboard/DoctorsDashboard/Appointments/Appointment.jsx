@@ -34,6 +34,12 @@ function Appointment() {
         `/api/appointment/approveAppointment/${appointmentId}`,
         {
           status: "confirmed",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Appointment-status":"confirmed",
+          },
         }
       );
       fetchAppointment();
@@ -48,6 +54,12 @@ function Appointment() {
         `/api/appointment/rejectAppointment/${appointmentId}`,
         {
           status: "rejected",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Appointment-status":"rejected",
+          },
         }
       );
       fetchAppointment();

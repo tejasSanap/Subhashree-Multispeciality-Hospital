@@ -45,7 +45,7 @@ const addBlog = async (req, res) => {
     };
 
     const result = await Blog.create(blogInfo);
-    res.json(result);
+    res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -54,7 +54,7 @@ const addBlog = async (req, res) => {
 const getAllBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find({});
-    res.json(blogs);
+    res.status(200).json(blogs);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -71,7 +71,7 @@ const updateBlogUnlike = async (req, res) => {
       updateQuery,
       options
     );
-    res.json(updatedBlog);
+    res.status(200).json(updatedBlog);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

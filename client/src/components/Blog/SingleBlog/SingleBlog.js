@@ -32,7 +32,11 @@ const SingleBlog = () => {
 
   useEffect(()=>{
     const fetchSingleBlog = async()=>{
-      const res = await axios.get(`/api/Blog/${id}`);
+      const res = await axios.get(`/api/Blog/${id}`,{
+        headers: {
+          'blog-clicks': oneBlog?.title,
+        },
+      });
       console.log("Res blog",res.data)
       setOneBlog(res.data);
     }

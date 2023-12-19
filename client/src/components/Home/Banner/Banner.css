@@ -102,7 +102,7 @@
   cursor: default;
 }
 .banner_left_bottom .appointment_btn {
-  background-color: var(--primary);
+  background-color: #03989e;
   height: 50px;
   width: 230px;
   text-decoration: none;

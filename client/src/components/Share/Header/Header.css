@@ -51,13 +51,13 @@
 }
 
 .header-btn.btn-hover {
-  background-color: var(--primary);
+  background-color: #03989e;
 }
 .header-btn.btn-hover .header-icon {
   background-color: #00000044;
 }
 .header-btn.btn-hover:hover {
-  background-color: var(--secondary);
+  background-color: #03989e;
   color: white;
 }
 .header-btn.btn-hover:hover .header-icon {

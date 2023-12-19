@@ -265,7 +265,7 @@ const Header = () => {
                         <Link
                           onClick={toggleClass}
                           activeClassName="is-active"
-                          to={user[0]?.email? "/review":"/login"}
+                          to={user[0]?.email ? "/review" : "/login"}
                         >
                           Give Us Feedback
                         </Link>
@@ -303,7 +303,7 @@ const Header = () => {
                       to="/appointment"
                       className="header-btn text-decoration-none btn-hover"
                     >
-                      Appointment <i className="fas fa-plus header-icon"></i>
+                      Appointment<i className="fas fa-plus header-icon"></i>
                     </Link>
                   ) : (
                     <Link
@@ -311,7 +311,14 @@ const Header = () => {
                       to="/login"
                       className="header-btn text-decoration-none btn-hover"
                     >
-                      Appointment <i className="fas fa-plus header-icon"></i>
+                      Appointment
+                      <i
+                        style={{
+                          backgroundColor: "#03989e",
+                          borderRadius: "4px",
+                        }}
+                        className="fas fa-plus header-icon"
+                      ></i>
                     </Link>
                   )}
 

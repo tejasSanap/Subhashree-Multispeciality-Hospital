@@ -18,6 +18,8 @@ const AdminRegister = () => {
             console.log("id",response);
             if (response.status === 200) {
                 navigate('/adminLogin');
+            }else{
+                alert("something went wrong");
             }
         } catch (err) {
             console.log("errror is ", err)

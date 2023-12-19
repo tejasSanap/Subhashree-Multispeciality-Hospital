@@ -12,7 +12,7 @@ const AppointmentHeader = () => {
             <Appointment />
             {/* <MyAppointment /> */}
 
-            <MyAppointment />
+            {/* <MyAppointment /> */}
             <Footer />
         </>
     );

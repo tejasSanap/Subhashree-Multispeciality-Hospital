@@ -10,10 +10,16 @@ const AdminRegister = () => {
 
     const onSubmit = async (data) => {
         try {
-            const response = await axios.post("/api/authAdmin/admin/signup", data);
+            const response = await axios.post("/api/authAdmin/admin/signup", data,{
+                headers: {
+                    "Admin-role": data.role
+                }
+            });
             console.log("id",response);
             if (response.status === 200) {
                 navigate('/adminLogin');
+            }else{
+                alert("something went wrong")
             }
         } catch (err) {
             console.log("errror is ", err)

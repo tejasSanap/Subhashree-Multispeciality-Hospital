@@ -406,7 +406,7 @@ const DashboardMain = () => {
           <ul className="dashboard_left_nav">
             {role === "admin" && (
               <li className="dashboard_nav_item">
-                <Link to="/dashboard">
+                <Link to="http://159.89.162.122:5601/app/dashboards#/view/c4e7ac20-9c09-11ee-93c3-7f7ff80cd693?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d%2Fd,to:now))" target="_blank">
                   <span className="dashboard_nav_icon">
                     <span className="nav_icon">
                       <GrHome />

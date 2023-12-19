@@ -42,7 +42,7 @@ exports.addDoctor = async (req, res, next) => {
     const resp1 = await doctor.save();
     const resp2 = await AdminPanel.findByIdAndUpdate(req.admin._id, { referenceId: doctor._id }).exec();
 
-    res.json(resp2);
+    res.status(200).json(resp2);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: error.message });
@@ -52,7 +52,7 @@ exports.addDoctor = async (req, res, next) => {
 exports.getAllDoctors = async (req, res, next) => {
   try {
     const doctors = await Doctor.find({});
-    res.json(doctors);
+    res.status(200).json(doctors);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -62,7 +62,7 @@ exports.getDoctor = async (req, res, next) => {
   const id = req.params.id;
   try {
     const result = await Doctor.findById(id);
-    res.json(result);
+    res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -71,7 +71,7 @@ exports.deleteDoctor = async (req, res, next) => {
   const id = req.params.id;
   try {
     const result = await Doctor.findByIdAndDelete(id);
-    res.json(result);
+    res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -85,7 +85,7 @@ exports.updateDoctor = async (req, res, next) => {
     const result = await Doctor.findByIdAndUpdate(id, updateFields, {
       new: true,
     });
-    res.json(result);
+    res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

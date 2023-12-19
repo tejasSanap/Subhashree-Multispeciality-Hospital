@@ -26,7 +26,7 @@ const createHospital = async (req, res) => {
     });
 
     const hospital = await newHospital.save();
-    res.status(201).json(hospital);
+    res.status(200).json(hospital);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -36,7 +36,7 @@ const createHospital = async (req, res) => {
 const getAllHospitals = async (req, res) => {
   try {
     const hospitals = await Hospital.find();
-    res.json(hospitals);
+    res.status(200).json(hospitals);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -49,7 +49,7 @@ const getHospitalById = async (req, res) => {
     if (!hospital) {
       return res.status(404).json({ error: "Hospital not found" });
     }
-    res.json(hospital);
+    res.status(200).addressjson(hospital);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
